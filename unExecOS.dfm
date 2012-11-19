@@ -17,7 +17,6 @@
     Color = clGradientInactiveCaption
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 258
     object Label1: TLabel
       Left = 1
       Top = 1
@@ -47,7 +46,6 @@
       Color = clGradientInactiveCaption
       ParentBackground = False
       TabOrder = 0
-      ExplicitHeight = 237
       object Label2: TLabel
         Left = 1
         Top = 1
@@ -109,9 +107,6 @@
       Color = clGradientInactiveCaption
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 19
-      ExplicitTop = 22
-      ExplicitHeight = 278
       object Label3: TLabel
         Left = 1
         Top = 1
@@ -183,7 +178,6 @@
         LabelPosition = lpLeft
         ModalPesquisa = True
         ModalCadastro = False
-        Text = 'EDTCODIGO'
         DescrEdit.Left = 166
         DescrEdit.Top = 25
         DescrEdit.Width = 0
@@ -255,7 +249,6 @@
         LabelPosition = lpLeft
         ModalPesquisa = True
         ModalCadastro = False
-        Text = 'EDTCLIENTE'
         DescrEdit.Left = 266
         DescrEdit.Top = 25
         DescrEdit.Width = 278
@@ -326,7 +319,6 @@
         LabelPosition = lpLeft
         ModalPesquisa = True
         ModalCadastro = False
-        Text = 'EDTUSUARIO'
         DescrEdit.Left = 266
         DescrEdit.Top = 48
         DescrEdit.Width = 0
@@ -398,7 +390,6 @@
         LabelPosition = lpLeft
         ModalPesquisa = True
         ModalCadastro = False
-        Text = 'EDTQTDPAGINAS'
         DescrEdit.Left = 366
         DescrEdit.Top = 48
         DescrEdit.Width = 0
@@ -470,7 +461,6 @@
         LabelPosition = lpLeft
         ModalPesquisa = False
         ModalCadastro = False
-        Text = 'EDTQTD'
         DescrEdit.Left = 506
         DescrEdit.Top = 48
         DescrEdit.Width = 0
@@ -542,7 +532,6 @@
         LabelPosition = lpLeft
         ModalPesquisa = True
         ModalCadastro = False
-        Text = 'LABELEDDBEDIT1'
         DescrEdit.Left = 506
         DescrEdit.Top = 93
         DescrEdit.Width = 0
@@ -627,7 +616,6 @@
         LabelPosition = lpLeft
         ModalPesquisa = True
         ModalCadastro = False
-        Text = 'EDTIMPRESSORA'
         DescrEdit.Left = 166
         DescrEdit.Top = 70
         DescrEdit.Width = 278
@@ -851,7 +839,6 @@
     Color = clGradientInactiveCaption
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 258
     DesignSize = (
       818
       61)

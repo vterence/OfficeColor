@@ -31,7 +31,6 @@ type
     btnBuscar: TcxButton;
     procedure FormShow(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure cdsAfterOpen(DataSet: TDataSet);
     procedure cdsAfterClose(DataSet: TDataSet);
     procedure btnNovoClick(Sender: TObject);
@@ -121,17 +120,9 @@ begin
   DataSet.FieldByName('DATA'         ).AsDateTime := date;
 end;
 
-procedure TfrmCadConsumiveis.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  inherited;
-  Action := caFree;
-  frmCadConsumiveis := nil;
-end;
-
 procedure TfrmCadConsumiveis.FormShow(Sender: TObject);
 begin
-//  inherited;
+  inherited;
   sql_insercao := 'SELECT * FROM CONSUMIVEIS WHERE ID IS NULL';
   sql_pesquisa :=
   ' SELECT                                        '+

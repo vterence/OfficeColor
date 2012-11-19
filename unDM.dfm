@@ -25,7 +25,6 @@ object DM: TDM
       'IsolationLevel=ReadCommitted'
       'Trim Char=False')
     VendorLib = 'fbclient.DLL'
-    Connected = True
     Left = 32
     Top = 16
   end

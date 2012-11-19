@@ -5,8 +5,8 @@
   FormStyle = fsMDIChild
   Position = poScreenCenter
   Visible = True
-  ExplicitWidth = 350
-  ExplicitHeight = 393
+  ExplicitWidth = 340
+  ExplicitHeight = 383
   PixelsPerInch = 96
   TextHeight = 13
   inherited PainelCodigo: TPanel
@@ -95,7 +95,7 @@
       Text = 'edtCaminhoRelOS'
       DescrEdit.Left = 353
       DescrEdit.Top = 37
-      DescrEdit.Width = 473
+      DescrEdit.Width = 0
       DescrEdit.Height = 20
       DescrEdit.TabStop = False
       DescrEdit.Anchors = [akLeft, akTop, akRight]
@@ -112,6 +112,7 @@
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.TabOrder = 2
+      DescrEdit.Visible = False
       showFrmPesquisaOnEnter = True
     end
     object edtCaminhoRelOSResumido: TLabeledDBEdit
@@ -178,7 +179,7 @@
       Text = 'edtCaminhoRelOSResumido'
       DescrEdit.Left = 353
       DescrEdit.Top = 82
-      DescrEdit.Width = 473
+      DescrEdit.Width = 0
       DescrEdit.Height = 20
       DescrEdit.TabStop = False
       DescrEdit.Anchors = [akLeft, akTop, akRight]
@@ -195,6 +196,7 @@
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.TabOrder = 4
+      DescrEdit.Visible = False
       showFrmPesquisaOnEnter = True
     end
     object edtCaminhoRelOsErro: TLabeledDBEdit
@@ -261,7 +263,7 @@
       Text = 'edtCaminhoRelOsErro'
       DescrEdit.Left = 353
       DescrEdit.Top = 127
-      DescrEdit.Width = 473
+      DescrEdit.Width = 0
       DescrEdit.Height = 20
       DescrEdit.TabStop = False
       DescrEdit.Anchors = [akLeft, akTop, akRight]
@@ -278,6 +280,7 @@
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.TabOrder = 6
+      DescrEdit.Visible = False
       showFrmPesquisaOnEnter = True
     end
     object edtCaminhoRelContador: TLabeledDBEdit
@@ -344,7 +347,7 @@
       Text = 'edtCaminhoRelContador'
       DescrEdit.Left = 353
       DescrEdit.Top = 171
-      DescrEdit.Width = 473
+      DescrEdit.Width = 0
       DescrEdit.Height = 20
       DescrEdit.TabStop = False
       DescrEdit.Anchors = [akLeft, akTop, akRight]
@@ -361,6 +364,7 @@
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.TabOrder = 5
+      DescrEdit.Visible = False
       showFrmPesquisaOnEnter = True
     end
     object edtCaminhoRelConsumiveis: TLabeledDBEdit
@@ -427,7 +431,7 @@
       Text = 'edtCaminhoRelConsumiveis'
       DescrEdit.Left = 353
       DescrEdit.Top = 211
-      DescrEdit.Width = 473
+      DescrEdit.Width = 0
       DescrEdit.Height = 20
       DescrEdit.TabStop = False
       DescrEdit.Anchors = [akLeft, akTop, akRight]
@@ -444,6 +448,7 @@
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.TabOrder = 3
+      DescrEdit.Visible = False
       showFrmPesquisaOnEnter = True
     end
   end

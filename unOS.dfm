@@ -140,7 +140,6 @@
       IsForeignKey = True
       ModalPesquisa = True
       ModalCadastro = False
-      Text = 'EDTUSUARIO'
       DescrEdit.Left = 313
       DescrEdit.Top = 21
       DescrEdit.Width = 0
@@ -156,7 +155,7 @@
       DescrEdit.Font.Style = []
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
-      DescrEdit.TabOrder = 8
+      DescrEdit.TabOrder = 10
       OnFrmPesquisaClose = edtUsuarioFrmPesquisaClose
       showFrmPesquisaOnEnter = True
     end
@@ -212,7 +211,6 @@
       IsForeignKey = True
       ModalPesquisa = True
       ModalCadastro = False
-      Text = 'EDTCLIENTE'
       DescrEdit.Left = 118
       DescrEdit.Top = 58
       DescrEdit.Width = 432
@@ -229,7 +227,7 @@
       DescrEdit.Font.Style = []
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
-      DescrEdit.TabOrder = 9
+      DescrEdit.TabOrder = 11
       OnFrmPesquisaClose = edtUsuarioFrmPesquisaClose
       showFrmPesquisaOnEnter = True
     end
@@ -286,7 +284,6 @@
       PesquisaButton.Visible = False
       ModalPesquisa = True
       ModalCadastro = False
-      Text = 'LABELEDDBEDIT1'
       DescrEdit.Left = 531
       DescrEdit.Top = 130
       DescrEdit.Width = 0
@@ -358,7 +355,6 @@
       PesquisaButton.Visible = False
       ModalPesquisa = True
       ModalCadastro = False
-      Text = 'EDTQTDPAGINAS'
       DescrEdit.Left = 388
       DescrEdit.Top = 21
       DescrEdit.Width = 0
@@ -430,7 +426,6 @@
       PesquisaButton.Visible = False
       ModalPesquisa = False
       ModalCadastro = False
-      Text = 'EDTQTD'
       DescrEdit.Left = 486
       DescrEdit.Top = 21
       DescrEdit.Width = 0
@@ -502,7 +497,6 @@
       IsForeignKey = True
       ModalPesquisa = True
       ModalCadastro = False
-      Text = 'EDTIMPRESSORA'
       DescrEdit.Left = 118
       DescrEdit.Top = 93
       DescrEdit.Width = 432
@@ -519,7 +513,7 @@
       DescrEdit.Font.Style = []
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
-      DescrEdit.TabOrder = 10
+      DescrEdit.TabOrder = 12
       OnFrmPesquisaClose = edtUsuarioFrmPesquisaClose
       showFrmPesquisaOnEnter = True
     end
@@ -531,7 +525,7 @@
       Anchors = [akLeft, akTop, akRight, akBottom]
       Color = clGradientInactiveCaption
       ParentBackground = False
-      TabOrder = 11
+      TabOrder = 13
       DesignSize = (
         512
         168)
@@ -796,7 +790,7 @@
       StyleDisabled.LookAndFeel.Kind = lfFlat
       StyleFocused.LookAndFeel.Kind = lfFlat
       StyleHot.LookAndFeel.Kind = lfFlat
-      TabOrder = 12
+      TabOrder = 8
       Height = 73
       Width = 61
     end
@@ -827,7 +821,7 @@
       StyleDisabled.LookAndFeel.Kind = lfFlat
       StyleFocused.LookAndFeel.Kind = lfFlat
       StyleHot.LookAndFeel.Kind = lfFlat
-      TabOrder = 13
+      TabOrder = 9
       Height = 73
       Width = 120
     end

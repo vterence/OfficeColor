@@ -191,9 +191,11 @@ var caminho: String;
 begin
   with Conn do
   begin
+    Close;
+    Params.Clear;
     caminho := ExtractFilePath(Application.ExeName) + '\' + 'OfficeColor.ini';
-    Conn.Params.LoadFromFile(caminho);
-    Conn.Open;
+    Params.LoadFromFile(caminho);
+    Open;
   end;
   DadosUsu.Login := 'admin';
   DadosUsu.Grupo := '1';

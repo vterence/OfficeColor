@@ -210,8 +210,6 @@ end;
 
 procedure TfrmExecOS.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  inherited;
-  Action := caFree;
   cds.Close;
 end;
 

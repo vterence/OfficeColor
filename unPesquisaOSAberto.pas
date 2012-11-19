@@ -104,6 +104,7 @@ begin
     '   OS.DATA,   ' +
     '   OS.ARQUIVO,' +
     '   CLI.NOME,  ' +
+    '   OS.ID_IMPRESSORA, ' +
     '   IMP.MARCA || '' - '' || IMP.NOME AS IMPRESSORA, ' +
     '   DECODE(OS.STATUS, 0, ''EM ABERTO'', 1, ''EM EXECUÇÃO'', 2, ''ENCERRADA'') AS Status' +
     ' FROM OS                            ' +
@@ -198,9 +199,10 @@ begin
       exit;
     end;
 
-    Application.CreateForm(TfrmExecOS, frmExecOS);
+    if not Assigned(frmExecOS) then
+      Application.CreateForm(TfrmExecOS, frmExecOS);
     frmExecOS.cds.CommandText := 'SELECT * FROM OS WHERE COD_OS = ' + cds.FieldByName('COD_OS').AsString;
-    frmExecOS.ShowModal;
+    frmExecOS.Show;
   end;
 end;
 

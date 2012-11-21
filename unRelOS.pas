@@ -180,6 +180,7 @@ begin
     '    OS.QTD_PAGINAS,                                                                      ' + #13 +
     '    OS.OBSERVACAO,                                                                       ' + #13 +
     '    OS.ARQUIVO,                                                                          ' + #13 +
+    '    OS.VALOR,                                                                            ' + #13 +
     '    DECODE(OS.STATUS, 0, ''Em Aberto'', 1, ''Em Execução'', 2, ''Encerrada'') AS STATUS, ' + #13 +
     '    IIF(OS.FLAG_FRENTE_VERSO IN(0,2), '''', ''SIM'') AS FRENTE_VERSO,                    ' + #13 +
     '    OS.CONTADOR_INICIAL,                                                                 ' + #13 +
@@ -197,9 +198,10 @@ begin
     '        CLI.COD_CIDADE = CID.COD_CIDADE                                                  ' + #13 +
     '    INNER JOIN IMPRESSORAS IMP ON                                                        ' + #13 +
     '        OS.ID_IMPRESSORA = IMP.ID                                                        ' + #13 +
-    'WHERE OS.DATA BETWEEN ' + QuotedStr(FormataDataFirebird(edtDataInicial.Text)) + ' AND ' + QuotedStr(FormataDataFirebird(edtDataFinal.Text));
+    'WHERE OS.DATA BETWEEN ' + QuotedStr(FormataDataFirebird(edtDataInicial.Text)) + ' AND ' + QuotedStr(FormataDataFirebird(edtDataFinal.Text)) + #13 +
+    '  AND OS.DATA_FATURAMENTO IS NULL                                                        ';
 
-  if rdgTipo.ItemIndex < 4 then
+  if rdgTipo.ItemIndex < 5 then
     texto := texto + ' AND OS.FLAG_FINALIDADE = ' + IntToStr(rdgTipo.ItemIndex);
 
   if edtCliente.Text <> '' then

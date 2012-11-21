@@ -79,7 +79,7 @@ begin
     '     IMP.ID = OS.ID_IMPRESSORA         ' +
     ' WHERE OS.DATA >= ' + QuotedStr(FormataDataFirebird(edtDataInicial.Text)) + ' AND OS.DATA <=' + QuotedStr(FormataDataFirebird(edtDataFinal.Text)) ;
 
-  if grpStatus.ItemIndex < 3 then
+  if grpStatus.ItemIndex < 4 then
     texto := texto + ' AND OS.STATUS = ' + IntToStr(grpStatus.ItemIndex);
 
   if edtConteudo.Text <> '' then

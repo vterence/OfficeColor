@@ -189,7 +189,7 @@ begin
     '        OS.ID_IMPRESSORA = IMP.ID                                                        ' + #13 +
     'WHERE OS.DATA BETWEEN ' + QuotedStr(FormataDataFirebird(edtDataInicial.Text)) + ' AND ' + QuotedStr(FormataDataFirebird(edtDataFinal.Text));
 
-  if rdgTipo.ItemIndex < 4 then
+  if rdgTipo.ItemIndex < 5 then
     texto := texto + ' AND OS.FLAG_FINALIDADE = ' + IntToStr(rdgTipo.ItemIndex);
 
   if edtCliente.Text <> '' then

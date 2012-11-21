@@ -276,8 +276,12 @@ inherited frmRelOS: TfrmRelOS
           Value = '3'
         end
         item
-          Caption = 'Todas'
+          Caption = 'Cortesia'
           Value = '4'
+        end
+        item
+          Caption = 'Todas'
+          Value = '5'
         end>
       ItemIndex = 0
       Style.BorderColor = clGradientActiveCaption

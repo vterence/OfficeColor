@@ -46,6 +46,8 @@ type
     edtTipo: TGigatronLblEdit;
     cxDBRadioGroup1: TcxDBRadioGroup;
     grpFinalidade: TcxDBRadioGroup;
+    edtValor: TLabeledDBEdit;
+    btnFaturar: TcxButton;
     procedure FormShow(Sender: TObject);
     procedure btnBuscaClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
@@ -71,6 +73,7 @@ type
     procedure edtItemSubButtonPesquisaClick(Sender: TObject);
     procedure edtImpressoraExit(Sender: TObject);
     procedure edtImpressoraSubButtonPesquisaClick(Sender: TObject);
+    procedure btnFaturarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -155,6 +158,25 @@ begin
   end;
 end;
 
+procedure TfrmOS.btnFaturarClick(Sender: TObject);
+begin
+  inherited;
+  Try
+    cds.Edit;
+    cds.FieldByName('DATA_FATURAMENTO').AsDateTime := now;
+    cds.FieldByName('STATUS').AsInteger            := 3;
+    DM.Salvar(cds);
+    Conf_Tela(ctSearch);
+  Except
+    on e: Exception do
+    begin
+      Erro('Não foi possível alterar o status da OS ' + edtCodigo.Text + #13 + 'Segue baixo o erro retornado: ' + e.Message);
+      Conf_Tela(ctSearch);
+      exit;
+    end;
+  end;
+end;
+
 procedure TfrmOS.btnItensClick(Sender: TObject);
 begin
   inherited;
@@ -197,6 +219,7 @@ end;
 
 procedure TfrmOS.btnRetornarClick(Sender: TObject);
 begin
+
   Conf_Tela(ctSearch);
   cdsDet.Cancel;
 end;
@@ -213,6 +236,7 @@ begin
   cdsDet.Open;
   edtClienteExit(Self);
   edtImpressoraExit(Self);
+  TNumericField(DataSet.FieldByName('VALOR')).DisplayFormat := '###,##0.00';
 end;
 
 procedure TfrmOS.cdsDetAfterInsert(DataSet: TDataSet);
@@ -240,10 +264,12 @@ begin
   DataSet.FieldByName('STATUS'           ).AsInteger := 0;
   DataSet.FieldByName('FLAG_FRENTE_VERSO').AsInteger := 0;
   DataSet.FieldByName('FLAG_FINALIDADE'  ).AsInteger := 0;
+  DataSet.FieldByName('VALOR'            ).AsFloat   := 0.00;
 end;
 
 procedure TfrmOS.Conf_Tela(Etapa: smallint);
 begin
+  btnFaturar.Enabled := False;
   case Etapa of
     ctSearch:
     begin
@@ -258,6 +284,7 @@ begin
     end;
     ctNew, ctEdit:
     begin
+      btnFaturar.Enabled := cds.FieldByName('STATUS').AsInteger = 2;
       Abrir_Itens_OS(edtCodigo.Text);
       edtUsuarioExit(Self);
 
@@ -265,6 +292,7 @@ begin
         0: lblStatus.Caption := 'EM ABERTO';
         1: lblStatus.Caption := 'EM EXECUÇÃO';
         2: lblStatus.Caption := 'ENCERRADA';
+        3: lblStatus.Caption := 'FATURADA';
       end;
 
       lblStatus.Visible := True;

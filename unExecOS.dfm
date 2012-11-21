@@ -559,7 +559,7 @@
       object MemoObservações: TDBMemo
         Left = 65
         Top = 116
-        Width = 258
+        Width = 208
         Height = 99
         TabStop = False
         BorderStyle = bsNone
@@ -772,11 +772,12 @@
         DescrEdit.Visible = False
       end
       object grpTipo: TcxDBRadioGroup
-        Left = 328
+        Left = 279
         Top = 114
         Caption = '  Tipo  '
         DataBinding.DataField = 'FLAG_FRENTE_VERSO'
         DataBinding.DataSource = ds
+        Properties.Columns = 2
         Properties.Items = <
           item
             Caption = '1 x 0'
@@ -787,12 +788,20 @@
             Value = '1'
           end
           item
-            Caption = '4 x 0'
+            Caption = '1 x 4'
             Value = '2'
           end
           item
-            Caption = '4 x 4'
+            Caption = '4 x 0'
             Value = '3'
+          end
+          item
+            Caption = '4 x 4'
+            Value = '4'
+          end
+          item
+            Caption = '4 x 1'
+            Value = '5'
           end>
         Properties.ReadOnly = True
         Style.LookAndFeel.Kind = lfFlat
@@ -801,7 +810,7 @@
         StyleHot.LookAndFeel.Kind = lfFlat
         TabOrder = 11
         Height = 101
-        Width = 66
+        Width = 115
       end
       object grpFinalidade: TcxDBRadioGroup
         Left = 396
@@ -825,6 +834,10 @@
           item
             Caption = 'Arquivo Interno'
             Value = '3'
+          end
+          item
+            Caption = 'Cortesia'
+            Value = '4'
           end>
         Properties.ReadOnly = True
         Style.LookAndFeel.Kind = lfFlat

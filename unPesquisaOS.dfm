@@ -115,8 +115,12 @@
           Value = '2'
         end
         item
-          Caption = 'Todas'
+          Caption = 'Faturada'
           Value = '3'
+        end
+        item
+          Caption = 'Todas'
+          Value = '4'
         end>
       ItemIndex = 0
       Style.BorderColor = clGradientActiveCaption

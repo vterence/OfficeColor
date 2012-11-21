@@ -52,7 +52,6 @@ type
     grpTipo: TcxDBRadioGroup;
     grpFinalidade: TcxDBRadioGroup;
     procedure edtClienteExit(Sender: TObject);
-    procedure FormShow(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure cdsAfterOpen(DataSet: TDataSet);
@@ -60,10 +59,12 @@ type
     procedure edtImpressoraExit(Sender: TObject);
     procedure btnExecutarClick(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+    procedure ValidarDados;
   end;
 
 var
@@ -116,6 +117,8 @@ begin
     edtContadorInicial.ReadOnly := True;
     edtContadorFinal.ReadOnly   := False;
     btnFechar.SetFocus;
+
+    ValidarDados;
 
   except
     on E: Exception do
@@ -214,11 +217,17 @@ begin
 end;
 
 procedure TfrmExecOS.FormShow(Sender: TObject);
+begin
+  inherited;
+  ValidarDados;
+end;
+
+procedure TfrmExecOS.ValidarDados;
 var
   texto: string;
 begin
-  inherited;
-  cds.Open;
+  if not cds.Active then
+    cds.Open;
   edtClienteExit(Self);
   edtImpressoraExit(Self);
 
@@ -228,10 +237,7 @@ begin
     btnFechar.Enabled   := True;
     edtContadorInicial.ReadOnly := True;
     edtContadorFinal.ReadOnly   := False;
-    case grpTipo.ItemIndex of
-     0,2: edtContadorFinal.Text := FloatToStr(StrToInt(edtContadorInicial.Text) + (cds.FieldByName('QTD').AsFloat));
-     1,3: edtContadorFinal.Text := FloatToStr(StrToInt(edtContadorInicial.Text) + (cds.FieldByName('QTD').AsFloat * 2));
-    end;
+    edtContadorFinal.Text := FloatToStr(StrToInt(edtContadorInicial.Text) + (cds.FieldByName('QTD').AsFloat));
     btnFechar.SetFocus;
   end
   else

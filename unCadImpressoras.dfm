@@ -7,8 +7,8 @@ inherited frmCadImpressoras: TfrmCadImpressoras
   Position = poMainFormCenter
   Visible = True
   OnKeyPress = FormKeyPress
-  ExplicitWidth = 445
-  ExplicitHeight = 214
+  ExplicitWidth = 435
+  ExplicitHeight = 204
   PixelsPerInch = 96
   TextHeight = 13
   inherited PainelCodigo: TPanel
@@ -82,7 +82,6 @@ inherited frmCadImpressoras: TfrmCadImpressoras
       41)
     inherited btnSair: TcxButton
       Left = 338
-      OnClick = btnSairClick
       ExplicitLeft = 338
     end
     inherited btnConfirmar: TcxButton

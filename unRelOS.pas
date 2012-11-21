@@ -60,7 +60,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnImprimirClick(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -104,7 +103,6 @@ end;
 
 procedure TfrmRelOS.cdsDetAfterClose(DataSet: TDataSet);
 begin
-  inherited;
 
   cdsDet.Close;
   cdsDet.MasterSource    := nil;
@@ -160,13 +158,6 @@ procedure TfrmRelOS.edtUsuarioSubButtonPesquisaClick(Sender: TObject);
 begin
   inherited;
   DM.BuscaBotaoUsuario(edtUsuario);
-end;
-
-procedure TfrmRelOS.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  inherited;
-  Action := caFree;
-  frmRelOS := nil;
 end;
 
 procedure TfrmRelOS.FormShow(Sender: TObject);

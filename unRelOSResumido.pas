@@ -53,7 +53,6 @@ type
     procedure edtClienteEnter(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnImprimirClick(Sender: TObject);
     procedure edtUsuarioExit(Sender: TObject);
     procedure edtUsuarioSubButtonPesquisaClick(Sender: TObject);
@@ -96,7 +95,6 @@ end;
 
 procedure TfrmRelOsResumido.btnSairClick(Sender: TObject);
 begin
-  inherited;
   Close;
 end;
 
@@ -150,14 +148,6 @@ begin
   DM.BuscaBotaoUsuario(edtUsuario);
 end;
 
-procedure TfrmRelOsResumido.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  inherited;
-  Action := caFree;
-  frmRelOsResumido := nil;
-end;
-
 procedure TfrmRelOsResumido.FormShow(Sender: TObject);
 begin
   inherited;
@@ -188,10 +178,8 @@ begin
     '    CLI.NOME AS NOME_CLIENTE,                                                            ' + #13 +
     '    CLI.ENDERECO || '', '' || CLI.NUMERO AS ENDERECO,                                    ' + #13 +
     '    CID.NOME_CIDADE || '' / '' || CID.UF AS NOME_CIDADE,                                 ' + #13 +
-    '    COALESCE(IIF(OS.FLAG_FRENTE_VERSO IN(0,2), QTD, QTD * 2), 0) AS TOTAL,               ' + #13 +
-    '    COALESCE(IIF(OS.FLAG_FRENTE_VERSO IN(0,2),                                           ' + #13 +
-    '        (COALESCE(OS.CONTADOR_FINAL, OS.CONTADOR_INICIAL) - COALESCE(OS.CONTADOR_INICIAL, 0) - (QTD * QTD_PAGINAS)),                   ' + #13 +
-    '        (COALESCE(OS.CONTADOR_FINAL, OS.CONTADOR_INICIAL) - COALESCE(OS.CONTADOR_INICIAL, 0) - ((QTD * QTD_PAGINAS) * 2))), 0) AS ERRO ' + #13 +
+    '    COALESCE(QTD, 0) AS TOTAL,                                                           ' + #13 +
+    '    COALESCE(((COALESCE(OS.CONTADOR_FINAL, OS.CONTADOR_INICIAL) - COALESCE(OS.CONTADOR_INICIAL, 0)) - (QTD * QTD_PAGINAS)), 0)  AS ERRO ' + #13 +
     'FROM OS                                                                                  ' + #13 +
     '    INNER JOIN CLIENTES CLI ON                                                           ' + #13 +
     '        CLI.ID_CLIENTE = OS.ID_CLIENTE                                                   ' + #13 +

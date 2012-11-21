@@ -8,12 +8,8 @@ inherited frmCadGruposUsuarios: TfrmCadGruposUsuarios
   ExplicitHeight = 379
   PixelsPerInch = 96
   TextHeight = 13
-  inherited PainelCodigo: TPanel
-    ExplicitWidth = 463
-  end
   inherited PainelDados: TPanel
     Height = 269
-    ExplicitWidth = 463
     ExplicitHeight = 269
     object edtDescricao: TLabeledDBEdit
       Tag = 101
@@ -77,6 +73,7 @@ inherited frmCadGruposUsuarios: TfrmCadGruposUsuarios
       LabelSpacing = 4
       ModalPesquisa = False
       ModalCadastro = False
+      Text = 'EDTDESCRICAO'
       DescrEdit.Left = 429
       DescrEdit.Top = 13
       DescrEdit.Width = 121
@@ -149,10 +146,6 @@ inherited frmCadGruposUsuarios: TfrmCadGruposUsuarios
   inherited PainelBotoes: TPanel
     Top = 310
     ExplicitTop = 310
-    inherited btnSair: TcxButton
-      OnClick = btnSairClick
-      ExplicitLeft = 372
-    end
   end
   inherited cds: TClientDataSet
     AfterOpen = cdsAfterOpen

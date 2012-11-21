@@ -48,8 +48,6 @@ type
     procedure MarcarTodos1Click(Sender: TObject);
     procedure MarcarTodososFilhosdoItem1Click(Sender: TObject);
     procedure cmbModuloClick(Sender: TObject);
-    procedure btnSairClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure cdsAfterOpen(DataSet: TDataSet);
     procedure cdsAfterClose(DataSet: TDataSet);
     procedure TreeEditing(Sender: TObject; Node: TTreeNode;
@@ -121,12 +119,6 @@ begin
   end
   else
     cds.FieldByName('COD_ACESSO').AsString := edtCodigo.Text;
-end;
-
-procedure TfrmCadGruposAcesso.btnSairClick(Sender: TObject);
-begin
-  inherited;
-  Close;
 end;
 
 procedure TfrmCadGruposAcesso.BuscarFilhos(var Qry: TSQLQuery;
@@ -230,13 +222,6 @@ begin
   inherited;
   cdsItens.Close;
   cdsItens.Open;
-end;
-
-procedure TfrmCadGruposAcesso.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  inherited;
-  Action := caFree;
 end;
 
 procedure TfrmCadGruposAcesso.FormShow(Sender: TObject);

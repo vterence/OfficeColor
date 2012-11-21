@@ -41,7 +41,6 @@ type
     cxStyleRepository1: TcxStyleRepository;
     cxStyle1: TcxStyle;
     procedure btnBuscarClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnSairClick(Sender: TObject);
     procedure gradeTBKeyPress(Sender: TObject; var Key: Char);
     procedure gradeTBDblClick(Sender: TObject);
@@ -137,13 +136,6 @@ procedure TfrmPadraoPesquisas.btnSairClick(Sender: TObject);
 begin
   DM.Retornar := False;
   ModalResult := mrCancel;
-end;
-
-procedure TfrmPadraoPesquisas.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  frmPadraoPesquisas := nil;
-  Action := caFree;
 end;
 
 procedure TfrmPadraoPesquisas.FormShow(Sender: TObject);

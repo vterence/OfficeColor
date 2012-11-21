@@ -5,8 +5,8 @@
   FormStyle = fsMDIChild
   Position = poMainFormCenter
   Visible = True
-  ExplicitWidth = 362
-  ExplicitHeight = 214
+  ExplicitWidth = 352
+  ExplicitHeight = 204
   PixelsPerInch = 96
   TextHeight = 13
   inherited PainelCodigo: TPanel
@@ -83,7 +83,6 @@
     ExplicitWidth = 346
     inherited btnSair: TcxButton
       Left = 255
-      OnClick = btnSairClick
       ExplicitLeft = 255
     end
   end

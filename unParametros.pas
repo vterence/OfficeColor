@@ -49,11 +49,10 @@ end;
 
 procedure TfrmParametros.btnSairClick(Sender: TObject);
 begin
-  inherited;
   if cds.State in [dsEdit] then
     cds.Cancel;
   DM.AtualizaParametros;
-  Close;
+  inherited;
 end;
 
 procedure TfrmParametros.edtCaminhoRelConsumiveisSubButtonPesquisaClick(

@@ -5,17 +5,19 @@ inherited frmCadItens: TfrmCadItens
   FormStyle = fsMDIChild
   Position = poScreenCenter
   Visible = True
-  ExplicitWidth = 361
-  ExplicitHeight = 373
+  ExplicitWidth = 351
+  ExplicitHeight = 363
   PixelsPerInch = 96
   TextHeight = 13
   inherited PainelCodigo: TPanel
     Width = 345
+    ExplicitWidth = 345
   end
   inherited PainelDados: TPanel
     Width = 345
     Height = 64
     Align = alTop
+    ExplicitWidth = 345
     ExplicitHeight = 64
     DesignSize = (
       345
@@ -27,7 +29,7 @@ inherited frmCadItens: TfrmCadItens
       Height = 13
       Caption = 'Descri'#231#227'o'
     end
-    object DBEdit1: TDBEdit
+    object edtDescTipo: TDBEdit
       Left = 61
       Top = 21
       Width = 184
@@ -49,16 +51,16 @@ inherited frmCadItens: TfrmCadItens
       LookAndFeel.Kind = lfFlat
       TabOrder = 1
       OnClick = btnItensClick
-      ExplicitLeft = 362
     end
   end
   inherited PainelBotoes: TPanel
     Top = 294
     Width = 345
-    ExplicitTop = 290
+    ExplicitTop = 294
+    ExplicitWidth = 345
     inherited btnSair: TcxButton
       Left = 254
-      OnClick = btnSairClick
+      ExplicitLeft = 254
     end
   end
   object PainelItem: TPanel [3]
@@ -71,8 +73,6 @@ inherited frmCadItens: TfrmCadItens
     Color = clGradientInactiveCaption
     ParentBackground = False
     TabOrder = 3
-    ExplicitWidth = 453
-    ExplicitHeight = 274
     DesignSize = (
       345
       189)

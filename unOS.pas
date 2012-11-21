@@ -49,8 +49,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnBuscaClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
-    procedure btnSairClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure cdsAfterOpen(DataSet: TDataSet);
     procedure cdsAfterClose(DataSet: TDataSet);
     procedure cdsNewRecord(DataSet: TDataSet);
@@ -88,7 +86,7 @@ var
 implementation
 
 {$R *.dfm}
-uses unDM, unRegrasForm;
+uses unDM, unRegrasForm, unPadrao;
 
 procedure TfrmOS.Abrir_Itens_OS(codigo_os: String);
 var texto: String;
@@ -203,12 +201,6 @@ begin
   cdsDet.Cancel;
 end;
 
-procedure TfrmOS.btnSairClick(Sender: TObject);
-begin
-  inherited;
-  Close;
-end;
-
 procedure TfrmOS.cdsAfterClose(DataSet: TDataSet);
 begin
   inherited;
@@ -281,12 +273,6 @@ begin
   inherited;
 end;
 
-
-procedure TfrmOS.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  inherited;
-  frmOS := nil;
-end;
 
 procedure TfrmOS.FormShow(Sender: TObject);
 begin

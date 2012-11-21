@@ -11,7 +11,7 @@ uses
 type
   TfrmCadItens = class(TfrmPadraoCadastro)
     Label2: TLabel;
-    DBEdit1: TDBEdit;
+    edtDescTipo: TDBEdit;
     btnItens: TcxButton;
     PainelItem: TPanel;
     btnExcluirItem: TcxButton;
@@ -23,7 +23,6 @@ type
     Label1: TLabel;
     gridItens: TDBGrid;
     procedure FormShow(Sender: TObject);
-    procedure btnSairClick(Sender: TObject);
     procedure cdsAfterOpen(DataSet: TDataSet);
     procedure cdsAfterClose(DataSet: TDataSet);
     procedure btnNovoItemClick(Sender: TObject);
@@ -32,9 +31,11 @@ type
     procedure gridItensDblClick(Sender: TObject);
     procedure btnExcluirItemClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnSalvarItemClick(Sender: TObject);
     procedure btnBuscaClick(Sender: TObject);
+    procedure btnConfirmarClick(Sender: TObject);
+    procedure btnRetornarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -79,6 +80,18 @@ begin
   end;
 end;
 
+procedure TfrmCadItens.btnConfirmarClick(Sender: TObject);
+begin
+  inherited;
+  Conf_Tela(ctSearch);
+end;
+
+procedure TfrmCadItens.btnExcluirClick(Sender: TObject);
+begin
+  inherited;
+  Conf_Tela(ctSearch);
+end;
+
 procedure TfrmCadItens.btnExcluirItemClick(Sender: TObject);
 begin
   inherited;
@@ -89,6 +102,14 @@ end;
 procedure TfrmCadItens.btnItensClick(Sender: TObject);
 begin
   inherited;
+  if edtDesctipo.Text <> '' then
+    DM.Salvar(cds)
+  else
+  begin
+    Aviso('Descricao não pode ficar em branco!');
+    edtDescTipo.SetFocus;
+    exit;
+  end;
   Conf_Tela(ctSearchItem);
 end;
 
@@ -112,10 +133,10 @@ begin
   cdsDet.Append;
 end;
 
-procedure TfrmCadItens.btnSairClick(Sender: TObject);
+procedure TfrmCadItens.btnRetornarClick(Sender: TObject);
 begin
   inherited;
-  Close;
+  Conf_Tela(ctSearch);
 end;
 
 procedure TfrmCadItens.btnSalvarItemClick(Sender: TObject);
@@ -159,6 +180,9 @@ begin
       PainelCodigo.Enabled := True;
       BtnBusca.Enabled     := True;
       BtnNovo.Enabled      := True;
+      btnSalvarItem.Enabled  := False;
+      btnExcluirItem.Enabled := false;
+      btnNovoItem.Enabled    := false;
       Novo_Registro        := False;
       edtCodigo.Text       := '';
 //      if LimparCampos then
@@ -191,16 +215,18 @@ begin
       btnNovoItem.Enabled     := True;
       btnSalvarItem.Enabled   := False;
       PainelItem.Enabled      := True;
-      edtItem.Text := '';
-      edtItem.SetFocus;
+      edtItem.Enabled         := false;
+      edtItem.Text            := '';
+      btnNovoItem.SetFocus;
     end;
     ctNewItem:
     begin
+      cds.Edit;
       btnSalvarItem.Enabled  := True;
       btnExcluirItem.Enabled := false;
       btnNovoItem.Enabled    := false;
       PainelItem.Enabled     := True;
-      cdsDet.DisableControls;
+      edtItem.Enabled        := True;
       edtItem.SetFocus;
     end;
     ctEditItem:
@@ -210,17 +236,11 @@ begin
       btnSalvarItem.Enabled  := True;
       btnNovoItem.Enabled    := False;
       btnExcluirItem.Enabled := False;
-      cdsDet.EnableControls;
+      edtItem.Enabled        := True;
       edtItem.SetFocus;
     end;
   end;
 
-end;
-
-procedure TfrmCadItens.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  inherited;
-  frmCadItens := nil
 end;
 
 procedure TfrmCadItens.FormShow(Sender: TObject);

@@ -4,7 +4,7 @@ inherited frmRelTrocaConsumiveis: TfrmRelTrocaConsumiveis
   FormStyle = fsMDIChild
   Position = poScreenCenter
   Visible = True
-  ExplicitHeight = 249
+  ExplicitHeight = 239
   PixelsPerInch = 96
   TextHeight = 13
   inherited PainelCodigo: TPanel

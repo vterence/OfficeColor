@@ -30,7 +30,6 @@ type
     dsTroca: TDataSource;
     btnBuscar: TcxButton;
     procedure FormShow(Sender: TObject);
-    procedure btnSairClick(Sender: TObject);
     procedure cdsAfterOpen(DataSet: TDataSet);
     procedure cdsAfterClose(DataSet: TDataSet);
     procedure btnNovoClick(Sender: TObject);
@@ -61,6 +60,13 @@ end;
 
 procedure TfrmCadConsumiveis.btnBuscarClick(Sender: TObject);
 begin
+  if edtNome.Text = '' then
+  begin
+    Aviso('Descrição do consumivel nao pode ficar em branco!!');
+    edtNome.SetFocus;
+    exit;
+  end;
+
   if not Assigned(frmTrocaConsumiveis) then
     Application.CreateForm(TFrmTrocaConsumiveis, frmTrocaConsumiveis);
   try
@@ -68,6 +74,9 @@ begin
   finally
     if frmTrocaConsumiveis.ModalResult = mrOk then
     begin
+      if cds.State in [dsInsert, dsEdit] then
+        DM.Salvar(cds);
+      cds.Edit;
       cdsTroca.Append;
       cdsTroca.FieldByName('CONTADOR').AsString   := frmTrocaConsumiveis.contador;
       cdsTroca.FieldByName('OBSERVACAO').AsString := frmTrocaConsumiveis.observacao;
@@ -90,12 +99,6 @@ begin
     PainelBotoes.Enabled := True;
     edtNome.SetFocus;
   end;
-end;
-
-procedure TfrmCadConsumiveis.btnSairClick(Sender: TObject);
-begin
-  inherited;
-  Close;
 end;
 
 procedure TfrmCadConsumiveis.cdsAfterClose(DataSet: TDataSet);

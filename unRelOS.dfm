@@ -18,7 +18,6 @@ inherited frmRelOS: TfrmRelOS
     Color = clGradientInactiveCaption
     ParentBackground = False
     TabOrder = 0
-    ExplicitHeight = 317
     DesignSize = (
       266
       323)
@@ -250,7 +249,7 @@ inherited frmRelOS: TfrmRelOS
       DescrEdit.Font.Style = []
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
-      DescrEdit.TabOrder = 7
+      DescrEdit.TabOrder = 6
       OnFrmPesquisaClose = edtClienteFrmPesquisaClose
     end
     object rdgTipo: TcxRadioGroup
@@ -357,7 +356,7 @@ inherited frmRelOS: TfrmRelOS
       DescrEdit.Font.Style = []
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
-      DescrEdit.TabOrder = 6
+      DescrEdit.TabOrder = 7
       OnFrmPesquisaClose = edtClienteFrmPesquisaClose
     end
   end
@@ -370,7 +369,6 @@ inherited frmRelOS: TfrmRelOS
     Color = clGradientInactiveCaption
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 317
     DesignSize = (
       266
       46)

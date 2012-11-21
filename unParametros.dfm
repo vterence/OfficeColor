@@ -459,7 +459,6 @@
     ExplicitWidth = 334
     inherited btnSair: TcxButton
       Left = 243
-      OnClick = btnSairClick
       ExplicitLeft = 243
     end
     inherited btnRetornar: TcxButton

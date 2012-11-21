@@ -1,10 +1,17 @@
-inherited frmTrocaConsumiveis: TfrmTrocaConsumiveis
+object frmTrocaConsumiveis: TfrmTrocaConsumiveis
+  Left = 0
+  Top = 0
   Caption = 'Troca de Consum'#237'veis'
   ClientHeight = 247
   ClientWidth = 351
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = True
   Position = poScreenCenter
-  ExplicitWidth = 367
-  ExplicitHeight = 285
   PixelsPerInch = 96
   TextHeight = 13
   object PainelDados: TPanel
@@ -17,8 +24,6 @@ inherited frmTrocaConsumiveis: TfrmTrocaConsumiveis
     Color = clGradientInactiveCaption
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = -8
     DesignSize = (
       351
       247)

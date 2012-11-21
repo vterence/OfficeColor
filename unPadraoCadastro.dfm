@@ -27,7 +27,6 @@
     Color = clGradientInactiveCaption
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 453
     object Código: TLabel
       Left = 32
       Top = 14
@@ -147,8 +146,6 @@
     Color = clGradientInactiveCaption
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 453
-    ExplicitHeight = 218
   end
   object PainelBotoes: TPanel
     Left = 0
@@ -160,8 +157,6 @@
     Color = clGradientInactiveCaption
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 259
-    ExplicitWidth = 453
     DesignSize = (
       463
       41)
@@ -201,7 +196,7 @@
         00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
       LookAndFeel.Kind = lfFlat
       TabOrder = 3
-      ExplicitLeft = 362
+      OnClick = btnSairClick
     end
     object btnConfirmar: TcxButton
       Left = 16

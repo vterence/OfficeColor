@@ -32,7 +32,7 @@ type
     procedure edtImpressoraFrmPesquisaClose(Sender: TObject);
     procedure btnImprimirClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnSairClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -74,6 +74,12 @@ begin
     Aviso('Nenhum registro foi encontrado!!!');
 end;
 
+procedure TfrmRelContador.btnSairClick(Sender: TObject);
+begin
+  inherited;
+//
+end;
+
 procedure TfrmRelContador.edtImpressoraEnter(Sender: TObject);
 begin
   inherited;
@@ -96,12 +102,6 @@ procedure TfrmRelContador.edtImpressoraSubButtonPesquisaClick(Sender: TObject);
 begin
   inherited;
   DM.BuscaBotaoImpressora(edtImpressora);
-end;
-
-procedure TfrmRelContador.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  inherited;
-  Action := caFree;
 end;
 
 procedure TfrmRelContador.FormShow(Sender: TObject);

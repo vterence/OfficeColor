@@ -11,9 +11,9 @@ type
   TFrmPadrao = class(TForm)
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
     DBEdit_Ant   : TDBEdit;
@@ -37,7 +37,7 @@ var
 implementation
 
 {$R *.dfm}
-Uses unRegrasForm, unDM;
+Uses unRegrasForm, unDM, unPadraoCadastro;
 
 procedure TFrmPadrao.ControleFoco(Sender : TObject);
 var
@@ -96,7 +96,8 @@ end;
 
 procedure TFrmPadrao.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Action := caFree;
+  TFORM(Sender).Release;
+  Sender := nil;
 end;
 
 procedure TFrmPadrao.FormCreate(Sender: TObject);
@@ -188,6 +189,7 @@ end;
 procedure TFrmPadrao.FormShow(Sender: TObject);
 begin
   Screen.OnActiveControlChange := ControleFoco;
+  Conf_Campos((Sender) as TForm);
 end;
 
 end.

@@ -5,7 +5,6 @@ inherited frmRelClientes: TfrmRelClientes
   FormStyle = fsMDIChild
   Position = poScreenCenter
   Visible = True
-  OnClose = FormClose
   ExplicitWidth = 492
   ExplicitHeight = 227
   PixelsPerInch = 96

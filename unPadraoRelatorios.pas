@@ -36,7 +36,6 @@ type
     cds: TClientDataSet;
     ds: TDataSource;
     procedure btnSairClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnImprimirClick(Sender: TObject);
   private
     { Private declarations }
@@ -64,13 +63,6 @@ procedure TfrmPadraoRelatorios.btnSairClick(Sender: TObject);
 begin
   inherited;
   Close;
-end;
-
-procedure TfrmPadraoRelatorios.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  inherited;
-  Action := caFree;
 end;
 
 function TfrmPadraoRelatorios.Montar_SQL: boolean;

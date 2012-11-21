@@ -42,6 +42,7 @@ type
     procedure edtCodigoEnter(Sender: TObject);
     procedure edtCodigoExit(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnSairClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -160,6 +161,12 @@ procedure TfrmPadraoCadastro.btnRetornarClick(Sender: TObject);
 begin
   inherited;
   Conf_Tela(ctSearch);
+end;
+
+procedure TfrmPadraoCadastro.btnSairClick(Sender: TObject);
+begin
+  inherited;
+  Close;
 end;
 
 procedure TfrmPadraoCadastro.Conf_Registro;

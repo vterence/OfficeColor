@@ -35,7 +35,6 @@ type
     edtCep: TLabeledDBEdit;
     rdgTipo: TDBRadioGroup;
     procedure btnNovoClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
     procedure cdsNewRecord(DataSet: TDataSet);
@@ -169,12 +168,6 @@ procedure TfrmCadClientes.edtCidadeSubButtonPesquisaClick(Sender: TObject);
 begin
   inherited;
   DM.BuscaBotaoMunicipio(edtCidade);
-end;
-
-procedure TfrmCadClientes.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  inherited;
-  frmCadClientes := nil;
 end;
 
 procedure TfrmCadClientes.FormShow(Sender: TObject);

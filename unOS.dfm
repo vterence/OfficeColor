@@ -96,6 +96,7 @@
       AutoSize = False
       BorderStyle = bsNone
       CharCase = ecUpperCase
+      Ctl3D = True
       DataField = 'USUARIO'
       DataSource = ds
       Font.Charset = DEFAULT_CHARSET
@@ -103,6 +104,7 @@
       Font.Height = -11
       Font.Name = 'courier new'
       Font.Style = []
+      ParentCtl3D = False
       ParentFont = False
       TabOrder = 1
       OnEnter = edtUsuarioEnter
@@ -140,6 +142,7 @@
       IsForeignKey = True
       ModalPesquisa = True
       ModalCadastro = False
+      Text = 'EDTUSUARIO'
       DescrEdit.Left = 313
       DescrEdit.Top = 21
       DescrEdit.Width = 0
@@ -211,6 +214,7 @@
       IsForeignKey = True
       ModalPesquisa = True
       ModalCadastro = False
+      Text = 'EDTCLIENTE'
       DescrEdit.Left = 118
       DescrEdit.Top = 58
       DescrEdit.Width = 432
@@ -284,6 +288,7 @@
       PesquisaButton.Visible = False
       ModalPesquisa = True
       ModalCadastro = False
+      Text = 'LABELEDDBEDIT1'
       DescrEdit.Left = 531
       DescrEdit.Top = 130
       DescrEdit.Width = 0
@@ -355,6 +360,7 @@
       PesquisaButton.Visible = False
       ModalPesquisa = True
       ModalCadastro = False
+      Text = 'EDTQTDPAGINAS'
       DescrEdit.Left = 388
       DescrEdit.Top = 21
       DescrEdit.Width = 0
@@ -426,6 +432,7 @@
       PesquisaButton.Visible = False
       ModalPesquisa = False
       ModalCadastro = False
+      Text = 'EDTQTD'
       DescrEdit.Left = 486
       DescrEdit.Top = 21
       DescrEdit.Width = 0
@@ -497,6 +504,7 @@
       IsForeignKey = True
       ModalPesquisa = True
       ModalCadastro = False
+      Text = 'EDTIMPRESSORA'
       DescrEdit.Left = 118
       DescrEdit.Top = 93
       DescrEdit.Width = 432
@@ -783,7 +791,7 @@
           Value = '2'
         end
         item
-          Caption = '4 x 1'
+          Caption = '4 x 4'
           Value = '3'
         end>
       Style.LookAndFeel.Kind = lfFlat
@@ -833,7 +841,6 @@
     ExplicitWidth = 544
     inherited btnSair: TcxButton
       Left = 453
-      OnClick = btnSairClick
       ExplicitLeft = 453
     end
     inherited btnConfirmar: TcxButton

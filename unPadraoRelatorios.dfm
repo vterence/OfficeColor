@@ -16,8 +16,6 @@ inherited frmPadraoRelatorios: TfrmPadraoRelatorios
     Color = clGradientInactiveCaption
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 264
-    ExplicitHeight = 84
     object grpData: TGroupBox
       Left = 6
       Top = 5
@@ -83,8 +81,6 @@ inherited frmPadraoRelatorios: TfrmPadraoRelatorios
     Color = clGradientInactiveCaption
     ParentBackground = False
     TabOrder = 1
-    ExplicitTop = 84
-    ExplicitWidth = 264
     DesignSize = (
       274
       46)
@@ -125,7 +121,6 @@ inherited frmPadraoRelatorios: TfrmPadraoRelatorios
       LookAndFeel.Kind = lfFlat
       TabOrder = 1
       OnClick = btnSairClick
-      ExplicitLeft = 135
     end
     object btnImprimir: TcxButton
       Left = 54

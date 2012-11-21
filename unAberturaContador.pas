@@ -35,7 +35,6 @@ type
     procedure edtImpressoraFrmPesquisaClose(Sender: TObject);
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
   private
@@ -132,6 +131,16 @@ begin
     exit;
   end;
 
+  if StrToInt(edtContador.Text) > StrToInt(contador_final) then
+  begin
+    if not Confirma('O Contador não bate! Deseja abrir mesmo assim?') then
+    begin
+      edtContador.SetFocus;
+      exit;
+    end;
+  end;
+
+
   texto := 'SELECT * FROM IMPRESSORAS_CONTADOR WHERE ID_IMPRESSORA = ' + edtImpressora.Text + ' AND DATA = ' +QuotedStr(FormataDataFirebird(date));
   DM.BuscaQry(DM.QR_Busca, texto);
   if not DM.QR_Busca.IsEmpty then
@@ -203,13 +212,6 @@ begin
   DM.BuscaBotaoImpressora(edtImpressora);
 end;
 
-
-procedure TfrmAberturaContador.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  inherited;
-  Action := caFree;
-end;
 
 procedure TfrmAberturaContador.FormShow(Sender: TObject);
 begin

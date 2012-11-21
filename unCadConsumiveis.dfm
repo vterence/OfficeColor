@@ -26,7 +26,7 @@ inherited frmCadConsumiveis: TfrmCadConsumiveis
       Caption = 'Impressora'
     end
     object edtNome: TLabeledDBEdit
-      Left = 76
+      Left = 71
       Top = 9
       Width = 276
       Height = 20
@@ -43,12 +43,12 @@ inherited frmCadConsumiveis: TfrmCadConsumiveis
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      EditLabel.Left = 46
+      EditLabel.Left = 41
       EditLabel.Top = 12
       EditLabel.Width = 27
       EditLabel.Height = 13
       EditLabel.Caption = 'Nome'
-      CadastroButton.Left = 355
+      CadastroButton.Left = 350
       CadastroButton.Top = 9
       CadastroButton.Width = 20
       CadastroButton.Height = 20
@@ -61,7 +61,7 @@ inherited frmCadConsumiveis: TfrmCadConsumiveis
       CadastroButton.NumGlyphs = 2
       CadastroButton.ParentFont = False
       CadastroButton.Visible = False
-      PesquisaButton.Left = 355
+      PesquisaButton.Left = 350
       PesquisaButton.Top = 9
       PesquisaButton.Width = 20
       PesquisaButton.Height = 20
@@ -77,7 +77,8 @@ inherited frmCadConsumiveis: TfrmCadConsumiveis
       LabelPosition = lpLeft
       ModalPesquisa = True
       ModalCadastro = False
-      DescrEdit.Left = 355
+      Text = 'EDTNOME'
+      DescrEdit.Left = 350
       DescrEdit.Top = 9
       DescrEdit.Width = 0
       DescrEdit.Height = 20
@@ -171,7 +172,6 @@ inherited frmCadConsumiveis: TfrmCadConsumiveis
       41)
     inherited btnSair: TcxButton
       Left = 351
-      OnClick = btnSairClick
       ExplicitLeft = 351
     end
   end

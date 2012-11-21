@@ -14,8 +14,6 @@ type
     Label1: TLabel;
     edtMarca: TDBEdit;
     Label2: TLabel;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure btnSairClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
@@ -51,18 +49,6 @@ begin
     PainelDados.Enabled  := True;
     PainelBotoes.Enabled := True;
   end;
-end;
-
-procedure TfrmCadImpressoras.btnSairClick(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TfrmCadImpressoras.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  inherited;
-  frmCadImpressoras := nil;
 end;
 
 procedure TfrmCadImpressoras.FormShow(Sender: TObject);

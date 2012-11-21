@@ -35,6 +35,7 @@ type
     procedure edtConsumivelExit(Sender: TObject);
     procedure edtConsumivelFrmPesquisaClose(Sender: TObject);
     procedure edtConsumivelSubButtonPesquisaClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -75,6 +76,12 @@ begin
   end
   else
     Aviso('Nenhum registro foi encontrado!!!');
+end;
+
+procedure TfrmRelTrocaConsumiveis.btnSairClick(Sender: TObject);
+begin
+  inherited;
+//
 end;
 
 procedure TfrmRelTrocaConsumiveis.edtConsumivelExit(Sender: TObject);

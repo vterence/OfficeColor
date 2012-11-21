@@ -23,7 +23,6 @@ type
     RvRenderPDF1: TRvRenderPDF;
     RvRenderHTML1: TRvRenderHTML;
     procedure btnImprimirClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnSairClick(Sender: TObject);
   private
     { Private declarations }
@@ -46,13 +45,8 @@ end;
 
 procedure TfrmRelClientes.btnSairClick(Sender: TObject);
 begin
+  inherited;
   Close;
-end;
-
-procedure TfrmRelClientes.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  Action := caFree;
-  frmRelClientes := nil;
 end;
 
 initialization

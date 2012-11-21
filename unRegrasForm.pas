@@ -3,7 +3,8 @@ unit unRegrasForm;
 interface
 
 Uses Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, StdCtrls,
-   dbctrls, ExtCtrls, Grids, DBGrids, Menus, DBclient, DB, ComCtrls, Buttons, SqlExpr, Mask, WinSock;
+   dbctrls, ExtCtrls, Grids, DBGrids, Menus, DBclient, DB, ComCtrls, Buttons, SqlExpr, Mask, WinSock,
+   LabeledDBEdit;
 
 Type
   TChars = set of Char;
@@ -51,6 +52,8 @@ function InitCap(s: String): String;
 function Criptografa(Action, Src: String; contra_chave : String = ''): String;
 
 procedure LimpaEdits(Objeto: TObject);
+
+procedure Conf_Campos(Objeto: TObject);
 
 function RetiraCaracterNaoNumero(StringTexto: String): String;
 
@@ -194,7 +197,47 @@ begin
     if (((Objeto as TForm).Components[i].ClassName = 'TDBEdit')) then
       ((Objeto as TForm).Components[i] as TDBEdit).Clear
     else if (((Objeto as TForm).Components[i].ClassName = 'TEdit')) then
-      ((Objeto as TForm).Components[i] as TEdit).Clear;
+      ((Objeto as TForm).Components[i] as TEdit).Clear
+    else if (((Objeto as TForm).Components[i].ClassName = 'TLabeledDBEdit')) then
+    begin
+      if (((Objeto as TForm).Components[i] as TLabeledDBEdit).IsForeignKey) then
+        ((Objeto as TForm).Components[i] as TLabeledDBEdit).descrEdit.Clear ;
+
+      ((Objeto as TForm).Components[i] as TLabeledDBEdit).Clear ;
+    end
+    else if (((Objeto as TForm).Components[i].ClassName = 'TGigatronLblEdit')) then
+    begin
+      if (((Objeto as TForm).Components[i] as TGigatronLblEdit).IsForeignKey)  then
+        ((Objeto as TForm).Components[i] as TGigatronLblEdit).descrEdit.Clear;
+
+      ((Objeto as TForm).Components[i] as TGigatronLblEdit).Clear;
+    end;
+  end;
+end;
+
+procedure Conf_Campos(Objeto: TObject);
+var
+  i, j: Integer;
+begin
+
+  for i := 0 to (Objeto as TForm).ComponentCount-1 do
+  begin
+    ////////////////////////////////////////////////////////////////////////////
+    ///                              TLabeledDBEdit                          ///
+    ////////////////////////////////////////////////////////////////////////////
+    if ((Objeto as TForm).Components[i].ClassName = 'TLabeledDBEdit') then
+    begin
+      ((Objeto as TForm).Components[i] as TLabeledDBEdit).Text           := '';
+      ((Objeto as TForm).Components[i] as TLabeledDBEdit).descrEdit.Text := '';
+    end
+    ////////////////////////////////////////////////////////////////////////////
+    ///                            TGigatronLblEdit                          ///
+    ////////////////////////////////////////////////////////////////////////////
+    else if ((Objeto as TForm).Components[i].ClassName = 'TGigatronLblEdit') then
+    begin
+      ((Objeto as TForm).Components[i] as TGigatronLblEdit).Text                 := '';
+      ((Objeto as TForm).Components[i] as TGigatronLblEdit).descrEdit.Text       := '';
+    end
   end;
 end;
 

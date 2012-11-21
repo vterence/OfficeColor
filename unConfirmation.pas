@@ -20,6 +20,7 @@ type
     btnCancel: TcxButton;
     procedure FormShow(Sender: TObject);
     procedure btnOKClick(Sender: TObject);
+    procedure btnCancelClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -89,6 +90,11 @@ begin
 end;
 
 // ----- Eventos e procedimentos do TfrmConfirmation ---------------------------
+procedure TfrmConfirmation.btnCancelClick(Sender: TObject);
+begin
+  ModalResult := mrCancel;
+end;
+
 procedure TfrmConfirmation.btnOKClick(Sender: TObject);
 begin
   ModalResult := mrOk;

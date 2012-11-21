@@ -30,7 +30,6 @@ type
     RvProject1: TRvProject;
     edtUsuario: TGigatronLblEdit;
     procedure FormShow(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnImprimirClick(Sender: TObject);
     procedure edtClienteExit(Sender: TObject);
     procedure edtClienteFrmPesquisaClose(Sender: TObject);
@@ -40,6 +39,7 @@ type
     procedure edtImpressoraSubButtonPesquisaClick(Sender: TObject);
     procedure edtUsuarioExit(Sender: TObject);
     procedure edtUsuarioSubButtonPesquisaClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -71,6 +71,12 @@ begin
   end
   else
     Aviso('Nenhum registro foi encontrado!!!');
+end;
+
+procedure TfrmRelOSErro.btnSairClick(Sender: TObject);
+begin
+  inherited;
+//
 end;
 
 procedure TfrmRelOSErro.edtClienteEnter(Sender: TObject);
@@ -121,12 +127,6 @@ begin
   DM.BuscaBotaoUsuario(edtUsuario);
 end;
 
-procedure TfrmRelOSErro.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  inherited;
-  frmRelOSErro := nil;
-end;
-
 procedure TfrmRelOSErro.FormShow(Sender: TObject);
 begin
   inherited;
@@ -157,10 +157,8 @@ begin
     '    CLI.NOME AS NOME_CLIENTE,                                                            ' + #13 +
     '    CLI.ENDERECO || '', '' || CLI.NUMERO AS ENDERECO,                                    ' + #13 +
     '    CID.NOME_CIDADE || '' / '' || CID.UF AS NOME_CIDADE,                                 ' + #13 +
-    '    CAST(COALESCE((OS.CONTADOR_FINAL - OS.CONTADOR_INICIAL), 0) AS NUMERIC(15,3)) AS TOTAL, ' + #13 +
-    '    COALESCE(IIF(OS.FLAG_FRENTE_VERSO IN (0,2),                                          ' + #13 +
-    '        (COALESCE(OS.CONTADOR_FINAL, OS.CONTADOR_INICIAL) - COALESCE(OS.CONTADOR_INICIAL, 0)) - (QTD),               ' + #13 +
-    '        (COALESCE(OS.CONTADOR_FINAL, OS.CONTADOR_INICIAL) - COALESCE(OS.CONTADOR_INICIAL, 0)) - (QTD * 2)), 0) AS ERRO ' + #13 +
+    '    COALESCE(QTD, 0) AS TOTAL,                                                           ' + #13 +
+    '    COALESCE(((COALESCE(OS.CONTADOR_FINAL, OS.CONTADOR_INICIAL) - COALESCE(OS.CONTADOR_INICIAL, 0)) - (QTD * QTD_PAGINAS)), 0) AS ERRO ' + #13 +
     'FROM OS                                                                                  ' + #13 +
     '    INNER JOIN CLIENTES CLI ON                                                           ' + #13 +
     '        CLI.ID_CLIENTE = OS.ID_CLIENTE                                                   ' + #13 +
@@ -170,9 +168,7 @@ begin
     '        OS.ID_IMPRESSORA = IMP.ID                                                        ' + #13 +
     'WHERE OS.DATA BETWEEN ' + QuotedStr(FormataDataFirebird(edtDataInicial.Text)) + ' AND ' + QuotedStr(FormataDataFirebird(edtDataFinal.Text)) + #13 +
     '  AND OS.STATUS = 2 ' + #13 +
-    '  AND COALESCE(IIF(OS.FLAG_FRENTE_VERSO IN (0,2),                                             ' + #13 +
-    '        (COALESCE(OS.CONTADOR_FINAL, OS.CONTADOR_INICIAL) - COALESCE(OS.CONTADOR_INICIAL, 0)) - (QTD),            ' + #13 +
-    '        (COALESCE(OS.CONTADOR_FINAL, OS.CONTADOR_INICIAL) - COALESCE(OS.CONTADOR_INICIAL, 0)) - (QTD * 2)), 0) > 0 ' + #13 ;
+    '  AND COALESCE(((COALESCE(OS.CONTADOR_FINAL, OS.CONTADOR_INICIAL) - COALESCE(OS.CONTADOR_INICIAL, 0)) - (QTD * QTD_PAGINAS)), 0) > 0 ' ;
 
   if edtCliente.Text <> '' then
     texto := texto + ' AND CLI.ID_CLIENTE = ' + edtCliente.Text;

@@ -26,10 +26,8 @@ type
     procedure cdsAfterOpen(DataSet: TDataSet);
     procedure gradeCellClick(Column: TColumn);
     procedure gradeKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
-    procedure btnSairClick(Sender: TObject);
     procedure gradeDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -73,12 +71,6 @@ begin
     cds.FieldByName('COD_GRUPO').AsString := edtCodigo.Text;
 end;
 
-procedure TfrmCadGruposUsuarios.btnSairClick(Sender: TObject);
-begin
-  inherited;
-  Close;
-end;
-
 procedure TfrmCadGruposUsuarios.cdsAfterClose(DataSet: TDataSet);
 begin
   inherited;
@@ -116,13 +108,6 @@ begin
   inherited;
   if ( Etapa = 0 ) then
     sql_busca := 'SELECT * FROM USUARIOS_GRUPOS WHERE COD_GRUPO = ';
-end;
-
-procedure TfrmCadGruposUsuarios.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  inherited;
-  Action := caFree;
 end;
 
 procedure TfrmCadGruposUsuarios.FormShow(Sender: TObject);

@@ -178,6 +178,7 @@
         LabelPosition = lpLeft
         ModalPesquisa = True
         ModalCadastro = False
+        Text = 'EDTCODIGO'
         DescrEdit.Left = 166
         DescrEdit.Top = 25
         DescrEdit.Width = 0
@@ -249,6 +250,7 @@
         LabelPosition = lpLeft
         ModalPesquisa = True
         ModalCadastro = False
+        Text = 'EDTCLIENTE'
         DescrEdit.Left = 266
         DescrEdit.Top = 25
         DescrEdit.Width = 278
@@ -319,6 +321,7 @@
         LabelPosition = lpLeft
         ModalPesquisa = True
         ModalCadastro = False
+        Text = 'EDTUSUARIO'
         DescrEdit.Left = 266
         DescrEdit.Top = 48
         DescrEdit.Width = 0
@@ -390,6 +393,7 @@
         LabelPosition = lpLeft
         ModalPesquisa = True
         ModalCadastro = False
+        Text = 'EDTQTDPAGINAS'
         DescrEdit.Left = 366
         DescrEdit.Top = 48
         DescrEdit.Width = 0
@@ -461,6 +465,7 @@
         LabelPosition = lpLeft
         ModalPesquisa = False
         ModalCadastro = False
+        Text = 'EDTQTD'
         DescrEdit.Left = 506
         DescrEdit.Top = 48
         DescrEdit.Width = 0
@@ -532,6 +537,7 @@
         LabelPosition = lpLeft
         ModalPesquisa = True
         ModalCadastro = False
+        Text = 'LABELEDDBEDIT1'
         DescrEdit.Left = 506
         DescrEdit.Top = 93
         DescrEdit.Width = 0
@@ -616,6 +622,7 @@
         LabelPosition = lpLeft
         ModalPesquisa = True
         ModalCadastro = False
+        Text = 'EDTIMPRESSORA'
         DescrEdit.Left = 166
         DescrEdit.Top = 70
         DescrEdit.Width = 278
@@ -784,7 +791,7 @@
             Value = '2'
           end
           item
-            Caption = '4 x 1'
+            Caption = '4 x 4'
             Value = '3'
           end>
         Properties.ReadOnly = True
@@ -893,7 +900,7 @@
       Top = 7
       Width = 90
       Height = 45
-      Caption = 'Fechar'
+      Caption = 'Encerrar'
       Enabled = False
       Glyph.Data = {
         36030000424D3603000000000000360000002800000010000000100000000100

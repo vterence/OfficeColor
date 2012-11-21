@@ -100,6 +100,7 @@ inherited frmCadClientes: TfrmCadClientes
             LabelPosition = lpLeft
             ModalPesquisa = True
             ModalCadastro = False
+            Text = 'EDTCIDADE'
             DescrEdit.Left = 174
             DescrEdit.Top = 16
             DescrEdit.Width = 270
@@ -172,6 +173,7 @@ inherited frmCadClientes: TfrmCadClientes
             LabelPosition = lpLeft
             ModalPesquisa = True
             ModalCadastro = False
+            Text = 'EDTENDERECO'
             DescrEdit.Left = 342
             DescrEdit.Top = 38
             DescrEdit.Width = 0
@@ -242,6 +244,7 @@ inherited frmCadClientes: TfrmCadClientes
             LabelPosition = lpLeft
             ModalPesquisa = True
             ModalCadastro = False
+            Text = 'EDTBAIRRO'
             DescrEdit.Left = 300
             DescrEdit.Top = 60
             DescrEdit.Width = 0
@@ -312,6 +315,7 @@ inherited frmCadClientes: TfrmCadClientes
             LabelPosition = lpLeft
             ModalPesquisa = True
             ModalCadastro = False
+            Text = 'EDTTELEFONE1'
             DescrEdit.Left = 188
             DescrEdit.Top = 82
             DescrEdit.Width = 0
@@ -382,6 +386,7 @@ inherited frmCadClientes: TfrmCadClientes
             LabelPosition = lpLeft
             ModalPesquisa = True
             ModalCadastro = False
+            Text = 'EDTNUMERO'
             DescrEdit.Left = 428
             DescrEdit.Top = 38
             DescrEdit.Width = 0
@@ -452,6 +457,7 @@ inherited frmCadClientes: TfrmCadClientes
             LabelPosition = lpLeft
             ModalPesquisa = True
             ModalCadastro = False
+            Text = 'EDTCEP'
             DescrEdit.Left = 428
             DescrEdit.Top = 60
             DescrEdit.Width = 0
@@ -523,6 +529,7 @@ inherited frmCadClientes: TfrmCadClientes
           LabelPosition = lpLeft
           ModalPesquisa = True
           ModalCadastro = False
+          Text = 'EDTNOME'
           DescrEdit.Left = 341
           DescrEdit.Top = 9
           DescrEdit.Width = 0
@@ -593,6 +600,7 @@ inherited frmCadClientes: TfrmCadClientes
           LabelPosition = lpLeft
           ModalPesquisa = True
           ModalCadastro = False
+          Text = 'EDTCNPJCPF'
           DescrEdit.Left = 171
           DescrEdit.Top = 32
           DescrEdit.Width = 0
@@ -663,6 +671,7 @@ inherited frmCadClientes: TfrmCadClientes
           LabelPosition = lpLeft
           ModalPesquisa = True
           ModalCadastro = False
+          Text = 'EDTRGIE'
           DescrEdit.Left = 341
           DescrEdit.Top = 32
           DescrEdit.Width = 0
@@ -692,7 +701,6 @@ inherited frmCadClientes: TfrmCadClientes
     ExplicitWidth = 468
     inherited btnSair: TcxButton
       Left = 377
-      OnClick = btnSairClick
       ExplicitLeft = 377
     end
   end

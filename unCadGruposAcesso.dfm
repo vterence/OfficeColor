@@ -83,6 +83,7 @@ inherited frmCadGruposAcesso: TfrmCadGruposAcesso
       LabelSpacing = 4
       ModalPesquisa = False
       ModalCadastro = False
+      Text = 'EDTDESCRICAO'
       DescrEdit.Left = 366
       DescrEdit.Top = 6
       DescrEdit.Width = 121
@@ -203,7 +204,6 @@ inherited frmCadGruposAcesso: TfrmCadGruposAcesso
     ExplicitWidth = 534
     inherited btnSair: TcxButton
       Left = 443
-      OnClick = btnSairClick
       ExplicitLeft = 443
     end
   end

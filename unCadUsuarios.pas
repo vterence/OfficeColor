@@ -24,8 +24,6 @@ type
     edtSenha: TDBEdit;
     Label2: TLabel;
     cmbGrupo: TcxDBLookupComboBox;
-    procedure btnSairClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure cdsAfterOpen(DataSet: TDataSet);
     procedure btnConfirmarClick(Sender: TObject);
@@ -59,11 +57,6 @@ begin
   inherited;
 end;
 
-procedure TfrmCadUsuarios.btnSairClick(Sender: TObject);
-begin
-  Close;
-end;
-
 procedure TfrmCadUsuarios.cdsAfterOpen(DataSet: TDataSet);
 begin
   inherited;
@@ -94,12 +87,6 @@ begin
       end;
     end;
   end;
-end;
-
-procedure TfrmCadUsuarios.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  inherited;
-  frmCadUsuarios := nil
 end;
 
 procedure TfrmCadUsuarios.FormShow(Sender: TObject);

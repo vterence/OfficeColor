@@ -59,7 +59,6 @@ type
     gridView1Column6: TcxGridDBColumn;
     procedure btnSairClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnBuscarClick(Sender: TObject);
     procedure gridView1CellDblClick(Sender: TcxCustomGridTableView;
       ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
@@ -159,13 +158,6 @@ begin
     '   INNER JOIN ITEM_TIPO TP ON       ' + #13 +
     '     IT.ID_TIPO = TP.ID_TIPO        ' ;
   cdsDet.Open;
-end;
-
-procedure TfrmPesquisaOSAberto.FormClose(Sender: TObject;
-  var Action: TCloseAction);
-begin
-  inherited;
-  Action := caFree;
 end;
 
 procedure TfrmPesquisaOSAberto.FormShow(Sender: TObject);

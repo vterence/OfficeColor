@@ -69,7 +69,8 @@ end;
 procedure TfrmTrocaConsumiveis.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
-//
+  TFORM(Sender).Release;
+  Sender := nil;
 end;
 
 procedure TfrmTrocaConsumiveis.FormShow(Sender: TObject);

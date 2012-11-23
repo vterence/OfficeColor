@@ -26,14 +26,14 @@
       ExplicitTop = 85
       ExplicitWidth = 285
     end
-    inherited btnBuscar: TcxButton
+    inherited btnBuscarPesquisa: TcxButton
       Left = 656
-      Top = 17
-      Height = 58
+      Top = 19
+      Height = 56
       TabOrder = 4
       ExplicitLeft = 656
-      ExplicitTop = 17
-      ExplicitHeight = 58
+      ExplicitTop = 19
+      ExplicitHeight = 56
     end
     inherited btnSair: TcxButton
       Left = 656

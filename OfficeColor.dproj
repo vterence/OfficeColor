@@ -138,9 +138,6 @@
 			<DCCReference Include="unParametros.pas">
 				<Form>frmParametros</Form>
 			</DCCReference>
-			<DCCReference Include="unPadraoRelatorios.pas">
-				<Form>frmPadraoRelatorios</Form>
-			</DCCReference>
 			<DCCReference Include="unRelOSErro.pas">
 				<Form>frmRelOSErro</Form>
 			</DCCReference>
@@ -164,6 +161,12 @@
 			</DCCReference>
 			<DCCReference Include="unRelTrocaConsumiveis.pas">
 				<Form>frmRelTrocaConsumiveis</Form>
+			</DCCReference>
+			<DCCReference Include="unPadraoGeral.pas">
+				<Form>frmPadraoGeral</Form>
+			</DCCReference>
+			<DCCReference Include="unPesquisasGeral.pas">
+				<Form>frmPesquisasGeral</Form>
 			</DCCReference>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
@@ -190,7 +193,7 @@
 						<VersionInfo Name="MajorVer">1</VersionInfo>
 						<VersionInfo Name="MinorVer">0</VersionInfo>
 						<VersionInfo Name="Release">0</VersionInfo>
-						<VersionInfo Name="Build">6</VersionInfo>
+						<VersionInfo Name="Build">10</VersionInfo>
 						<VersionInfo Name="Debug">False</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
 						<VersionInfo Name="Special">False</VersionInfo>
@@ -202,7 +205,7 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">Office Color</VersionInfoKeys>
 						<VersionInfoKeys Name="FileDescription"/>
-						<VersionInfoKeys Name="FileVersion">1.0.0.6</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.0.0.10</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName"/>
 						<VersionInfoKeys Name="LegalCopyright"/>
 						<VersionInfoKeys Name="LegalTrademarks"/>

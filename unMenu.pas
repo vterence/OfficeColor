@@ -27,7 +27,7 @@ type
     m009TfrmAberturaContador: TMenuItem;
     m010: TMenuItem;
     m011TFrmRelOS: TMenuItem;
-    m012TFrmRelOSResumido: TMenuItem;
+    m012TfrmRelOsResumido: TMenuItem;
     m013TFrmParametros: TMenuItem;
     m014TFrmRelOSErro: TMenuItem;
     m015TfrmCadGruposAcesso: TMenuItem;

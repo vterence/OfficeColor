@@ -1,30 +1,32 @@
 inherited frmRelOsResumido: TfrmRelOsResumido
   Caption = 'Relat'#243'rio de OS Resumido'
-  ClientHeight = 424
-  ClientWidth = 266
-  FormStyle = fsMDIChild
+  ClientHeight = 443
+  ClientWidth = 255
   Position = poScreenCenter
   Visible = True
-  ExplicitWidth = 282
-  ExplicitHeight = 462
+  ExplicitWidth = 261
+  ExplicitHeight = 471
   PixelsPerInch = 96
   TextHeight = 13
-  object PainelCodigo: TPanel
-    Left = 0
-    Top = 0
-    Width = 266
-    Height = 378
-    Align = alClient
-    Color = clGradientInactiveCaption
-    ParentBackground = False
-    TabOrder = 0
-    DesignSize = (
-      266
-      378)
+  inherited PainelCodigo: TPanel
+    Width = 255
+    Height = 5
+    Visible = False
+    ExplicitWidth = 255
+    ExplicitHeight = 5
+  end
+  inherited PainelDados: TPanel
+    Top = 5
+    Width = 255
+    Height = 397
+    TabOrder = 2
+    ExplicitTop = 5
+    ExplicitWidth = 255
+    ExplicitHeight = 397
     object grpData: TGroupBox
       Left = 6
       Top = 5
-      Width = 252
+      Width = 241
       Height = 66
       Anchors = [akLeft, akTop, akRight]
       Caption = '  Data  '
@@ -33,7 +35,7 @@ inherited frmRelOsResumido: TfrmRelOsResumido
       ParentColor = False
       TabOrder = 0
       DesignSize = (
-        252
+        241
         66)
       object Label2: TLabel
         Left = 14
@@ -43,12 +45,13 @@ inherited frmRelOsResumido: TfrmRelOsResumido
         Caption = 'Inicial'
       end
       object Label1: TLabel
-        Left = 134
+        Left = 123
         Top = 19
         Width = 22
         Height = 13
         Anchors = [akTop, akRight]
         Caption = 'Final'
+        ExplicitLeft = 134
       end
       object edtDataInicial: TcxDateEdit
         Left = 12
@@ -66,7 +69,7 @@ inherited frmRelOsResumido: TfrmRelOsResumido
         Width = 98
       end
       object edtDataFinal: TcxDateEdit
-        Left = 132
+        Left = 121
         Top = 33
         Anchors = [akTop, akRight]
         Properties.InputKind = ikRegExpr
@@ -102,10 +105,14 @@ inherited frmRelOsResumido: TfrmRelOsResumido
           Value = '2'
         end
         item
+          Caption = 'Faturada'
+          Value = '3'
+        end
+        item
           Caption = 'Todas'
           Value = '4'
         end>
-      ItemIndex = 3
+      ItemIndex = 4
       Style.BorderColor = clGradientActiveCaption
       Style.BorderStyle = ebsFlat
       Style.LookAndFeel.Kind = lfFlat
@@ -114,7 +121,7 @@ inherited frmRelOsResumido: TfrmRelOsResumido
       StyleHot.LookAndFeel.Kind = lfFlat
       TabOrder = 1
       Height = 55
-      Width = 252
+      Width = 241
     end
     object edtCliente: TGigatronLblEdit
       Left = 12
@@ -167,7 +174,7 @@ inherited frmRelOsResumido: TfrmRelOsResumido
       OnExit = edtClienteExit
       DescrEdit.Left = 94
       DescrEdit.Top = 145
-      DescrEdit.Width = 170
+      DescrEdit.Width = 159
       DescrEdit.Height = 20
       DescrEdit.TabStop = False
       DescrEdit.Anchors = [akLeft, akTop, akRight]
@@ -181,7 +188,7 @@ inherited frmRelOsResumido: TfrmRelOsResumido
       DescrEdit.Font.Style = []
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
-      DescrEdit.TabOrder = 5
+      DescrEdit.TabOrder = 7
       OnFrmPesquisaClose = edtClienteFrmPesquisaClose
     end
     object edtImpressora: TGigatronLblEdit
@@ -235,7 +242,7 @@ inherited frmRelOsResumido: TfrmRelOsResumido
       OnExit = edtImpressoraExit
       DescrEdit.Left = 94
       DescrEdit.Top = 185
-      DescrEdit.Width = 170
+      DescrEdit.Width = 159
       DescrEdit.Height = 20
       DescrEdit.TabStop = False
       DescrEdit.Anchors = [akLeft, akTop, akRight]
@@ -249,7 +256,7 @@ inherited frmRelOsResumido: TfrmRelOsResumido
       DescrEdit.Font.Style = []
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
-      DescrEdit.TabOrder = 6
+      DescrEdit.TabOrder = 8
       OnFrmPesquisaClose = edtClienteFrmPesquisaClose
     end
     object grpOrdenar: TcxRadioGroup
@@ -282,13 +289,13 @@ inherited frmRelOsResumido: TfrmRelOsResumido
       StyleDisabled.LookAndFeel.Kind = lfFlat
       StyleFocused.LookAndFeel.Kind = lfFlat
       StyleHot.LookAndFeel.Kind = lfFlat
-      TabOrder = 8
+      TabOrder = 5
       Height = 55
-      Width = 252
+      Width = 241
     end
     object rdgTipo: TcxRadioGroup
       Left = 6
-      Top = 306
+      Top = 311
       Anchors = [akLeft, akTop, akRight]
       Caption = '  Tipo  '
       Properties.Columns = 2
@@ -314,8 +321,12 @@ inherited frmRelOsResumido: TfrmRelOsResumido
           Value = '4'
         end
         item
-          Caption = 'Todas'
+          Caption = 'Erro'
           Value = '5'
+        end
+        item
+          Caption = 'Todas'
+          Value = '6'
         end>
       ItemIndex = 0
       Style.BorderColor = clGradientActiveCaption
@@ -324,9 +335,9 @@ inherited frmRelOsResumido: TfrmRelOsResumido
       StyleDisabled.LookAndFeel.Kind = lfFlat
       StyleFocused.LookAndFeel.Kind = lfFlat
       StyleHot.LookAndFeel.Kind = lfFlat
-      TabOrder = 9
-      Height = 66
-      Width = 252
+      TabOrder = 6
+      Height = 79
+      Width = 241
     end
     object edtUsuario: TGigatronLblEdit
       Left = 12
@@ -380,7 +391,7 @@ inherited frmRelOsResumido: TfrmRelOsResumido
       OnExit = edtUsuarioExit
       DescrEdit.Left = 139
       DescrEdit.Top = 225
-      DescrEdit.Width = 125
+      DescrEdit.Width = 114
       DescrEdit.Height = 20
       DescrEdit.TabStop = False
       DescrEdit.Anchors = [akLeft, akTop, akRight]
@@ -394,63 +405,48 @@ inherited frmRelOsResumido: TfrmRelOsResumido
       DescrEdit.Font.Style = []
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
-      DescrEdit.TabOrder = 7
+      DescrEdit.TabOrder = 9
       OnFrmPesquisaClose = edtClienteFrmPesquisaClose
     end
   end
-  object Panel1: TPanel
-    Left = 0
-    Top = 378
-    Width = 266
-    Height = 46
-    Align = alBottom
-    Color = clGradientInactiveCaption
-    ParentBackground = False
+  inherited PainelBotoes: TPanel
+    Top = 402
+    Width = 255
     TabOrder = 1
-    DesignSize = (
-      266
-      46)
-    object btnSair: TcxButton
-      Left = 137
-      Top = 10
-      Width = 75
-      Height = 25
-      Anchors = [akRight, akBottom]
-      Caption = 'Sair'
-      Glyph.Data = {
-        36030000424D3603000000000000360000002800000010000000100000000100
-        18000000000000030000120B0000120B00000000000000000000FF00FFFF00FF
-        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-        FF00FF00009A00009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A0000
-        9AFF00FFFF00FFFF00FFFF00FFFF00FF00009A174AFD103BF400009AFF00FFFF
-        00FFFF00FFFF00FF00009A002CF80030FC00009AFF00FFFF00FFFF00FFFF00FF
-        00009A1A47F81A4CFF123BF100009AFF00FFFF00FF00009A012DF60132FF002A
-        F300009AFF00FFFF00FFFF00FFFF00FFFF00FF00009A1C47F61B4DFF143EF400
-        009A00009A002DF80134FF032BF200009AFF00FFFF00FFFF00FFFF00FFFF00FF
-        FF00FFFF00FF00009A1D48F61D50FF103DFB0431FE0132FF002CF600009AFF00
-        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A1A48F913
-        42FF0C3CFF0733F600009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-        FF00FFFF00FFFF00FF00009A214EFC1D4BFF1847FF1743F600009AFF00FFFF00
-        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A2E5BF92C5FFF22
-        4DF8204BF82355FF1B46F600009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-        FF00FF00009A3664FA386BFF2D59F400009A00009A224CF42558FF1D49F60000
-        9AFF00FFFF00FFFF00FFFF00FFFF00FF00009A4071FA4274FF325DF100009AFF
-        00FFFF00FF00009A224DF1275AFF204CF800009AFF00FFFF00FFFF00FFFF00FF
-        00009A497AFC3B66F300009AFF00FFFF00FFFF00FFFF00FF00009A2550F42655
-        FA00009AFF00FFFF00FFFF00FFFF00FFFF00FF00009A00009AFF00FFFF00FFFF
-        00FFFF00FFFF00FFFF00FF00009A00009AFF00FFFF00FFFF00FFFF00FFFF00FF
-        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
-      LookAndFeel.Kind = lfFlat
+    ExplicitTop = 402
+    ExplicitWidth = 255
+    inherited btnSair: TcxButton
+      Left = 361
+      TabOrder = 4
+      ExplicitLeft = 361
+    end
+    inherited btnConfirmar: TcxButton
+      Left = -48
+      Top = 31
       TabOrder = 1
-      OnClick = btnSairClick
+      Visible = False
+      ExplicitLeft = -48
+      ExplicitTop = 31
+    end
+    inherited btnRetornar: TcxButton
+      Left = -48
+      Top = 30
+      TabOrder = 2
+      Visible = False
+      ExplicitLeft = -48
+      ExplicitTop = 30
+    end
+    inherited btnExcluir: TcxButton
+      Left = -48
+      Top = 30
+      TabOrder = 3
+      Visible = False
+      ExplicitLeft = -48
+      ExplicitTop = 30
     end
     object btnImprimir: TcxButton
-      Left = 54
-      Top = 10
+      Left = 49
+      Top = 8
       Width = 75
       Height = 25
       Anchors = [akLeft, akBottom]
@@ -494,19 +490,57 @@ inherited frmRelOsResumido: TfrmRelOsResumido
       TabOrder = 0
       OnClick = btnImprimirClick
     end
+    object cxButton1: TcxButton
+      Left = 131
+      Top = 8
+      Width = 75
+      Height = 25
+      Anchors = [akBottom]
+      Caption = 'Sair'
+      Glyph.Data = {
+        36030000424D3603000000000000360000002800000010000000100000000100
+        18000000000000030000120B0000120B00000000000000000000FF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FF00009A00009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A0000
+        9AFF00FFFF00FFFF00FFFF00FFFF00FF00009A174AFD103BF400009AFF00FFFF
+        00FFFF00FFFF00FF00009A002CF80030FC00009AFF00FFFF00FFFF00FFFF00FF
+        00009A1A47F81A4CFF123BF100009AFF00FFFF00FF00009A012DF60132FF002A
+        F300009AFF00FFFF00FFFF00FFFF00FFFF00FF00009A1C47F61B4DFF143EF400
+        009A00009A002DF80134FF032BF200009AFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FF00009A1D48F61D50FF103DFB0431FE0132FF002CF600009AFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A1A48F913
+        42FF0C3CFF0733F600009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FF00009A214EFC1D4BFF1847FF1743F600009AFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF00009A2E5BF92C5FFF22
+        4DF8204BF82355FF1B46F600009AFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FF00009A3664FA386BFF2D59F400009A00009A224CF42558FF1D49F60000
+        9AFF00FFFF00FFFF00FFFF00FFFF00FF00009A4071FA4274FF325DF100009AFF
+        00FFFF00FF00009A224DF1275AFF204CF800009AFF00FFFF00FFFF00FFFF00FF
+        00009A497AFC3B66F300009AFF00FFFF00FFFF00FFFF00FF00009A2550F42655
+        FA00009AFF00FFFF00FFFF00FFFF00FFFF00FF00009A00009AFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FF00009A00009AFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
+      LookAndFeel.Kind = lfFlat
+      TabOrder = 5
+      OnClick = btnSairClick
+    end
   end
   object RvProject1: TRvProject
     Engine = RvSystem
-    Left = 151
-    Top = 143
+    Left = 143
+    Top = 255
   end
-  object rvdsOS: TRvDataSetConnection
+  object rvdsOSres: TRvDataSetConnection
     LocalFilter = False
     RuntimeVisibility = rtDeveloper
     DisableDataSource = False
     DataSet = cds
-    Left = 191
-    Top = 143
+    Left = 183
+    Top = 255
   end
   object RvSystem: TRvSystem
     TitleSetup = 'Output Options'
@@ -519,15 +553,15 @@ inherited frmRelOsResumido: TfrmRelOsResumido
     SystemPrinter.StatusFormat = 'Printing page %p'
     SystemPrinter.Title = 'Rave Report'
     SystemPrinter.UnitsFactor = 1.000000000000000000
-    Left = 231
-    Top = 143
+    Left = 223
+    Top = 255
   end
   object RvRenderHTML1: TRvRenderHTML
     DisplayName = 'Web Page (HTML)'
     FileExtension = '*.html;*.htm'
     ServerMode = False
     UseBreakingSpaces = True
-    Left = 191
+    Left = 175
     Top = 191
   end
   object RvRenderPDF1: TRvRenderPDF
@@ -535,34 +569,33 @@ inherited frmRelOsResumido: TfrmRelOsResumido
     FileExtension = '*.pdf'
     DocInfo.Creator = 'Rave Reports (http://www.nevrona.com/rave)'
     DocInfo.Producer = 'Nevrona Designs'
-    Left = 231
+    Left = 215
     Top = 191
   end
-  object sds: TSQLDataSet
-    SchemaName = 'sysdba'
+  object SQLDataSet1: TSQLDataSet
     DbxCommandType = 'Dbx.SQL'
     MaxBlobSize = -1
     Params = <>
     SQLConnection = DM.Conn
-    Left = 127
-    Top = 59
+    Left = 7
+    Top = 3
   end
-  object dsp: TDataSetProvider
-    DataSet = sds
+  object DataSetProvider1: TDataSetProvider
+    DataSet = SQLDataSet1
     Options = [poAllowCommandText, poUseQuoteChar]
-    Left = 159
-    Top = 59
+    Left = 39
+    Top = 3
   end
-  object cds: TClientDataSet
+  object ClientDataSet1: TClientDataSet
     Aggregates = <>
     Params = <>
     ProviderName = 'dsp'
-    Left = 191
-    Top = 59
+    Left = 71
+    Top = 3
   end
-  object ds: TDataSource
-    DataSet = cds
-    Left = 223
-    Top = 59
+  object DataSource1: TDataSource
+    DataSet = ClientDataSet1
+    Left = 103
+    Top = 3
   end
 end

@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, unPadraoRelatorios, cxGraphics, cxControls, cxLookAndFeels,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels,
   cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, dxSkinBlack,
   dxSkinBlue, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
   dxSkinFoggy, dxSkinGlassOceans, dxSkiniMaginary, dxSkinLilian,
@@ -17,28 +17,37 @@ uses
   DB, DBClient, Provider, SqlExpr, RpRenderHTML, RpRender, RpRenderPDF, RpBase,
   RpSystem, RpRave, RpDefine, RpCon, RpConDS, StdCtrls, cxButtons, cxTextEdit,
   cxMaskEdit, cxDropDownEdit, cxCalendar, ExtCtrls, Mask, LabeledDBEdit,
-  cxGroupBox, cxRadioGroup;
+  cxGroupBox, cxRadioGroup, unPadraoCadastro, XPMan;
 
 type
-  TfrmRelContador = class(TfrmPadraoRelatorios)
-    edtImpressora: TGigatronLblEdit;
-    grpStatus: TcxRadioGroup;
+  TfrmRelContador = class(TfrmPadraoCadastro)
     rvdsContador: TRvDataSetConnection;
     RvProject1: TRvProject;
     RvSystem: TRvSystem;
+    Panel1: TPanel;
+    grpData: TGroupBox;
+    Label2: TLabel;
+    Label1: TLabel;
+    edtDataInicial: TcxDateEdit;
+    edtDataFinal: TcxDateEdit;
+    edtImpressora: TGigatronLblEdit;
+    grpStatus: TcxRadioGroup;
+    RvRenderPDF1: TRvRenderPDF;
+    RvRenderHTML1: TRvRenderHTML;
+    btnImprimir: TcxButton;
     procedure edtImpressoraExit(Sender: TObject);
     procedure edtImpressoraSubButtonPesquisaClick(Sender: TObject);
     procedure edtImpressoraEnter(Sender: TObject);
     procedure edtImpressoraFrmPesquisaClose(Sender: TObject);
     procedure btnImprimirClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure btnSairClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    caminho_relatorio: string;
+    caminho_relatorio: String;
     function Montar_SQL:boolean;
+    procedure Conf_Tela(Etapa: Smallint); virtual;
   end;
 
 var
@@ -74,10 +83,10 @@ begin
     Aviso('Nenhum registro foi encontrado!!!');
 end;
 
-procedure TfrmRelContador.btnSairClick(Sender: TObject);
+procedure TfrmRelContador.Conf_Tela(Etapa: Smallint);
 begin
-  inherited;
-//
+  PainelDados.Enabled := True;
+  edtDataInicial.SetFocus;
 end;
 
 procedure TfrmRelContador.edtImpressoraEnter(Sender: TObject);
@@ -106,8 +115,9 @@ end;
 
 procedure TfrmRelContador.FormShow(Sender: TObject);
 begin
-  inherited;
+  Conf_Tela(0);
   caminho_relatorio := DM.ParamGeral.CaminhoRelatorioContador;
+  frmRelContador := Self;
 end;
 
 function TfrmRelContador.Montar_SQL: boolean;

@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, unPadraoRelatorios, cxGraphics, cxControls, cxLookAndFeels,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels,
   cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, dxSkinBlack,
   dxSkinBlue, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
   dxSkinFoggy, dxSkinGlassOceans, dxSkiniMaginary, dxSkinLilian,
@@ -17,18 +17,24 @@ uses
   cxGroupBox, cxRadioGroup, StdCtrls, Mask, LabeledDBEdit, DB, DBClient,
   Provider, SqlExpr, RpRenderHTML, RpRender, RpRenderPDF, RpBase, RpSystem,
   RpRave, RpDefine, RpCon, RpConDS, cxButtons, cxTextEdit, cxMaskEdit,
-  cxDropDownEdit, cxCalendar, ExtCtrls;
+  cxDropDownEdit, cxCalendar, ExtCtrls, unPadraoCadastro, XPMan;
 
 type
-  TfrmRelOSErro = class(TfrmPadraoRelatorios)
-    edtCliente: TGigatronLblEdit;
-    edtImpressora: TGigatronLblEdit;
-    grpOrdenar: TcxRadioGroup;
+  TfrmRelOSErro = class(TfrmPadraoCadastro)
     rvdsOS: TRvDataSetConnection;
     rvdsDetalhe: TRvDataSetConnection;
     RvSystem: TRvSystem;
     RvProject1: TRvProject;
+    grpOrdenar: TcxRadioGroup;
     edtUsuario: TGigatronLblEdit;
+    edtImpressora: TGigatronLblEdit;
+    edtCliente: TGigatronLblEdit;
+    grpData: TGroupBox;
+    Label2: TLabel;
+    Label1: TLabel;
+    edtDataInicial: TcxDateEdit;
+    edtDataFinal: TcxDateEdit;
+    btnImprimir: TcxButton;
     procedure FormShow(Sender: TObject);
     procedure btnImprimirClick(Sender: TObject);
     procedure edtClienteExit(Sender: TObject);
@@ -39,12 +45,13 @@ type
     procedure edtImpressoraSubButtonPesquisaClick(Sender: TObject);
     procedure edtUsuarioExit(Sender: TObject);
     procedure edtUsuarioSubButtonPesquisaClick(Sender: TObject);
-    procedure btnSairClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
+    caminho_relatorio: String;
     function Montar_SQL:boolean;
+    procedure Conf_Tela(Etapa: Smallint); virtual;
   end;
 
 var
@@ -73,10 +80,9 @@ begin
     Aviso('Nenhum registro foi encontrado!!!');
 end;
 
-procedure TfrmRelOSErro.btnSairClick(Sender: TObject);
+procedure TfrmRelOSErro.Conf_Tela(Etapa: Smallint);
 begin
-  inherited;
-//
+  PainelDados.Enabled := True;
 end;
 
 procedure TfrmRelOSErro.edtClienteEnter(Sender: TObject);
@@ -129,7 +135,7 @@ end;
 
 procedure TfrmRelOSErro.FormShow(Sender: TObject);
 begin
-  inherited;
+  Conf_Tela(0);
   caminho_relatorio := DM.ParamGeral.CaminhoRelatorioOSErro;
 end;
 
@@ -147,8 +153,8 @@ begin
     '    OS.QTD_PAGINAS,                                                                      ' + #13 +
     '    OS.OBSERVACAO,                                                                       ' + #13 +
     '    OS.ARQUIVO,                                                                          ' + #13 +
-    '    DECODE(OS.STATUS, 0, ''Em Aberto'', 1, ''Em Execução'', 2, ''Encerrada'') AS STATUS, ' + #13 +
-    '    IIF(OS.FLAG_FRENTE_VERSO IN (0,2), '''', ''X'') AS FRENTE_VERSO,                     ' + #13 +
+    '    DECODE(OS.STATUS, 0, ''Em Aberto'', 1, ''Em Execução'', 2, ''Encerrada'', 3, ''Faturada'') AS STATUS, ' + #13 +
+    '    IIF(OS.FLAG_FRENTE_VERSO IN (0,3), '''', ''SIM'') AS FRENTE_VERSO,                     ' + #13 +
     '    OS.CONTADOR_INICIAL,                                                                 ' + #13 +
     '    OS.CONTADOR_FINAL,                                                                   ' + #13 +
     '    IMP.ID,                                                                              ' + #13 +
@@ -167,7 +173,7 @@ begin
     '    INNER JOIN IMPRESSORAS IMP ON                                                        ' + #13 +
     '        OS.ID_IMPRESSORA = IMP.ID                                                        ' + #13 +
     'WHERE OS.DATA BETWEEN ' + QuotedStr(FormataDataFirebird(edtDataInicial.Text)) + ' AND ' + QuotedStr(FormataDataFirebird(edtDataFinal.Text)) + #13 +
-    '  AND OS.STATUS = 2 ' + #13 +
+    '  AND OS.STATUS IN(2,3) ' + #13 +
     '  AND COALESCE(((COALESCE(OS.CONTADOR_FINAL, OS.CONTADOR_INICIAL) - COALESCE(OS.CONTADOR_INICIAL, 0)) - (QTD * QTD_PAGINAS)), 0) > 0 ' ;
 
   if edtCliente.Text <> '' then

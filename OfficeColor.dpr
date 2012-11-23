@@ -38,7 +38,6 @@ uses
   unRelOS in 'unRelOS.pas' {frmRelOS},
   unRelOSResumido in 'unRelOSResumido.pas' {frmRelOsResumido},
   unParametros in 'unParametros.pas' {frmParametros},
-  unPadraoRelatorios in 'unPadraoRelatorios.pas' {frmPadraoRelatorios},
   unRelOSErro in 'unRelOSErro.pas' {frmRelOSErro},
   unPesquisaOS in 'unPesquisaOS.pas' {frmPesquisaOS},
   unCadGruposAcesso in 'unCadGruposAcesso.pas' {frmCadGruposAcesso},
@@ -46,7 +45,9 @@ uses
   unRelContador in 'unRelContador.pas' {frmRelContador},
   unCadConsumiveis in 'unCadConsumiveis.pas' {frmCadConsumiveis},
   unTrocaConsumiveis in 'unTrocaConsumiveis.pas' {frmTrocaConsumiveis},
-  unRelTrocaConsumiveis in 'unRelTrocaConsumiveis.pas' {frmRelTrocaConsumiveis};
+  unRelTrocaConsumiveis in 'unRelTrocaConsumiveis.pas' {frmRelTrocaConsumiveis},
+  unPadraoGeral in 'unPadraoGeral.pas' {frmPadraoGeral},
+  unPesquisasGeral in 'unPesquisasGeral.pas' {frmPesquisasGeral};
 
 {$R *.res}
 
@@ -55,14 +56,19 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.Title := 'Office Color';
   Application.CreateForm(TDM, DM);
-  Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TfrmLogin, frmLogin);
-  frmLogin.ShowModal;
+  if True then
+  begin
+    Application.CreateForm(TfrmPrincipal, frmPrincipal);
+    Application.CreateForm(TfrmLogin, frmLogin);
 
-  if not frmPrincipal.confirmou_login then
-    Application.Terminate;
+    frmLogin.ShowModal;
 
-  frmLogin.Hide;
+    if not frmPrincipal.confirmou_login then
+      Application.Terminate;
+
+    frmLogin.Close;
+  end;
+
 
   Application.Run;
 end.

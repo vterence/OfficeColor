@@ -110,7 +110,7 @@ var
 implementation
 
 {$R *.dfm}
-uses unPadraoPesquisas, unRegrasForm, unPesquisaOS;
+uses unRegrasForm, unPesquisaOS, unPesquisasGeral, unPadraoPesquisas;
 
 function TDM.Excluir(cds:TClientDataSet):boolean;
 var
@@ -143,8 +143,8 @@ begin
 
     (edtCodigo as TLabeledDBEdit).pesquisaSQL.Clear;
     (edtCodigo as TLabeledDBEdit).pesquisaSQL.Add(Sql);
-    Application.CreateForm(TfrmPadraoPesquisas, frmPadraoPesquisas);
-    (edtCodigo as TLabeledDBEdit).FrmPesquisaFK := frmPadraoPesquisas;
+    Application.CreateForm(TfrmPesquisasGeral, frmPesquisasGeral);
+    (edtCodigo as TLabeledDBEdit).FrmPesquisaFK := frmPesquisasGeral;
   end
   else
     if ( edtCodigo.ClassType = TGigatronLblEdit ) then
@@ -153,8 +153,8 @@ begin
 
       (edtCodigo as TGigatronLblEdit).pesquisaSQL.Clear;
       (edtCodigo as TGigatronLblEdit).pesquisaSQL.Add(Sql);
-      Application.CreateForm(TfrmPadraoPesquisas, frmPadraoPesquisas);
-      (edtCodigo as TGigatronLblEdit).FrmPesquisaFK := frmPadraoPesquisas;
+      Application.CreateForm(TfrmPesquisasGeral, frmPesquisasGeral);
+      (edtCodigo as TGigatronLblEdit).FrmPesquisaFK := frmPesquisasGeral;
     end;
 end;
 
@@ -330,14 +330,14 @@ begin
   Result := '';
   Retorno_Pesquisa := '';
   Pos_Ret_Pesquisa := pColRet;
-  Application.CreateForm(TfrmPadraoPesquisas, frmPadraoPesquisas);
+  Application.CreateForm(TfrmPesquisasGeral, frmPesquisasGeral);
   if ( pTituloLabel <> '' ) then
 //    frmPadraoPesquisas.lblConteudo.Caption := pTituloLabel;
-  frmPadraoPesquisas.Caption := pTituloForm;
+  frmPesquisasGeral.Caption := pTituloForm;
   DM.cdsPesquisasGeral.Close;
   DM.cdsPesquisasGeral.CommandText := pSQL;
 
-  frmPadraoPesquisas.ShowModal;
+  frmPesquisasGeral.ShowModal;
   if ( Trim(Retorno_Pesquisa) <> '' ) then
     Result := Retorno_Pesquisa
   else

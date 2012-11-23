@@ -69,7 +69,7 @@ end;
 procedure TfrmPrincipal.Abrir_Formulario(pForm, pCodMenu, pParamTag: String);
 var
   lClassPersistente: TPersistentClass;
-  lFormulario: TfrmPadrao;
+  lFormulario: TFrmPadrao;
   lNomeFormulario: String;
   i, lFormIndex,lFormNormalIndex: Integer;
 begin
@@ -121,7 +121,7 @@ begin
       lClassPersistente := GetClass(lNomeFormulario);
       if ( lClassPersistente <> nil ) then
       begin
-        lFormulario := (TComponentClass(lClassPersistente).Create(Application) as TfrmPadrao);
+        lFormulario := (TComponentClass(lClassPersistente).Create(Application) as TFrmPadrao);
         lFormulario.Nome_Menu := pCodMenu;
         lFormulario.Show;
       end

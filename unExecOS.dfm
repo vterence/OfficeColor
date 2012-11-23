@@ -838,6 +838,10 @@
           item
             Caption = 'Cortesia'
             Value = '4'
+          end
+          item
+            Caption = 'Erro'
+            Value = '5'
           end>
         Properties.ReadOnly = True
         Style.LookAndFeel.Kind = lfFlat

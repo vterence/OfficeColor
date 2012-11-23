@@ -16,38 +16,35 @@ uses
   dxSkinValentine, dxSkinXmas2008Blue, StdCtrls, Mask, DBCtrls, LabeledDBEdit,
   cxGroupBox, cxRadioGroup, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxCalendar,
   cxButtons, ExtCtrls, RpRenderPDF, RpRender, RpRenderHTML, RpBase, RpSystem,
-  RpCon, RpConDS, RpDefine, RpRave, FMTBcd, DB, DBClient, Provider, SqlExpr, unPadraoRelatorios;
+  RpCon, RpConDS, RpDefine, RpRave, FMTBcd, DB, DBClient, Provider, SqlExpr, unPadraoCadastro,
+  XPMan;
 
 type
-  TfrmRelOS = class(TFrmPadrao)
-    PainelCodigo: TPanel;
+  TfrmRelOS = class(TFrmPadraoCadastro)
+    rvdsOS: TRvDataSetConnection;
+    RvRenderHTML1: TRvRenderHTML;
+    RvRenderPDF1: TRvRenderPDF;
+    rvdsDetalhe: TRvDataSetConnection;
+    RvProject1: TRvProject;
+    RvSystem: TRvSystem;
+    Panel2: TPanel;
     grpData: TGroupBox;
     Label2: TLabel;
     Label1: TLabel;
     edtDataInicial: TcxDateEdit;
     edtDataFinal: TcxDateEdit;
     grpStatus: TcxRadioGroup;
-    Panel1: TPanel;
     edtCliente: TGigatronLblEdit;
-    rvdsOS: TRvDataSetConnection;
-    RvRenderHTML1: TRvRenderHTML;
-    RvRenderPDF1: TRvRenderPDF;
-    sds: TSQLDataSet;
-    dsp: TDataSetProvider;
-    cds: TClientDataSet;
-    ds: TDataSource;
-    sdsDet: TSQLDataSet;
-    dspDet: TDataSetProvider;
-    cdsDet: TClientDataSet;
-    dsDet: TDataSource;
-    rvdsDetalhe: TRvDataSetConnection;
     edtImpressora: TGigatronLblEdit;
-    btnSair: TcxButton;
-    btnImprimir: TcxButton;
-    RvProject1: TRvProject;
-    RvSystem: TRvSystem;
     rdgTipo: TcxRadioGroup;
     edtUsuario: TGigatronLblEdit;
+    cxButton2: TcxButton;
+    cxButton1: TcxButton;
+    rvdsRes: TRvDataSetConnection;
+    sdsRes: TSQLDataSet;
+    dspRes: TDataSetProvider;
+    cdsRes: TClientDataSet;
+    dsRes: TDataSource;
     procedure edtClienteExit(Sender: TObject);
     procedure edtClienteFrmPesquisaClose(Sender: TObject);
     procedure edtClienteSubButtonPesquisaClick(Sender: TObject);
@@ -66,6 +63,7 @@ type
     { Public declarations }
     caminho_relatorio: string;
     function Montar_SQL:boolean;
+    procedure Conf_Tela(Etapa: Smallint); virtual;
   end;
 
 var
@@ -103,12 +101,14 @@ end;
 
 procedure TfrmRelOS.cdsDetAfterClose(DataSet: TDataSet);
 begin
-
-  cdsDet.Close;
   cdsDet.MasterSource    := nil;
   cdsDet.IndexFieldNames := '';
   cdsDet.MasterFields    := '';
+end;
 
+procedure TfrmRelOS.Conf_Tela(Etapa: Smallint);
+begin
+  PainelDados.Enabled := True;
 end;
 
 procedure TfrmRelOS.edtClienteEnter(Sender: TObject);
@@ -162,8 +162,9 @@ end;
 
 procedure TfrmRelOS.FormShow(Sender: TObject);
 begin
-  inherited;
+  Conf_Tela(0);
   caminho_relatorio := DM.ParamGeral.CaminhoRelatorioOS;
+  edtDataInicial.SetFocus;
 end;
 
 function TfrmRelOS.Montar_SQL: boolean;
@@ -181,8 +182,8 @@ begin
     '    OS.OBSERVACAO,                                                                       ' + #13 +
     '    OS.ARQUIVO,                                                                          ' + #13 +
     '    OS.VALOR,                                                                            ' + #13 +
-    '    DECODE(OS.STATUS, 0, ''Em Aberto'', 1, ''Em Execução'', 2, ''Encerrada'') AS STATUS, ' + #13 +
-    '    IIF(OS.FLAG_FRENTE_VERSO IN(0,2), '''', ''SIM'') AS FRENTE_VERSO,                    ' + #13 +
+    '    DECODE(OS.STATUS, 0, ''Em Aberto'', 1, ''Em Execução'', 2, ''Encerrada'', 3, ''Faturada'') AS STATUS, ' + #13 +
+    '    IIF(OS.FLAG_FRENTE_VERSO IN(0,3), '''', ''SIM'') AS FRENTE_VERSO,                    ' + #13 +
     '    OS.CONTADOR_INICIAL,                                                                 ' + #13 +
     '    OS.CONTADOR_FINAL,                                                                   ' + #13 +
     '    IMP.ID,                                                                              ' + #13 +
@@ -198,10 +199,9 @@ begin
     '        CLI.COD_CIDADE = CID.COD_CIDADE                                                  ' + #13 +
     '    INNER JOIN IMPRESSORAS IMP ON                                                        ' + #13 +
     '        OS.ID_IMPRESSORA = IMP.ID                                                        ' + #13 +
-    'WHERE OS.DATA BETWEEN ' + QuotedStr(FormataDataFirebird(edtDataInicial.Text)) + ' AND ' + QuotedStr(FormataDataFirebird(edtDataFinal.Text)) + #13 +
-    '  AND OS.DATA_FATURAMENTO IS NULL                                                        ';
+    'WHERE OS.DATA BETWEEN ' + QuotedStr(FormataDataFirebird(edtDataInicial.Text)) + ' AND ' + QuotedStr(FormataDataFirebird(edtDataFinal.Text)) + #13 ;
 
-  if rdgTipo.ItemIndex < 5 then
+  if rdgTipo.ItemIndex < 6 then
     texto := texto + ' AND OS.FLAG_FINALIDADE = ' + IntToStr(rdgTipo.ItemIndex);
 
   if edtCliente.Text <> '' then
@@ -213,12 +213,14 @@ begin
   if edtUsuario.Text <> '' then
     texto := texto + ' AND OS.USUARIO = ' + QuotedStr(edtUsuario.Text);
 
-  if grpStatus.ItemIndex < 3 then
+  if grpStatus.ItemIndex < 4 then
     texto := texto + ' AND OS.STATUS = ' + IntToStr(grpStatus.ItemIndex);
 
   texto := texto + ' ORDER BY OS.COD_OS, OS.DATA ';
 
   Result := DM.BuscaCDS(cds, texto);
+
+  if not Result then exit;
 
   texto :=
     ' SELECT                                                   ' +
@@ -233,11 +235,39 @@ begin
 
   DM.BuscaCDS(cdsDet, texto);
 
-  cdsDet.Open;
+  //cdsDet.Open;
   cdsDet.MasterSource := ds;
   cdsDet.IndexFieldNames := 'COD_OS';
   cdsDet.MasterFields    := 'COD_OS';
 
+  texto :=
+    ' SELECT                                                                                                     ' + #13 +
+    '     DECODE(OS.STATUS, 0, ''EM ABERTO'', 1, ''EM EXECUÇÃO'', 2, ''ENCERRADA'', 3, ''FATURADA'') AS STATUS,  ' + #13 +
+    '     COALESCE(COUNT(*), 0) AS QTD_OS,                                                                       ' + #13 +
+    '     COALESCE(SUM(CONTADOR_FINAL - CONTADOR_INICIAL), 0) AS TOTAL_PAGINAS                                   ' + #13 +
+    ' FROM OS                                                                                                    ' + #13 +
+    '    INNER JOIN CLIENTES CLI ON                                                                              ' + #13 +
+    '        CLI.ID_CLIENTE = OS.ID_CLIENTE                                                                      ' + #13 +
+    '    INNER JOIN CIDADES CID ON                                                                               ' + #13 +
+    '        CLI.COD_CIDADE = CID.COD_CIDADE                                                                     ' + #13 +
+    '    INNER JOIN IMPRESSORAS IMP ON                                                                           ' + #13 +
+    '        OS.ID_IMPRESSORA = IMP.ID                                                                           ' + #13 +
+    ' WHERE OS.DATA BETWEEN ' + QuotedStr(FormataDataFirebird(edtDataInicial.Text)) + ' AND ' + QuotedStr(FormataDataFirebird(edtDataFinal.Text)) + #13 ;
+  if rdgTipo.ItemIndex < 6 then
+    texto := texto + ' AND OS.FLAG_FINALIDADE = ' + IntToStr(rdgTipo.ItemIndex);
+
+  if edtCliente.Text <> '' then
+    texto := texto + ' AND CLI.ID_CLIENTE = ' + edtCliente.Text;
+
+  if edtImpressora.Text <> '' then
+    texto := texto + ' AND IMP.ID = ' + edtImpressora.Text;
+
+  if edtUsuario.Text <> '' then
+    texto := texto + ' AND OS.USUARIO = ' + QuotedStr(edtUsuario.Text);
+
+  texto := texto + ' GROUP BY STATUS ' ;
+
+  DM.BuscaCDS(cdsRes, texto);
 end;
 
 initialization

@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, unPadraoRelatorios, cxGraphics, cxControls, cxLookAndFeels,
+  Dialogs, cxGraphics, cxControls, cxLookAndFeels,
   cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, dxSkinBlack,
   dxSkinBlue, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
   dxSkinFoggy, dxSkinGlassOceans, dxSkiniMaginary, dxSkinLilian,
@@ -17,15 +17,31 @@ uses
   DB, DBClient, Provider, SqlExpr, RpRenderHTML, RpDefine, RpRender,
   RpRenderPDF, StdCtrls, cxButtons, cxTextEdit, cxMaskEdit, cxDropDownEdit,
   cxCalendar, ExtCtrls, Mask, LabeledDBEdit, RpBase, RpSystem, RpCon, RpConDS,
-  RpRave;
+  RpRave, unPadraoCadastro, XPMan;
 
 type
-  TfrmRelTrocaConsumiveis = class(TfrmPadraoRelatorios)
-    edtImpressora: TGigatronLblEdit;
+  TfrmRelTrocaConsumiveis = class(TfrmPadraoCadastro)
     RvProject1: TRvProject;
     rvdsConsumiveis: TRvDataSetConnection;
     RvSystem: TRvSystem;
+    Panel1: TPanel;
+    grpData: TGroupBox;
+    Label2: TLabel;
+    Label1: TLabel;
+    edtDataInicial: TcxDateEdit;
+    edtDataFinal: TcxDateEdit;
+    edtImpressora: TGigatronLblEdit;
     edtConsumivel: TGigatronLblEdit;
+    RvRenderPDF1: TRvRenderPDF;
+    RvRenderHTML1: TRvRenderHTML;
+    SQLDataSet1: TSQLDataSet;
+    DataSetProvider1: TDataSetProvider;
+    ClientDataSet1: TClientDataSet;
+    DataSource1: TDataSource;
+    RvProject2: TRvProject;
+    RvDataSetConnection1: TRvDataSetConnection;
+    RvSystem1: TRvSystem;
+    btnImprimir: TcxButton;
     procedure edtImpressoraEnter(Sender: TObject);
     procedure edtImpressoraExit(Sender: TObject);
     procedure edtImpressoraFrmPesquisaClose(Sender: TObject);
@@ -35,13 +51,13 @@ type
     procedure edtConsumivelExit(Sender: TObject);
     procedure edtConsumivelFrmPesquisaClose(Sender: TObject);
     procedure edtConsumivelSubButtonPesquisaClick(Sender: TObject);
-    procedure btnSairClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
     caminho_relatorio: string;
     function Montar_SQL:boolean;
+    procedure Conf_Tela(Etapa: Smallint); virtual;
   end;
 
 var
@@ -78,10 +94,10 @@ begin
     Aviso('Nenhum registro foi encontrado!!!');
 end;
 
-procedure TfrmRelTrocaConsumiveis.btnSairClick(Sender: TObject);
+procedure TfrmRelTrocaConsumiveis.Conf_Tela(Etapa: Smallint);
 begin
-  inherited;
-//
+  PainelDados.Enabled := True;
+  edtDataInicial.SetFocus;
 end;
 
 procedure TfrmRelTrocaConsumiveis.edtConsumivelExit(Sender: TObject);
@@ -137,8 +153,9 @@ end;
 
 procedure TfrmRelTrocaConsumiveis.FormShow(Sender: TObject);
 begin
-  inherited;
+  Conf_Tela(0);
   caminho_relatorio := DM.ParamGeral.CaminhoRelatorioConsumiveis;
+  frmRelTrocaConsumiveis := self;
 end;
 
 function TfrmRelTrocaConsumiveis.Montar_SQL: boolean;

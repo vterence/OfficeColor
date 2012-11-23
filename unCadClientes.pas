@@ -36,7 +36,6 @@ type
     rdgTipo: TDBRadioGroup;
     procedure btnNovoClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure btnSairClick(Sender: TObject);
     procedure cdsNewRecord(DataSet: TDataSet);
     procedure edtCidadeExit(Sender: TObject);
     procedure edtCidadeSubButtonPesquisaClick(Sender: TObject);
@@ -94,12 +93,6 @@ procedure TfrmCadClientes.btnRetornarClick(Sender: TObject);
 begin
   inherited;
   Conf_Tela(ctSearch);
-end;
-
-procedure TfrmCadClientes.btnSairClick(Sender: TObject);
-begin
-  inherited;
-  Close;
 end;
 
 procedure TfrmCadClientes.cdsAfterOpen(DataSet: TDataSet);

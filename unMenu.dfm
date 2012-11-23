@@ -81,9 +81,11 @@
         ImageIndex = 3
         object m011TFrmRelOS: TMenuItem
           Caption = 'Relat'#243'rio de O.S.'
+          ImageIndex = 3
         end
-        object m012TFrmRelOSResumido: TMenuItem
+        object m012TfrmRelOsResumido: TMenuItem
           Caption = 'Relat'#243'rio de O.S. Resumido'
+          ImageIndex = 3
         end
         object m014TFrmRelOSErro: TMenuItem
           Caption = 'Relat'#243'rio de OS com Erro'

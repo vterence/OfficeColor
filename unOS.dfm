@@ -79,7 +79,7 @@
     object MemoObservações: TDBMemo
       Left = 17
       Top = 165
-      Width = 272
+      Width = 216
       Height = 71
       Anchors = [akLeft, akTop, akRight]
       BorderStyle = bsNone
@@ -772,7 +772,7 @@
       end
     end
     object cxDBRadioGroup1: TcxDBRadioGroup
-      Left = 295
+      Left = 239
       Top = 160
       Caption = '  Tipo  '
       DataBinding.DataField = 'FLAG_FRENTE_VERSO'
@@ -812,11 +812,12 @@
       Width = 107
     end
     object grpFinalidade: TcxDBRadioGroup
-      Left = 408
+      Left = 352
       Top = 160
       Caption = '  Finalidade  '
       DataBinding.DataField = 'FLAG_FINALIDADE'
       DataBinding.DataSource = ds
+      Properties.Columns = 2
       Properties.Items = <
         item
           Caption = 'OS'
@@ -831,12 +832,16 @@
           Value = '2'
         end
         item
-          Caption = 'Arquivo Interno'
+          Caption = 'Arq Interno'
           Value = '3'
         end
         item
           Caption = 'Cortesia'
           Value = '4'
+        end
+        item
+          Caption = 'Erro'
+          Value = '5'
         end>
       Style.LookAndFeel.Kind = lfFlat
       StyleDisabled.LookAndFeel.Kind = lfFlat
@@ -844,7 +849,7 @@
       StyleHot.LookAndFeel.Kind = lfFlat
       TabOrder = 10
       Height = 77
-      Width = 120
+      Width = 176
     end
     object edtValor: TLabeledDBEdit
       Left = 444
@@ -898,7 +903,7 @@
       PesquisaButton.Visible = False
       ModalPesquisa = False
       ModalCadastro = False
-      Text = 'LABELEDDBEDIT2'
+      Text = 'EDTVALOR'
       DescrEdit.Left = 528
       DescrEdit.Top = 21
       DescrEdit.Width = 0

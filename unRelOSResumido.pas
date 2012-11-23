@@ -17,11 +17,15 @@ uses
   DB, DBClient, Provider, SqlExpr, RpRenderPDF, RpRender, RpRenderHTML, RpBase,
   RpSystem, RpCon, RpConDS, RpDefine, RpRave, StdCtrls, cxButtons, Mask,
   LabeledDBEdit, cxGroupBox, cxRadioGroup, cxTextEdit, cxMaskEdit,
-  cxDropDownEdit, cxCalendar, ExtCtrls, unPadraoRelatorios, RvLDCompiler;
+  cxDropDownEdit, cxCalendar, ExtCtrls, unPadraoCadastro, RvLDCompiler, XPMan;
 
 type
-  TfrmRelOsResumido = class(TFrmPadrao)
-    PainelCodigo: TPanel;
+  TfrmRelOsResumido = class(TFrmPadraoCadastro)
+    RvProject1: TRvProject;
+    rvdsOSres: TRvDataSetConnection;
+    RvSystem: TRvSystem;
+    RvRenderHTML1: TRvRenderHTML;
+    RvRenderPDF1: TRvRenderPDF;
     grpData: TGroupBox;
     Label2: TLabel;
     Label1: TLabel;
@@ -30,21 +34,15 @@ type
     grpStatus: TcxRadioGroup;
     edtCliente: TGigatronLblEdit;
     edtImpressora: TGigatronLblEdit;
-    Panel1: TPanel;
-    btnSair: TcxButton;
-    btnImprimir: TcxButton;
-    RvProject1: TRvProject;
-    rvdsOS: TRvDataSetConnection;
-    RvSystem: TRvSystem;
-    RvRenderHTML1: TRvRenderHTML;
-    RvRenderPDF1: TRvRenderPDF;
-    sds: TSQLDataSet;
-    dsp: TDataSetProvider;
-    cds: TClientDataSet;
-    ds: TDataSource;
     grpOrdenar: TcxRadioGroup;
     rdgTipo: TcxRadioGroup;
     edtUsuario: TGigatronLblEdit;
+    btnImprimir: TcxButton;
+    cxButton1: TcxButton;
+    SQLDataSet1: TSQLDataSet;
+    DataSetProvider1: TDataSetProvider;
+    ClientDataSet1: TClientDataSet;
+    DataSource1: TDataSource;
     procedure edtClienteExit(Sender: TObject);
     procedure edtClienteFrmPesquisaClose(Sender: TObject);
     procedure edtClienteSubButtonPesquisaClick(Sender: TObject);
@@ -52,7 +50,6 @@ type
     procedure edtImpressoraSubButtonPesquisaClick(Sender: TObject);
     procedure edtClienteEnter(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure btnSairClick(Sender: TObject);
     procedure btnImprimirClick(Sender: TObject);
     procedure edtUsuarioExit(Sender: TObject);
     procedure edtUsuarioSubButtonPesquisaClick(Sender: TObject);
@@ -60,8 +57,9 @@ type
     { Private declarations }
   public
     { Public declarations }
-    caminho_relatorio: string;
+    caminho_relatorio: String;
     function Montar_SQL:boolean;
+    procedure Conf_Tela(Etapa: Smallint); virtual;
   end;
 
 var
@@ -76,7 +74,6 @@ uses unDM, unDatas, unRegrasForm;
 
 procedure TfrmRelOsResumido.btnImprimirClick(Sender: TObject);
 begin
-  inherited;
   if (edtDataInicial.Text = '') or (edtDataFinal.Text = '') then
   begin
     Aviso('Informe data inicial e data final!!!');
@@ -93,9 +90,10 @@ begin
     Aviso('Nenhum registro foi encontrado!!!');
 end;
 
-procedure TfrmRelOsResumido.btnSairClick(Sender: TObject);
+procedure TfrmRelOsResumido.Conf_Tela(Etapa: Smallint);
 begin
-  Close;
+  PainelDados.Enabled := True;
+  edtDataInicial.SetFocus;
 end;
 
 procedure TfrmRelOsResumido.edtClienteEnter(Sender: TObject);
@@ -150,8 +148,8 @@ end;
 
 procedure TfrmRelOsResumido.FormShow(Sender: TObject);
 begin
-  inherited;
-  caminho_relatorio := DM.ParamGeral.CaminhoRelatorioOSResumido;;
+  Conf_Tela(0);
+  caminho_relatorio := DM.ParamGeral.CaminhoRelatorioOSResumido;
 end;
 
 function TfrmRelOsResumido.Montar_SQL: boolean;
@@ -168,8 +166,8 @@ begin
     '    OS.QTD_PAGINAS,                                                                      ' + #13 +
     '    OS.OBSERVACAO,                                                                       ' + #13 +
     '    OS.ARQUIVO,                                                                          ' + #13 +
-    '    DECODE(OS.STATUS, 0, ''Em Aberto'', 1, ''Em Execução'', 2, ''Encerrada'') AS STATUS, ' + #13 +
-    '    IIF(OS.FLAG_FRENTE_VERSO IN (0,2), '''', ''SIM'') AS FRENTE_VERSO,                   ' + #13 +
+    '    DECODE(OS.STATUS, 0, ''Em Aberto'', 1, ''Em Execução'', 2, ''Encerrada'', 3, ''Faturada'') AS STATUS, ' + #13 +
+    '    IIF(OS.FLAG_FRENTE_VERSO IN (0,3), '''', ''SIM'') AS FRENTE_VERSO,                   ' + #13 +
     '    OS.CONTADOR_INICIAL,                                                                 ' + #13 +
     '    OS.CONTADOR_FINAL,                                                                   ' + #13 +
     '    IMP.ID,                                                                              ' + #13 +
@@ -189,7 +187,7 @@ begin
     '        OS.ID_IMPRESSORA = IMP.ID                                                        ' + #13 +
     'WHERE OS.DATA BETWEEN ' + QuotedStr(FormataDataFirebird(edtDataInicial.Text)) + ' AND ' + QuotedStr(FormataDataFirebird(edtDataFinal.Text));
 
-  if rdgTipo.ItemIndex < 5 then
+  if rdgTipo.ItemIndex < 6 then
     texto := texto + ' AND OS.FLAG_FINALIDADE = ' + IntToStr(rdgTipo.ItemIndex);
 
   if edtCliente.Text <> '' then
@@ -201,7 +199,7 @@ begin
   if edtUsuario.Text <> '' then
     texto := texto + ' AND OS.USUARIO = ' + QuotedStr(edtUsuario.Text);
 
-  if grpStatus.ItemIndex < 3 then
+  if grpStatus.ItemIndex < 4 then
     texto := texto + ' AND OS.STATUS = ' + IntToStr(grpStatus.ItemIndex);
 
   case grpOrdenar.ItemIndex of

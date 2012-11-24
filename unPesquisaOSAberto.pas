@@ -19,45 +19,36 @@ uses
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, ComCtrls,
   AdvDateTimePicker, AdvDBDateTimePicker, Mask, LabeledDBEdit, cxContainer,
   cxGroupBox, cxRadioGroup, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxCalendar,
-  FMTBcd, DBClient, Provider, SqlExpr, unDatas;
+  FMTBcd, DBClient, Provider, SqlExpr, unDatas, unPesquisasGeral,
+  cxImageComboBox, unPadraoCadastro, XPMan;
 
 type
-  TfrmPesquisaOSAberto = class(TFrmPadrao)
-    gridView1: TcxGridDBTableView;
-    gridLevel1: TcxGridLevel;
+  TfrmPesquisaOSAberto = class(TFrmPadraoCadastro)
     grid: TcxGrid;
-    PainelCodigo: TPanel;
-    btnBuscar: TcxButton;
-    btnSair: TcxButton;
-    grpData: TGroupBox;
-    Label2: TLabel;
-    Label1: TLabel;
-    edtConteudo: TGigatronLblEdit;
-    grpStatus: TcxRadioGroup;
-    grpTipo: TcxRadioGroup;
-    edtDataInicial: TcxDateEdit;
-    edtDataFinal: TcxDateEdit;
-    sds: TSQLDataSet;
-    dsp: TDataSetProvider;
-    cds: TClientDataSet;
-    ds: TDataSource;
+    gridView1: TcxGridDBTableView;
+    gridView1Column5: TcxGridDBColumn;
     gridView1Column1: TcxGridDBColumn;
     gridView1Column2: TcxGridDBColumn;
     gridView1Column3: TcxGridDBColumn;
     gridView1Column4: TcxGridDBColumn;
-    gridView1Column5: TcxGridDBColumn;
-    sdsDet: TSQLDataSet;
-    dspDet: TDataSetProvider;
-    cdsDet: TClientDataSet;
-    dsDet: TDataSource;
-    gridLevel2: TcxGridLevel;
+    gridView1Column6: TcxGridDBColumn;
     gridDBTableView1: TcxGridDBTableView;
     gridDBTableView1Column1: TcxGridDBColumn;
     gridDBTableView1Column2: TcxGridDBColumn;
-    cxStyleRepository1: TcxStyleRepository;
-    cxStyle1: TcxStyle;
-    gridView1Column6: TcxGridDBColumn;
-    procedure btnSairClick(Sender: TObject);
+    gridLevel1: TcxGridLevel;
+    gridLevel2: TcxGridLevel;
+    cxStyleRepository2: TcxStyleRepository;
+    cxStyle2: TcxStyle;
+    grpTipo: TcxRadioGroup;
+    grpStatus: TcxRadioGroup;
+    grpData: TGroupBox;
+    Label2: TLabel;
+    Label1: TLabel;
+    edtDataInicial: TcxDateEdit;
+    edtDataFinal: TcxDateEdit;
+    btnBuscar: TcxButton;
+    edtConteudo: TEdit;
+    btnFechar: TcxButton;
     procedure FormShow(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure gridView1CellDblClick(Sender: TcxCustomGridTableView;
@@ -65,6 +56,7 @@ type
       AShift: TShiftState; var AHandled: Boolean);
     procedure cdsAfterClose(DataSet: TDataSet);
     procedure cdsAfterOpen(DataSet: TDataSet);
+    procedure cxButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -82,7 +74,6 @@ uses unRegrasForm, unDM, unExecOS;
 procedure TfrmPesquisaOSAberto.btnBuscarClick(Sender: TObject);
 var texto: String;
 begin
-  inherited;
   if edtDataInicial.Text = '' then
   begin
     Aviso('Data inicial não foi informada!');
@@ -131,12 +122,6 @@ begin
 
 end;
 
-procedure TfrmPesquisaOSAberto.btnSairClick(Sender: TObject);
-begin
-  inherited;
-  Close;
-end;
-
 procedure TfrmPesquisaOSAberto.cdsAfterClose(DataSet: TDataSet);
 begin
   inherited;
@@ -160,9 +145,13 @@ begin
   cdsDet.Open;
 end;
 
+procedure TfrmPesquisaOSAberto.cxButton1Click(Sender: TObject);
+begin
+  btnSairClick(self);
+end;
+
 procedure TfrmPesquisaOSAberto.FormShow(Sender: TObject);
 begin
-  inherited;
   edtDataInicial.Text := DateToStr(Date);
   edtDataFinal.Text   := DateToStr(Date);
   edtDataInicial.SetFocus;

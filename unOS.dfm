@@ -235,7 +235,7 @@
       OnFrmPesquisaClose = edtUsuarioFrmPesquisaClose
       showFrmPesquisaOnEnter = True
     end
-    object LabeledDBEdit1: TLabeledDBEdit
+    object edtArquivo: TLabeledDBEdit
       Left = 17
       Top = 130
       Width = 511
@@ -288,7 +288,7 @@
       PesquisaButton.Visible = False
       ModalPesquisa = True
       ModalCadastro = False
-      Text = 'LABELEDDBEDIT1'
+      Text = 'EDTARQUIVO'
       DescrEdit.Left = 531
       DescrEdit.Top = 130
       DescrEdit.Width = 0

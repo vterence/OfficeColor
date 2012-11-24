@@ -24,7 +24,7 @@ type
     PainelCodigo: TPanel;
     Código: TLabel;
     edtConteudo: TEdit;
-    btnBuscar: TcxButton;
+    btnBuscarPesquisa: TcxButton;
     PainelDados: TPanel;
     gradeTB: TcxGridDBTableView;
     gradeLevel1: TcxGridLevel;
@@ -40,7 +40,7 @@ type
     grPadraoLevel1: TcxGridLevel;
     cxStyleRepository1: TcxStyleRepository;
     cxStyle1: TcxStyle;
-    procedure btnBuscarClick(Sender: TObject);
+    procedure btnBuscarPesquisaClick(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
     procedure gradeTBKeyPress(Sender: TObject; var Key: Char);
     procedure gradeTBDblClick(Sender: TObject);
@@ -107,7 +107,7 @@ begin
   end;
 end;
 
-procedure TfrmPadraoPesquisas.btnBuscarClick(Sender: TObject);
+procedure TfrmPadraoPesquisas.btnBuscarPesquisaClick(Sender: TObject);
 var i : integer;
 begin
   DM.Retornar := True;

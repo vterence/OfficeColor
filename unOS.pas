@@ -26,7 +26,7 @@ type
     MemoObservações: TDBMemo;
     edtUsuario: TLabeledDBEdit;
     edtCliente: TLabeledDBEdit;
-    LabeledDBEdit1: TLabeledDBEdit;
+    edtArquivo: TLabeledDBEdit;
     edtQtdPaginas: TLabeledDBEdit;
     edtQtd: TLabeledDBEdit;
     sdsItens: TSQLDataSet;
@@ -79,6 +79,7 @@ type
   public
     { Public declarations }
     procedure Atribuir_Busca      ; override;
+    function ValidarDados:boolean ; override;
     procedure Abrir_Itens_OS(codigo_os: String);
     procedure Conf_Tela(Etapa: smallint);
   end;
@@ -117,7 +118,7 @@ begin
   sql_busca :=  'SELECT * FROM OS WHERE COD_OS = '+ QuotedStr(edtCodigo.Text);
 end;
 
-procedure TfrmOS.btnBuscaClick(Sender: TObject);
+procedure TFrmOS.btnBuscaClick(Sender: TObject);
 begin
   if ( Trim(edtCodigo.Text) = '' ) or ( Trim(edtCodigo.Text) = '0' ) then
     edtCodigo.Text := DM.PesquisaOS(Sql_Pesquisa, Titulo_Pesquisa, Titulo_Label, 0);
@@ -429,6 +430,42 @@ begin
     ApplyUpdates(-1);
   end;
   Abrir_Itens_OS(edtCodigo.Text);
+end;
+
+function TfrmOS.ValidarDados: boolean;
+begin
+  Result := true;
+  if edtCliente.Text = '' then
+  begin
+    Aviso('É necessário informar um cliente!!!');
+    edtCliente.SetFocus;
+    Result := false;
+    exit;
+  end;
+
+  if edtImpressora.Text = '' then
+  begin
+    Aviso('É necessário informar uma impressora!!!');
+    edtImpressora.SetFocus;
+    Result := false;
+    exit;
+  end;
+
+  if edtUsuario.Text = '' then
+  begin
+    Aviso('É necessário informar um usuario!!!');
+    edtUsuario.SetFocus;
+    Result := false;
+    exit;
+  end;
+
+  if edtArquivo.Text = '' then
+  begin
+    Aviso('É necessário informar um usuario!!!');
+    edtArquivo.SetFocus;
+    Result := false;
+    exit;
+  end;
 end;
 
 initialization

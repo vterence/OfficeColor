@@ -46,7 +46,6 @@ uses
   unCadConsumiveis in 'unCadConsumiveis.pas' {frmCadConsumiveis},
   unTrocaConsumiveis in 'unTrocaConsumiveis.pas' {frmTrocaConsumiveis},
   unRelTrocaConsumiveis in 'unRelTrocaConsumiveis.pas' {frmRelTrocaConsumiveis},
-  unPadraoGeral in 'unPadraoGeral.pas' {frmPadraoGeral},
   unPesquisasGeral in 'unPesquisasGeral.pas' {frmPesquisasGeral};
 
 {$R *.res}

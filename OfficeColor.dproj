@@ -162,9 +162,6 @@
 			<DCCReference Include="unRelTrocaConsumiveis.pas">
 				<Form>frmRelTrocaConsumiveis</Form>
 			</DCCReference>
-			<DCCReference Include="unPadraoGeral.pas">
-				<Form>frmPadraoGeral</Form>
-			</DCCReference>
 			<DCCReference Include="unPesquisasGeral.pas">
 				<Form>frmPesquisasGeral</Form>
 			</DCCReference>
@@ -192,8 +189,8 @@
 						<VersionInfo Name="AutoIncBuild">True</VersionInfo>
 						<VersionInfo Name="MajorVer">1</VersionInfo>
 						<VersionInfo Name="MinorVer">0</VersionInfo>
-						<VersionInfo Name="Release">0</VersionInfo>
-						<VersionInfo Name="Build">10</VersionInfo>
+						<VersionInfo Name="Release">1</VersionInfo>
+						<VersionInfo Name="Build">1</VersionInfo>
 						<VersionInfo Name="Debug">False</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
 						<VersionInfo Name="Special">False</VersionInfo>
@@ -205,7 +202,7 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">Office Color</VersionInfoKeys>
 						<VersionInfoKeys Name="FileDescription"/>
-						<VersionInfoKeys Name="FileVersion">1.0.0.10</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.0.1.1</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName"/>
 						<VersionInfoKeys Name="LegalCopyright"/>
 						<VersionInfoKeys Name="LegalTrademarks"/>
@@ -218,6 +215,11 @@
 						<Source Name="MainSource">OfficeColor.dpr</Source>
 					</Source>
 					<Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\8.0\Bpl\JclDebugExpert110.bpl">File C:\Users\Public\Documents\RAD Studio\8.0\Bpl\JclDebugExpert110.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\8.0\Bpl\JclBaseExpert110.bpl">File C:\Users\Public\Documents\RAD Studio\8.0\Bpl\JclBaseExpert110.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\8.0\Bpl\JclProjectAnalysisExpert110.bpl">File C:\Users\Public\Documents\RAD Studio\8.0\Bpl\JclProjectAnalysisExpert110.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\8.0\Bpl\JclRepositoryExpert110.bpl">File C:\Users\Public\Documents\RAD Studio\8.0\Bpl\JclRepositoryExpert110.bpl not found</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\8.0\Bpl\JclSIMDViewExpert110.bpl">File C:\Users\Public\Documents\RAD Studio\8.0\Bpl\JclSIMDViewExpert110.bpl not found</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\dclIntraweb_110_150.bpl">VCL for the Web 11.0 Design Package for Embarcadero RAD Studio XE</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k150.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\dclofficexp150.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>

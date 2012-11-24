@@ -47,7 +47,7 @@
       TabOrder = 0
       TextHint = 'Conte'#250'do'
     end
-    object btnBuscar: TcxButton
+    object btnBuscarPesquisa: TcxButton
       Left = 520
       Top = 15
       Width = 95
@@ -55,7 +55,7 @@
       Caption = 'Buscar'
       LookAndFeel.Kind = lfOffice11
       TabOrder = 1
-      OnClick = btnBuscarClick
+      OnClick = btnBuscarPesquisaClick
     end
     object btnSair: TcxButton
       Left = 520

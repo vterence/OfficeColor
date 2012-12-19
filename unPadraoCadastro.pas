@@ -264,9 +264,10 @@ end;
 
 procedure TfrmPadraoCadastro.FormShow(Sender: TObject);
 begin
-  inherited;
+//  inherited;
   LimparCampos := true;
   Conf_Tela(ctSearch);
+  Conf_Campos((Sender) as TForm);
 end;
 
 procedure TfrmPadraoCadastro.RetornoFormAsString(pValsRetorno: TStrings);

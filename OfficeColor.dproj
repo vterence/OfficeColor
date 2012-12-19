@@ -51,6 +51,8 @@
 			<DCC_RemoteDebug>true</DCC_RemoteDebug>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<DCC_MapFile>3</DCC_MapFile>
+			<DCC_Define>EUREKALOG;EUREKALOG_VER7;$(DCC_Define)</DCC_Define>
 			<DCC_ExeOutput>app\</DCC_ExeOutput>
 			<DCC_DcuOutput>bin\dcu</DCC_DcuOutput>
 			<DCC_DcpOutput>bin\</DCC_DcpOutput>
@@ -111,9 +113,6 @@
 			</DCCReference>
 			<DCCReference Include="unCadItens.pas">
 				<Form>frmCadItens</Form>
-			</DCCReference>
-			<DCCReference Include="unRelClientes.pas">
-				<Form>frmRelClientes</Form>
 			</DCCReference>
 			<DCCReference Include="unRotinasCEP.pas"/>
 			<DCCReference Include="unOS.pas">
@@ -190,7 +189,7 @@
 						<VersionInfo Name="MajorVer">1</VersionInfo>
 						<VersionInfo Name="MinorVer">0</VersionInfo>
 						<VersionInfo Name="Release">1</VersionInfo>
-						<VersionInfo Name="Build">1</VersionInfo>
+						<VersionInfo Name="Build">9</VersionInfo>
 						<VersionInfo Name="Debug">False</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
 						<VersionInfo Name="Special">False</VersionInfo>
@@ -202,7 +201,7 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">Office Color</VersionInfoKeys>
 						<VersionInfoKeys Name="FileDescription"/>
-						<VersionInfoKeys Name="FileVersion">1.0.1.1</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.0.1.9</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName"/>
 						<VersionInfoKeys Name="LegalCopyright"/>
 						<VersionInfoKeys Name="LegalTrademarks"/>

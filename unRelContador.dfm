@@ -161,7 +161,6 @@ inherited frmRelContador: TfrmRelContador
         DescrEdit.ParentFont = False
         DescrEdit.ReadOnly = True
         DescrEdit.TabOrder = 3
-        OnFrmPesquisaClose = edtImpressoraFrmPesquisaClose
       end
       object grpStatus: TcxRadioGroup
         Left = 6

@@ -29,12 +29,17 @@ type
     cdsTroca: TClientDataSet;
     dsTroca: TDataSource;
     btnBuscar: TcxButton;
+    PopupMenu1: TPopupMenu;
+    ExcluirItem1: TMenuItem;
+    N1: TMenuItem;
+    ExcluirTodos1: TMenuItem;
     procedure FormShow(Sender: TObject);
     procedure cdsAfterOpen(DataSet: TDataSet);
     procedure cdsAfterClose(DataSet: TDataSet);
     procedure btnNovoClick(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure cdsTrocaNewRecord(DataSet: TDataSet);
+    procedure ExcluirItem1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -123,6 +128,17 @@ begin
   DataSet.FieldByName('DATA'         ).AsDateTime := date;
 end;
 
+procedure TfrmCadConsumiveis.ExcluirItem1Click(Sender: TObject);
+begin
+  inherited;
+  with cdsTroca do
+  begin
+    delete;
+    ApplyUpdates(-1);
+    Refresh;
+  end;
+end;
+
 procedure TfrmCadConsumiveis.FormShow(Sender: TObject);
 begin
   inherited;
@@ -134,7 +150,7 @@ begin
   ' IMP.NOME "Impressora"                         '+
   ' FROM CONSUMIVEIS                              '+
   '   INNER JOIN IMPRESSORAS IMP ON               '+
-  '     IMP.ID = CONSUMIVEIS.ID                   '+
+  '     IMP.ID = CONSUMIVEIS.ID_IMPRESSORA        '+
   ' WHERE NOME LIKE :TEXTO                        ';
   titulo_pesquisa := 'Pesquisa de CONSUMÍVEIS';
   sql_busca := 'SELECT * FROM CONSUMIVEIS WHERE ID = ';

@@ -13,16 +13,16 @@ inherited frmRelTrocaConsumiveis: TfrmRelTrocaConsumiveis
     Width = 249
     Height = 3
     Visible = False
-    ExplicitWidth = 494
+    ExplicitWidth = 249
     ExplicitHeight = 3
   end
   inherited PainelDados: TPanel
     Top = 3
     Width = 249
     Height = 170
-    ExplicitTop = 165
+    ExplicitTop = 3
     ExplicitWidth = 249
-    ExplicitHeight = 5
+    ExplicitHeight = 170
     object Panel1: TPanel
       Left = 1
       Top = 1
@@ -32,10 +32,6 @@ inherited frmRelTrocaConsumiveis: TfrmRelTrocaConsumiveis
       Color = clGradientInactiveCaption
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 274
-      ExplicitHeight = 165
       DesignSize = (
         247
         168)
@@ -160,8 +156,6 @@ inherited frmRelTrocaConsumiveis: TfrmRelTrocaConsumiveis
         DescrEdit.ParentFont = False
         DescrEdit.ReadOnly = True
         DescrEdit.TabOrder = 3
-        DescrEdit.ExplicitWidth = 170
-        OnFrmPesquisaClose = edtImpressoraFrmPesquisaClose
       end
       object edtConsumivel: TGigatronLblEdit
         Left = 9
@@ -235,8 +229,7 @@ inherited frmRelTrocaConsumiveis: TfrmRelTrocaConsumiveis
   inherited PainelBotoes: TPanel
     Top = 173
     Width = 249
-    ExplicitLeft = -1
-    ExplicitTop = 178
+    ExplicitTop = 173
     ExplicitWidth = 249
     inherited btnSair: TcxButton
       Left = 128

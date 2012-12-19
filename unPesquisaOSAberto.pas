@@ -48,14 +48,12 @@ type
     edtDataFinal: TcxDateEdit;
     btnBuscar: TcxButton;
     edtConteudo: TEdit;
-    btnFechar: TcxButton;
     procedure FormShow(Sender: TObject);
     procedure btnBuscarClick(Sender: TObject);
     procedure gridView1CellDblClick(Sender: TcxCustomGridTableView;
       ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
       AShift: TShiftState; var AHandled: Boolean);
     procedure cdsAfterClose(DataSet: TDataSet);
-    procedure cdsAfterOpen(DataSet: TDataSet);
     procedure cxButton1Click(Sender: TObject);
   private
     { Private declarations }
@@ -96,7 +94,7 @@ begin
     '   CLI.NOME,  ' +
     '   OS.ID_IMPRESSORA, ' +
     '   IMP.MARCA || '' - '' || IMP.NOME AS IMPRESSORA, ' +
-    '   DECODE(OS.STATUS, 0, ''EM ABERTO'', 1, ''EM EXECUÇÃO'', 2, ''ENCERRADA'') AS Status' +
+    '   DECODE(OS.STATUS, 0, ''EM ABERTO'', 1, ''EM EXECUÇÃO'', 2, ''ENCERRADA'', 3, ''FATURADA'') AS Status' +
     ' FROM OS                            ' +
     '   LEFT OUTER JOIN CLIENTES CLI ON  ' +
     '     CLI.ID_CLIENTE = OS.ID_CLIENTE ' +
@@ -120,17 +118,6 @@ begin
 
   DM.BuscaCDS(cds, texto);
 
-end;
-
-procedure TfrmPesquisaOSAberto.cdsAfterClose(DataSet: TDataSet);
-begin
-  inherited;
-  cdsDet.Close;
-end;
-
-procedure TfrmPesquisaOSAberto.cdsAfterOpen(DataSet: TDataSet);
-begin
-  inherited;
   cdsDet.Close;
   cdsDet.CommandText :=
     ' SELECT                             ' + #13 +
@@ -143,6 +130,13 @@ begin
     '   INNER JOIN ITEM_TIPO TP ON       ' + #13 +
     '     IT.ID_TIPO = TP.ID_TIPO        ' ;
   cdsDet.Open;
+
+end;
+
+procedure TfrmPesquisaOSAberto.cdsAfterClose(DataSet: TDataSet);
+begin
+  inherited;
+  cdsDet.Close;
 end;
 
 procedure TfrmPesquisaOSAberto.cxButton1Click(Sender: TObject);
@@ -166,9 +160,10 @@ begin
   inherited;
   if not cds.IsEmpty then
   begin
-    if Trim(cds.FieldByName('STATUS').AsString) = 'ENCERRADA' then
+
+    if Trim(cds.FieldByName('STATUS').AsString) = 'FATURADA' then
     begin
-      Aviso('Esta OS ja foi encerrada!');
+      Aviso('Esta OS ja foi faturada!');
       exit;
     end;
 

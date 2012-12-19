@@ -28,7 +28,6 @@ uses
   unCadUsuarios in 'unCadUsuarios.pas' {frmCadUsuarios},
   unPadraoPesquisas in 'unPadraoPesquisas.pas' {frmPadraoPesquisas},
   unCadItens in 'unCadItens.pas' {frmCadItens},
-  unRelClientes in 'unRelClientes.pas' {frmRelClientes},
   unRotinasCEP in 'unRotinasCEP.pas',
   unOS in 'unOS.pas' {frmOS},
   unPesquisaOSAberto in 'unPesquisaOSAberto.pas' {frmPesquisaOSAberto},

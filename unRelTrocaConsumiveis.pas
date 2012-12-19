@@ -44,7 +44,6 @@ type
     btnImprimir: TcxButton;
     procedure edtImpressoraEnter(Sender: TObject);
     procedure edtImpressoraExit(Sender: TObject);
-    procedure edtImpressoraFrmPesquisaClose(Sender: TObject);
     procedure edtImpressoraSubButtonPesquisaClick(Sender: TObject);
     procedure btnImprimirClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -110,7 +109,7 @@ procedure TfrmRelTrocaConsumiveis.edtConsumivelFrmPesquisaClose(
   Sender: TObject);
 begin
   inherited;
-  Screen.OnActiveControlChange := Controlefoco;
+
   if edtConsumivel.ValoresRetorno.Count > 2 then
   begin
     edtConsumivel.Text           := edtConsumivel.ValoresRetorno[0];
@@ -135,13 +134,6 @@ procedure TfrmRelTrocaConsumiveis.edtImpressoraExit(Sender: TObject);
 begin
   inherited;
   DM.BuscaExitImpressora(edtImpressora, edtImpressora.DescrEdit);
-end;
-
-procedure TfrmRelTrocaConsumiveis.edtImpressoraFrmPesquisaClose(
-  Sender: TObject);
-begin
-  inherited;
-  Screen.OnActiveControlChange := Controlefoco;
 end;
 
 procedure TfrmRelTrocaConsumiveis.edtImpressoraSubButtonPesquisaClick(

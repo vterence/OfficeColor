@@ -47,7 +47,7 @@ begin
   fonte.Color := clBlack;
   fonte.Name := 'Courier New';
   fonte.Style := [];
-  fonte.Size := Aux.Size;
+//  fonte.Size := Aux.Size;
 
    //----- TLabeledDBEdit ---------------------------------------------------------------------------
   if ( Assigned(lDBEdit_Ant) ) then
@@ -102,13 +102,13 @@ end;
 
 procedure TFrmPadrao.FormCreate(Sender: TObject);
 begin
-  aux := TFont.create;
+//  aux := TFont.create;
 end;
 
 procedure TFrmPadrao.FormDestroy(Sender: TObject);
 begin
-  if ( Aux <> nil ) then
-    Aux.Free;
+//  if ( Aux <> nil ) then
+//    Aux.Free;
 end;
 
 procedure TFrmPadrao.FormKeyPress(Sender: TObject; var Key: Char);
@@ -189,7 +189,6 @@ end;
 procedure TFrmPadrao.FormShow(Sender: TObject);
 begin
   Screen.OnActiveControlChange := ControleFoco;
-  Conf_Campos((Sender) as TForm);
 end;
 
 end.

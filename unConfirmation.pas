@@ -8,7 +8,7 @@ uses
   cxLookAndFeelPainters, Menus, cxButtons;
 
 type
-  TfrmConfirmation = class(TForm)
+  TfrmConfirmation = class(TfrmPadrao)
     pnlBottom: TPanel;
     pnlTop: TPanel;
     imgIcon: TImage;

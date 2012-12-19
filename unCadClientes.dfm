@@ -11,6 +11,7 @@ inherited frmCadClientes: TfrmCadClientes
   TextHeight = 13
   inherited PainelCodigo: TPanel
     Width = 468
+    TabOrder = 1
     ExplicitWidth = 468
   end
   inherited PainelDados: TPanel
@@ -30,14 +31,18 @@ inherited frmCadClientes: TfrmCadClientes
       TabOrder = 0
       object TabSheet1: TTabSheet
         Caption = 'Dados'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         DesignSize = (
           458
           206)
         object grpEndereco: TGroupBox
           Left = 10
-          Top = 63
+          Top = 81
           Width = 432
-          Height = 125
+          Height = 115
           Anchors = [akLeft, akTop, akRight]
           Caption = ' Endere'#231'o '
           Color = clGradientInactiveCaption
@@ -46,7 +51,7 @@ inherited frmCadClientes: TfrmCadClientes
           TabOrder = 3
           DesignSize = (
             432
-            125)
+            115)
           object edtCidade: TLabeledDBEdit
             Left = 73
             Top = 16
@@ -100,7 +105,7 @@ inherited frmCadClientes: TfrmCadClientes
             LabelPosition = lpLeft
             ModalPesquisa = True
             ModalCadastro = False
-            Text = 'EDTCIDADE'
+            Text = 'edtCidade'
             DescrEdit.Left = 174
             DescrEdit.Top = 16
             DescrEdit.Width = 270
@@ -118,12 +123,11 @@ inherited frmCadClientes: TfrmCadClientes
             DescrEdit.ParentFont = False
             DescrEdit.ReadOnly = True
             DescrEdit.TabOrder = 6
-            OnFrmPesquisaClose = edtCidadeFrmPesquisaClose
             showFrmPesquisaOnEnter = True
           end
           object edtEndereco: TLabeledDBEdit
             Left = 73
-            Top = 38
+            Top = 40
             Width = 266
             Height = 20
             Anchors = [akLeft, akTop, akRight]
@@ -140,12 +144,12 @@ inherited frmCadClientes: TfrmCadClientes
             ParentFont = False
             TabOrder = 1
             EditLabel.Left = 25
-            EditLabel.Top = 41
+            EditLabel.Top = 43
             EditLabel.Width = 45
             EditLabel.Height = 13
             EditLabel.Caption = 'Endere'#231'o'
             CadastroButton.Left = 342
-            CadastroButton.Top = 38
+            CadastroButton.Top = 40
             CadastroButton.Width = 20
             CadastroButton.Height = 20
             CadastroButton.Flat = True
@@ -158,7 +162,7 @@ inherited frmCadClientes: TfrmCadClientes
             CadastroButton.ParentFont = False
             CadastroButton.Visible = False
             PesquisaButton.Left = 342
-            PesquisaButton.Top = 38
+            PesquisaButton.Top = 40
             PesquisaButton.Width = 20
             PesquisaButton.Height = 20
             PesquisaButton.Flat = True
@@ -173,9 +177,9 @@ inherited frmCadClientes: TfrmCadClientes
             LabelPosition = lpLeft
             ModalPesquisa = True
             ModalCadastro = False
-            Text = 'EDTENDERECO'
+            Text = 'edtEndereco'
             DescrEdit.Left = 342
-            DescrEdit.Top = 38
+            DescrEdit.Top = 40
             DescrEdit.Width = 0
             DescrEdit.Height = 20
             DescrEdit.TabStop = False
@@ -194,7 +198,7 @@ inherited frmCadClientes: TfrmCadClientes
           end
           object edtBairro: TLabeledDBEdit
             Left = 73
-            Top = 60
+            Top = 63
             Width = 224
             Height = 20
             Anchors = [akLeft, akTop, akRight]
@@ -211,12 +215,12 @@ inherited frmCadClientes: TfrmCadClientes
             ParentFont = False
             TabOrder = 3
             EditLabel.Left = 42
-            EditLabel.Top = 63
+            EditLabel.Top = 66
             EditLabel.Width = 28
             EditLabel.Height = 13
             EditLabel.Caption = 'Bairro'
             CadastroButton.Left = 300
-            CadastroButton.Top = 60
+            CadastroButton.Top = 63
             CadastroButton.Width = 20
             CadastroButton.Height = 20
             CadastroButton.Flat = True
@@ -229,7 +233,7 @@ inherited frmCadClientes: TfrmCadClientes
             CadastroButton.ParentFont = False
             CadastroButton.Visible = False
             PesquisaButton.Left = 300
-            PesquisaButton.Top = 60
+            PesquisaButton.Top = 63
             PesquisaButton.Width = 20
             PesquisaButton.Height = 20
             PesquisaButton.Flat = True
@@ -244,9 +248,9 @@ inherited frmCadClientes: TfrmCadClientes
             LabelPosition = lpLeft
             ModalPesquisa = True
             ModalCadastro = False
-            Text = 'EDTBAIRRO'
+            Text = 'edtBairro'
             DescrEdit.Left = 300
-            DescrEdit.Top = 60
+            DescrEdit.Top = 63
             DescrEdit.Width = 0
             DescrEdit.Height = 20
             DescrEdit.TabStop = False
@@ -265,7 +269,7 @@ inherited frmCadClientes: TfrmCadClientes
           end
           object edtTelefone1: TLabeledDBEdit
             Left = 73
-            Top = 82
+            Top = 86
             Width = 112
             Height = 20
             Anchors = [akLeft, akTop, akRight]
@@ -282,12 +286,12 @@ inherited frmCadClientes: TfrmCadClientes
             ParentFont = False
             TabOrder = 5
             EditLabel.Left = 28
-            EditLabel.Top = 85
+            EditLabel.Top = 89
             EditLabel.Width = 42
             EditLabel.Height = 13
             EditLabel.Caption = 'Telefone'
             CadastroButton.Left = 188
-            CadastroButton.Top = 82
+            CadastroButton.Top = 86
             CadastroButton.Width = 20
             CadastroButton.Height = 20
             CadastroButton.Flat = True
@@ -300,7 +304,7 @@ inherited frmCadClientes: TfrmCadClientes
             CadastroButton.ParentFont = False
             CadastroButton.Visible = False
             PesquisaButton.Left = 188
-            PesquisaButton.Top = 82
+            PesquisaButton.Top = 86
             PesquisaButton.Width = 20
             PesquisaButton.Height = 20
             PesquisaButton.Flat = True
@@ -315,9 +319,9 @@ inherited frmCadClientes: TfrmCadClientes
             LabelPosition = lpLeft
             ModalPesquisa = True
             ModalCadastro = False
-            Text = 'EDTTELEFONE1'
+            Text = 'edtTelefone1'
             DescrEdit.Left = 188
-            DescrEdit.Top = 82
+            DescrEdit.Top = 86
             DescrEdit.Width = 0
             DescrEdit.Height = 20
             DescrEdit.TabStop = False
@@ -336,7 +340,7 @@ inherited frmCadClientes: TfrmCadClientes
           end
           object edtNumero: TLabeledDBEdit
             Left = 362
-            Top = 38
+            Top = 40
             Width = 63
             Height = 20
             Anchors = [akLeft, akTop, akRight]
@@ -353,12 +357,12 @@ inherited frmCadClientes: TfrmCadClientes
             ParentFont = False
             TabOrder = 2
             EditLabel.Left = 347
-            EditLabel.Top = 41
+            EditLabel.Top = 43
             EditLabel.Width = 12
             EditLabel.Height = 13
             EditLabel.Caption = 'N'#186
             CadastroButton.Left = 428
-            CadastroButton.Top = 38
+            CadastroButton.Top = 40
             CadastroButton.Width = 20
             CadastroButton.Height = 20
             CadastroButton.Flat = True
@@ -371,7 +375,7 @@ inherited frmCadClientes: TfrmCadClientes
             CadastroButton.ParentFont = False
             CadastroButton.Visible = False
             PesquisaButton.Left = 428
-            PesquisaButton.Top = 38
+            PesquisaButton.Top = 40
             PesquisaButton.Width = 20
             PesquisaButton.Height = 20
             PesquisaButton.Flat = True
@@ -386,9 +390,9 @@ inherited frmCadClientes: TfrmCadClientes
             LabelPosition = lpLeft
             ModalPesquisa = True
             ModalCadastro = False
-            Text = 'EDTNUMERO'
+            Text = 'edtNumero'
             DescrEdit.Left = 428
-            DescrEdit.Top = 38
+            DescrEdit.Top = 40
             DescrEdit.Width = 0
             DescrEdit.Height = 20
             DescrEdit.TabStop = False
@@ -407,7 +411,7 @@ inherited frmCadClientes: TfrmCadClientes
           end
           object edtCep: TLabeledDBEdit
             Left = 328
-            Top = 60
+            Top = 63
             Width = 97
             Height = 20
             Anchors = [akLeft, akTop, akRight]
@@ -424,12 +428,12 @@ inherited frmCadClientes: TfrmCadClientes
             ParentFont = False
             TabOrder = 4
             EditLabel.Left = 306
-            EditLabel.Top = 63
+            EditLabel.Top = 66
             EditLabel.Width = 19
             EditLabel.Height = 13
             EditLabel.Caption = 'Cep'
             CadastroButton.Left = 428
-            CadastroButton.Top = 60
+            CadastroButton.Top = 63
             CadastroButton.Width = 20
             CadastroButton.Height = 20
             CadastroButton.Flat = True
@@ -442,7 +446,7 @@ inherited frmCadClientes: TfrmCadClientes
             CadastroButton.ParentFont = False
             CadastroButton.Visible = False
             PesquisaButton.Left = 428
-            PesquisaButton.Top = 60
+            PesquisaButton.Top = 63
             PesquisaButton.Width = 20
             PesquisaButton.Height = 20
             PesquisaButton.Flat = True
@@ -457,9 +461,9 @@ inherited frmCadClientes: TfrmCadClientes
             LabelPosition = lpLeft
             ModalPesquisa = True
             ModalCadastro = False
-            Text = 'EDTCEP'
+            Text = 'edtCep'
             DescrEdit.Left = 428
-            DescrEdit.Top = 60
+            DescrEdit.Top = 63
             DescrEdit.Width = 0
             DescrEdit.Height = 20
             DescrEdit.TabStop = False
@@ -479,8 +483,8 @@ inherited frmCadClientes: TfrmCadClientes
         end
         object edtNome: TLabeledDBEdit
           Left = 65
-          Top = 9
-          Width = 273
+          Top = 28
+          Width = 377
           Height = 20
           Anchors = [akLeft, akTop, akRight]
           AutoSize = False
@@ -496,12 +500,12 @@ inherited frmCadClientes: TfrmCadClientes
           ParentFont = False
           TabOrder = 0
           EditLabel.Left = 35
-          EditLabel.Top = 12
+          EditLabel.Top = 31
           EditLabel.Width = 27
           EditLabel.Height = 13
           EditLabel.Caption = 'Nome'
-          CadastroButton.Left = 341
-          CadastroButton.Top = 9
+          CadastroButton.Left = 445
+          CadastroButton.Top = 28
           CadastroButton.Width = 20
           CadastroButton.Height = 20
           CadastroButton.Flat = True
@@ -513,8 +517,8 @@ inherited frmCadClientes: TfrmCadClientes
           CadastroButton.NumGlyphs = 2
           CadastroButton.ParentFont = False
           CadastroButton.Visible = False
-          PesquisaButton.Left = 341
-          PesquisaButton.Top = 9
+          PesquisaButton.Left = 445
+          PesquisaButton.Top = 28
           PesquisaButton.Width = 20
           PesquisaButton.Height = 20
           PesquisaButton.Flat = True
@@ -529,9 +533,9 @@ inherited frmCadClientes: TfrmCadClientes
           LabelPosition = lpLeft
           ModalPesquisa = True
           ModalCadastro = False
-          Text = 'EDTNOME'
-          DescrEdit.Left = 341
-          DescrEdit.Top = 9
+          Text = 'edtNome'
+          DescrEdit.Left = 445
+          DescrEdit.Top = 28
           DescrEdit.Width = 0
           DescrEdit.Height = 20
           DescrEdit.TabStop = False
@@ -550,8 +554,8 @@ inherited frmCadClientes: TfrmCadClientes
         end
         object edtCnpjCpf: TLabeledDBEdit
           Left = 65
-          Top = 32
-          Width = 103
+          Top = 51
+          Width = 160
           Height = 20
           Anchors = [akLeft, akTop, akRight]
           AutoSize = False
@@ -567,12 +571,12 @@ inherited frmCadClientes: TfrmCadClientes
           ParentFont = False
           TabOrder = 1
           EditLabel.Left = 13
-          EditLabel.Top = 35
+          EditLabel.Top = 54
           EditLabel.Width = 49
           EditLabel.Height = 13
           EditLabel.Caption = 'Cnpj / Cpf'
-          CadastroButton.Left = 171
-          CadastroButton.Top = 32
+          CadastroButton.Left = 228
+          CadastroButton.Top = 51
           CadastroButton.Width = 20
           CadastroButton.Height = 20
           CadastroButton.Flat = True
@@ -584,8 +588,8 @@ inherited frmCadClientes: TfrmCadClientes
           CadastroButton.NumGlyphs = 2
           CadastroButton.ParentFont = False
           CadastroButton.Visible = False
-          PesquisaButton.Left = 171
-          PesquisaButton.Top = 32
+          PesquisaButton.Left = 228
+          PesquisaButton.Top = 51
           PesquisaButton.Width = 20
           PesquisaButton.Height = 20
           PesquisaButton.Flat = True
@@ -600,9 +604,9 @@ inherited frmCadClientes: TfrmCadClientes
           LabelPosition = lpLeft
           ModalPesquisa = True
           ModalCadastro = False
-          Text = 'EDTCNPJCPF'
-          DescrEdit.Left = 171
-          DescrEdit.Top = 32
+          Text = 'edtCnpjCpf'
+          DescrEdit.Left = 228
+          DescrEdit.Top = 51
           DescrEdit.Width = 0
           DescrEdit.Height = 20
           DescrEdit.TabStop = False
@@ -620,9 +624,9 @@ inherited frmCadClientes: TfrmCadClientes
           showFrmPesquisaOnEnter = True
         end
         object edtRGIE: TLabeledDBEdit
-          Left = 211
-          Top = 32
-          Width = 127
+          Left = 272
+          Top = 52
+          Width = 170
           Height = 20
           Anchors = [akLeft, akTop, akRight]
           AutoSize = False
@@ -637,13 +641,13 @@ inherited frmCadClientes: TfrmCadClientes
           Font.Style = []
           ParentFont = False
           TabOrder = 2
-          EditLabel.Left = 174
-          EditLabel.Top = 35
+          EditLabel.Left = 235
+          EditLabel.Top = 55
           EditLabel.Width = 34
           EditLabel.Height = 13
           EditLabel.Caption = 'IE / RG'
-          CadastroButton.Left = 341
-          CadastroButton.Top = 32
+          CadastroButton.Left = 445
+          CadastroButton.Top = 52
           CadastroButton.Width = 20
           CadastroButton.Height = 20
           CadastroButton.Flat = True
@@ -655,8 +659,8 @@ inherited frmCadClientes: TfrmCadClientes
           CadastroButton.NumGlyphs = 2
           CadastroButton.ParentFont = False
           CadastroButton.Visible = False
-          PesquisaButton.Left = 341
-          PesquisaButton.Top = 32
+          PesquisaButton.Left = 445
+          PesquisaButton.Top = 52
           PesquisaButton.Width = 20
           PesquisaButton.Height = 20
           PesquisaButton.Flat = True
@@ -671,9 +675,9 @@ inherited frmCadClientes: TfrmCadClientes
           LabelPosition = lpLeft
           ModalPesquisa = True
           ModalCadastro = False
-          Text = 'EDTRGIE'
-          DescrEdit.Left = 341
-          DescrEdit.Top = 32
+          Text = 'edtRGIE'
+          DescrEdit.Left = 445
+          DescrEdit.Top = 52
           DescrEdit.Width = 0
           DescrEdit.Height = 20
           DescrEdit.TabStop = False
@@ -705,12 +709,13 @@ inherited frmCadClientes: TfrmCadClientes
     end
   end
   object rdgTipo: TDBRadioGroup [3]
-    Left = 349
-    Top = 74
-    Width = 98
-    Height = 47
+    Left = 70
+    Top = 61
+    Width = 377
+    Height = 33
     Caption = '  Tipo  '
     Color = clGradientInactiveCaption
+    Columns = 2
     DataField = 'TIPO'
     DataSource = ds
     Items.Strings = (
@@ -718,7 +723,7 @@ inherited frmCadClientes: TfrmCadClientes
       'F'#237'sica')
     ParentBackground = False
     ParentColor = False
-    TabOrder = 1
+    TabOrder = 0
     Values.Strings = (
       '0'
       '1')

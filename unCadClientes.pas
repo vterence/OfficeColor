@@ -39,7 +39,6 @@ type
     procedure cdsNewRecord(DataSet: TDataSet);
     procedure edtCidadeExit(Sender: TObject);
     procedure edtCidadeSubButtonPesquisaClick(Sender: TObject);
-    procedure edtCidadeFrmPesquisaClose(Sender: TObject);
     procedure edtCidadeEnter(Sender: TObject);
     procedure cdsAfterOpen(DataSet: TDataSet);
     procedure btnBuscaClick(Sender: TObject);
@@ -49,8 +48,9 @@ type
     { Private declarations }
   public
     { Public declarations }
-    procedure Atribuir_Busca      ; override;
+    procedure Atribuir_Busca; override;
     procedure Conf_Tela(Etapa: smallint);
+    function  ValidarDados: Boolean; override;
   end;
 
 var
@@ -120,7 +120,7 @@ end;
 procedure TfrmCadClientes.cdsNewRecord(DataSet: TDataSet);
 begin
   inherited;
-  DataSet.FieldByName('TIPO').AsInteger := 1;
+  DataSet.FieldByName('TIPO').AsInteger := 0;
 end;
 
 procedure TfrmCadClientes.Conf_Tela(Etapa: smallint);
@@ -151,12 +151,6 @@ begin
   DM.BuscaExitMunicipio(edtCidade, edtCidade.DescrEdit);
 end;
 
-procedure TfrmCadClientes.edtCidadeFrmPesquisaClose(Sender: TObject);
-begin
-  inherited;
-  Screen.OnActiveControlChange := ControleFoco;
-end;
-
 procedure TfrmCadClientes.edtCidadeSubButtonPesquisaClick(Sender: TObject);
 begin
   inherited;
@@ -185,6 +179,27 @@ begin
     cds.FieldByName('CNPJ_CPF').EditMask := '!999\.999\.999\-99;0;_'
   else
     cds.FieldByName('CNPJ_CPF').EditMask := '!99\.999\.999\/9999\-99;0;_';
+end;
+
+function TfrmCadClientes.ValidarDados: Boolean;
+begin
+  if edtNome.Text = '' then
+  begin
+    Aviso('Nome não pode ficar em branco!!!');
+    edtNome.SetFocus;
+    Result := False;
+    exit;
+  end;
+
+  if edtCidade.Text = '' then
+  begin
+    Aviso('Cidade não pode ficar em branco!!!');
+    edtCidade.SetFocus;
+    Result := False;
+    exit;
+  end;
+
+  Result := True;
 end;
 
 initialization

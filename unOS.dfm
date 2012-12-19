@@ -159,7 +159,6 @@
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.TabOrder = 11
-      OnFrmPesquisaClose = edtUsuarioFrmPesquisaClose
       showFrmPesquisaOnEnter = True
     end
     object edtCliente: TLabeledDBEdit
@@ -232,7 +231,6 @@
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.TabOrder = 12
-      OnFrmPesquisaClose = edtUsuarioFrmPesquisaClose
       showFrmPesquisaOnEnter = True
     end
     object edtArquivo: TLabeledDBEdit
@@ -305,7 +303,6 @@
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.Visible = False
-      OnFrmPesquisaClose = edtUsuarioFrmPesquisaClose
       showFrmPesquisaOnEnter = True
     end
     object edtQtdPaginas: TLabeledDBEdit
@@ -377,7 +374,6 @@
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.Visible = False
-      OnFrmPesquisaClose = edtUsuarioFrmPesquisaClose
       showFrmPesquisaOnEnter = True
     end
     object edtQtd: TLabeledDBEdit
@@ -449,7 +445,6 @@
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.Visible = False
-      OnFrmPesquisaClose = edtUsuarioFrmPesquisaClose
       showFrmPesquisaOnEnter = True
     end
     object edtImpressora: TLabeledDBEdit
@@ -522,7 +517,6 @@
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.TabOrder = 13
-      OnFrmPesquisaClose = edtUsuarioFrmPesquisaClose
       showFrmPesquisaOnEnter = True
     end
     object Panel1: TPanel
@@ -670,6 +664,7 @@
         ModalCadastro = False
         ParentFont = False
         TabOrder = 1
+        OnEnter = edtUsuarioEnter
         OnExit = edtItemExit
         PesquisaSQL.Strings = (
           'SELECT * FROM CADASTROS.EMPRESAS')
@@ -920,7 +915,6 @@
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.Visible = False
-      OnFrmPesquisaClose = edtUsuarioFrmPesquisaClose
       showFrmPesquisaOnEnter = True
     end
   end
@@ -936,45 +930,6 @@
     inherited btnConfirmar: TcxButton
       Left = 15
       ExplicitLeft = 15
-    end
-    object btnFaturar: TcxButton
-      Left = 369
-      Top = 7
-      Width = 75
-      Height = 25
-      Anchors = [akLeft, akBottom]
-      Caption = 'Faturar'
-      Enabled = False
-      Glyph.Data = {
-        36030000424D3603000000000000360000002800000010000000100000000100
-        18000000000000030000120B0000120B00000000000000000000FF00FFFF00FF
-        FF00FFFF00FFFF00FF04510D045D0E04610D03610D055F0E04530CFF00FFFF00
-        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF034F0D045E0E04631204661404
-        671404661504631404651205670F04540CFF00FFFF00FFFF00FFFF00FFFF00FF
-        04540D087417077D1900870F0090005ABB657EC687008500006F0D0460150468
-        1204570CFF00FFFF00FFFF00FF13842814972C15AD3107AF2037C44797E19CDF
-        F8E1EDFCEEA1E5A63CC049008D0D04691505681204530DFF00FFFF00FF138428
-        23C44E15BA393EC557F3FCF5C7EECCA6E3ACBBEABFA9E5B0F7FEF843C84F019C
-        10046D1505630FFF00FF10812124B04F28C35816B941B3E8BFF7FDF811B62B6C
-        D27A97DF9E00AB03DBF4DDC6EECA01B310068C1705691303520D10812130C369
-        2DC26226BF5643C7684AC96806B32979D68A99DFA200AC08D6F2D8D0F1D302B2
-        1208A818067C16055E0E15942E31C66D30C3692EC26423BE5511B84119BA418E
-        DDA0D4F2D8C2ECC8FDFFFD58CB6301AF1009B31907961805660F209E393AC873
-        2EC26830C36928C06171D592DFF6E5F7FDF9EFFAF2B7E9C24AC85D03B11809B2
-        1A09B31909AF19056F0F55B66371D5973DC77324C06166D290FFFFFF9AE1B294
-        E0ADA5E4B504B32C03B2250EB5290FB5240AB31B09B619066A0C55B6638CD7A2
-        8EE0B022BF5FA1E4BBFDFFFE23BF5E7FDAA0A6E5B918BA4569D2813CC45710B6
-        2C10B8260AA61A045307FF00FF41BA58CCF2DE75D89B60D18BFFFFFF86DCA890
-        DFAFAFE8C287DBA3FFFFFF5DCF7911B73417BF350B8319FF00FFFF00FF41BA58
-        71D18BD5F5E48FDFAE9BE2B7D8F4E3ECFAF1F6FDF9DAF4E481DA9F1CBC4B22C3
-        4C17A533055308FF00FFFF00FFFF00FF10A6216ACF87CDF2DFC2EED493E0B1AD
-        E8C4B0E9C65ED18B5CD2894BD07B20AD4608620FFF00FFFF00FFFF00FFFF00FF
-        FF00FF35B95135B95180D79BB3E9C9B7ECCEAFEAC8A5E7BF80D39C38A551086C
-        10FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF0AA2191AAB322A
-        AF432CAC451E9E330B8516FF00FFFF00FFFF00FFFF00FFFF00FF}
-      LookAndFeel.Kind = lfFlat
-      TabOrder = 4
-      OnClick = btnFaturarClick
     end
   end
   inherited ds: TDataSource

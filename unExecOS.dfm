@@ -587,7 +587,7 @@
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 15
+        TabOrder = 16
         OnExit = edtImpressoraExit
         EditLabel.Left = 8
         EditLabel.Top = 73
@@ -688,7 +688,7 @@
         ModalPesquisa = True
         ModalCadastro = False
         ParentFont = False
-        TabOrder = 13
+        TabOrder = 14
         DescrEdit.Left = 344
         DescrEdit.Top = 221
         DescrEdit.Width = 170
@@ -753,7 +753,7 @@
         ModalPesquisa = True
         ModalCadastro = False
         ParentFont = False
-        TabOrder = 14
+        TabOrder = 15
         DescrEdit.Left = 506
         DescrEdit.Top = 221
         DescrEdit.Width = 170
@@ -851,6 +851,78 @@
         TabOrder = 12
         Height = 100
         Width = 107
+      end
+      object edtValor: TLabeledDBEdit
+        Left = 65
+        Top = 221
+        Width = 104
+        Height = 20
+        TabStop = False
+        AutoSize = False
+        BorderStyle = bsNone
+        CharCase = ecUpperCase
+        DataField = 'VALOR'
+        DataSource = ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'courier new'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        TabOrder = 13
+        EditLabel.Left = 38
+        EditLabel.Top = 224
+        EditLabel.Width = 24
+        EditLabel.Height = 13
+        EditLabel.Caption = 'Valor'
+        CadastroButton.Left = 172
+        CadastroButton.Top = 221
+        CadastroButton.Width = 20
+        CadastroButton.Height = 20
+        CadastroButton.Flat = True
+        CadastroButton.Font.Charset = DEFAULT_CHARSET
+        CadastroButton.Font.Color = clWindowText
+        CadastroButton.Font.Height = -11
+        CadastroButton.Font.Name = 'courier new'
+        CadastroButton.Font.Style = []
+        CadastroButton.NumGlyphs = 2
+        CadastroButton.ParentFont = False
+        CadastroButton.Visible = False
+        PesquisaButton.Left = 172
+        PesquisaButton.Top = 221
+        PesquisaButton.Width = 20
+        PesquisaButton.Height = 20
+        PesquisaButton.Flat = True
+        PesquisaButton.Font.Charset = DEFAULT_CHARSET
+        PesquisaButton.Font.Color = clWindowText
+        PesquisaButton.Font.Height = -11
+        PesquisaButton.Font.Name = 'courier new'
+        PesquisaButton.Font.Style = []
+        PesquisaButton.NumGlyphs = 2
+        PesquisaButton.ParentFont = False
+        PesquisaButton.Visible = False
+        LabelPosition = lpLeft
+        ModalPesquisa = False
+        ModalCadastro = False
+        Text = 'EDTVALOR'
+        DescrEdit.Left = 172
+        DescrEdit.Top = 221
+        DescrEdit.Width = 0
+        DescrEdit.Height = 20
+        DescrEdit.TabStop = False
+        DescrEdit.AutoSize = False
+        DescrEdit.BorderStyle = bsNone
+        DescrEdit.Color = clScrollBar
+        DescrEdit.Font.Charset = DEFAULT_CHARSET
+        DescrEdit.Font.Color = clWindowText
+        DescrEdit.Font.Height = -11
+        DescrEdit.Font.Name = 'courier new'
+        DescrEdit.Font.Style = []
+        DescrEdit.ParentFont = False
+        DescrEdit.ReadOnly = True
+        DescrEdit.Visible = False
+        showFrmPesquisaOnEnter = True
       end
     end
   end
@@ -987,6 +1059,44 @@
       LookAndFeel.Kind = lfOffice11
       TabOrder = 2
       OnClick = btnSairClick
+    end
+    object btnFaturar: TcxButton
+      Left = 214
+      Top = 6
+      Width = 90
+      Height = 45
+      Caption = 'Faturar'
+      Enabled = False
+      Glyph.Data = {
+        36030000424D3603000000000000360000002800000010000000100000000100
+        18000000000000030000120B0000120B00000000000000000000FF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FF004B00004B00FF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF004B000F9E1C0F9D1E00
+        4B00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FF004B001CB13511A4220C9C1911A021004B00FF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FF004B002EC65224BC43139224004B000D
+        931A0E9D1D004B00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF004B00
+        35CA5E39D4651CA134004B00FF00FF004B000A86150F991C004B00FF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FF004B0029B548004B00FF00FFFF00FFFF
+        00FFFF00FF004B000C9518004B00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FF004B00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF004B00098611004B
+        00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FF004B00004B00FF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FF004B00004B00FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
+      LookAndFeel.Kind = lfOffice11
+      TabOrder = 3
+      OnClick = btnFaturarClick
     end
   end
   object sdsDet: TSQLDataSet

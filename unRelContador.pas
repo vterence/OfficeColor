@@ -38,7 +38,6 @@ type
     procedure edtImpressoraExit(Sender: TObject);
     procedure edtImpressoraSubButtonPesquisaClick(Sender: TObject);
     procedure edtImpressoraEnter(Sender: TObject);
-    procedure edtImpressoraFrmPesquisaClose(Sender: TObject);
     procedure btnImprimirClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
@@ -99,12 +98,6 @@ procedure TfrmRelContador.edtImpressoraExit(Sender: TObject);
 begin
   inherited;
   DM.BuscaExitImpressora(edtImpressora, edtImpressora.DescrEdit);
-end;
-
-procedure TfrmRelContador.edtImpressoraFrmPesquisaClose(Sender: TObject);
-begin
-  inherited;
-  Screen.OnActiveControlChange := Controlefoco;
 end;
 
 procedure TfrmRelContador.edtImpressoraSubButtonPesquisaClick(Sender: TObject);

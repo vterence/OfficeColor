@@ -6,10 +6,10 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, unPadrao, cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, Menus,
   StdCtrls, cxButtons, Mask, LabeledDBEdit, ExtCtrls, dxGDIPlusClasses, FMTBcd,
-  DB, DBClient, Provider, SqlExpr;
+  DB, DBClient, Provider, SqlExpr, unPadraoCadastro, XPMan;
 
 type
-  TfrmAberturaContador = class(TFrmPadrao)
+  TfrmAberturaContador = class(TFrmPadraoCadastro)
     pnlFundo01: TPanel;
     Panel1: TPanel;
     imgIcon: TImage;
@@ -23,20 +23,16 @@ type
     edtContador: TGigatronLblEdit;
     btnOK: TcxButton;
     btnCancel: TcxButton;
-    sds: TSQLDataSet;
-    dsp: TDataSetProvider;
-    cds: TClientDataSet;
-    ds: TDataSource;
     btnFechar: TcxButton;
     Shape1: TShape;
     procedure edtImpressoraExit(Sender: TObject);
     procedure edtImpressoraSubButtonPesquisaClick(Sender: TObject);
     procedure edtImpressoraEnter(Sender: TObject);
-    procedure edtImpressoraFrmPesquisaClose(Sender: TObject);
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
   private
     { Private declarations }
     contador_inicial, contador_final: string;
@@ -179,6 +175,12 @@ begin
   end;
 end;
 
+procedure TfrmAberturaContador.btnSairClick(Sender: TObject);
+begin
+  inherited;
+//
+end;
+
 procedure TfrmAberturaContador.edtImpressoraEnter(Sender: TObject);
 begin
   inherited;
@@ -199,12 +201,6 @@ begin
   end;
 end;
 
-procedure TfrmAberturaContador.edtImpressoraFrmPesquisaClose(Sender: TObject);
-begin
-  inherited;
-  Screen.OnActiveControlChange := ControleFoco;
-end;
-
 procedure TfrmAberturaContador.edtImpressoraSubButtonPesquisaClick(
   Sender: TObject);
 begin
@@ -215,7 +211,6 @@ end;
 
 procedure TfrmAberturaContador.FormShow(Sender: TObject);
 begin
-  inherited;
   contador_inicial := '0';
   contador_final   := '0';
 end;

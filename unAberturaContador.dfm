@@ -1,16 +1,56 @@
 inherited frmAberturaContador: TfrmAberturaContador
   BorderIcons = [biSystemMenu]
-  BorderStyle = bsSingle
   Caption = 'Abertura de Contador da Impressora'
-  ClientHeight = 310
   ClientWidth = 458
   FormStyle = fsMDIChild
   Position = poScreenCenter
   Visible = True
   ExplicitWidth = 464
+  ExplicitHeight = 338
   PixelsPerInch = 96
   TextHeight = 13
-  object pnlFundo01: TPanel
+  inherited PainelCodigo: TPanel
+    Width = 458
+    Height = 0
+    TabOrder = 3
+    Visible = False
+    ExplicitWidth = 458
+    ExplicitHeight = 0
+  end
+  inherited PainelDados: TPanel
+    Top = 0
+    Width = 458
+    Height = 310
+    ExplicitTop = 0
+    ExplicitWidth = 458
+    ExplicitHeight = 310
+  end
+  inherited PainelBotoes: TPanel
+    Top = 310
+    Width = 458
+    Height = 0
+    Visible = False
+    ExplicitTop = 310
+    ExplicitWidth = 458
+    ExplicitHeight = 0
+    inherited btnSair: TcxButton
+      Top = -34
+      ExplicitTop = -34
+    end
+    inherited btnConfirmar: TcxButton
+      Top = -34
+      ExplicitTop = -34
+    end
+    inherited btnRetornar: TcxButton
+      Top = -34
+      ExplicitTop = -34
+    end
+    inherited btnExcluir: TcxButton
+      Top = -34
+      ExplicitTop = -34
+    end
+  end
+  object pnlFundo01: TPanel [3]
     Tag = 100
     Left = 0
     Top = 0
@@ -22,6 +62,8 @@ inherited frmAberturaContador: TfrmAberturaContador
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
+    ExplicitTop = 41
+    ExplicitHeight = 228
     object Panel1: TPanel
       Left = 0
       Top = 0
@@ -33,6 +75,7 @@ inherited frmAberturaContador: TfrmAberturaContador
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
+      ExplicitHeight = 228
       object imgIcon: TImage
         Left = 12
         Top = 10
@@ -272,8 +315,8 @@ inherited frmAberturaContador: TfrmAberturaContador
       object lblStatus: TLabel
         Left = 2
         Top = 167
-        Width = 454
-        Height = 92
+        Width = 259
+        Height = 29
         Align = alClient
         Alignment = taCenter
         Caption = 'CONTADOR ABERTO'
@@ -288,8 +331,6 @@ inherited frmAberturaContador: TfrmAberturaContador
         Transparent = True
         Layout = tlCenter
         Visible = False
-        ExplicitWidth = 259
-        ExplicitHeight = 29
       end
       object shpTop: TShape
         AlignWithMargins = True
@@ -318,6 +359,7 @@ inherited frmAberturaContador: TfrmAberturaContador
         Color = clWhite
         ParentBackground = False
         TabOrder = 1
+        ExplicitTop = 177
         object shpBottom: TShape
           AlignWithMargins = True
           Left = 10
@@ -423,7 +465,7 @@ inherited frmAberturaContador: TfrmAberturaContador
             00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
           LookAndFeel.Kind = lfOffice11
           TabOrder = 2
-          OnClick = btnCancelClick
+          OnClick = btnSairClick
         end
         object btnFechar: TcxButton
           Left = 142
@@ -553,7 +595,6 @@ inherited frmAberturaContador: TfrmAberturaContador
           DescrEdit.ParentFont = False
           DescrEdit.ReadOnly = True
           DescrEdit.TabOrder = 2
-          OnFrmPesquisaClose = edtImpressoraFrmPesquisaClose
           showFrmPesquisaOnEnter = True
         end
         object edtContador: TGigatronLblEdit
@@ -636,31 +677,5 @@ inherited frmAberturaContador: TfrmAberturaContador
         end
       end
     end
-  end
-  object sds: TSQLDataSet
-    DbxCommandType = 'Dbx.SQL'
-    MaxBlobSize = -1
-    Params = <>
-    SQLConnection = DM.Conn
-    Left = 312
-    Top = 8
-  end
-  object dsp: TDataSetProvider
-    DataSet = sds
-    Options = [poAllowCommandText, poUseQuoteChar]
-    Left = 344
-    Top = 8
-  end
-  object cds: TClientDataSet
-    Aggregates = <>
-    Params = <>
-    ProviderName = 'dsp'
-    Left = 376
-    Top = 8
-  end
-  object ds: TDataSource
-    DataSet = cds
-    Left = 408
-    Top = 8
   end
 end

@@ -8,7 +8,7 @@ uses
   cxLookAndFeelPainters, Menus, cxButtons;
 
 type
-  TfrmInformation = class(TForm)
+  TfrmInformation = class(TFrmPadrao)
     pnlFundo01: TPanel;
     pnlBottom: TPanel;
     pnlTop: TPanel;

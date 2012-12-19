@@ -19,8 +19,6 @@ type
     Configurações: TMenuItem;
     m004TFrmCadUsuarios: TMenuItem;
     m003TFrmCadItens: TMenuItem;
-    m005: TMenuItem;
-    m006TFrmRelClientes: TMenuItem;
     Gerenciamento: TMenuItem;
     m007TFrmOS: TMenuItem;
     m008TfrmPesquisaOSAberto: TMenuItem;

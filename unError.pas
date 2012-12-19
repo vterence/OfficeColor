@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, Dialogs, ExtCtrls,
   StdCtrls, IdMessage, IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient,
   ComCtrls, Jpeg, Buttons, ImgList, DB, cxGraphics, cxLookAndFeels,
-  cxLookAndFeelPainters, Menus, cxButtons;
+  cxLookAndFeelPainters, Menus, cxButtons, unPadrao;
 
 type
   TEmailAcount = record
@@ -36,7 +36,7 @@ type
     Release: Integer;
     Build: Integer;
   end;
-  TfrmError = class(TForm)
+  TfrmError = class(TFrmPadrao)
     pnlBottom: TPanel;
     pnlTop: TPanel;
     imgIcon: TImage;

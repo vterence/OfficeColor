@@ -27,23 +27,23 @@
     inherited edtCodigo: TEdit
       Left = 678
       Top = 36
-      TabOrder = 6
+      TabOrder = 5
       Visible = False
       ExplicitLeft = 678
       ExplicitTop = 36
     end
     inherited btnNovo: TcxButton
-      TabOrder = 7
+      TabOrder = 6
     end
     inherited btnBusca: TcxButton
-      TabOrder = 8
+      TabOrder = 7
     end
     object btnBuscarPesquisa: TcxButton
       Left = 677
       Top = 23
       Width = 75
       Height = 25
-      TabOrder = 9
+      TabOrder = 8
       Visible = False
     end
     object grpTipo: TcxRadioGroup
@@ -86,6 +86,10 @@
         item
           Caption = 'Encerrada'
           Value = '2'
+        end
+        item
+          Caption = 'Faturada'
+          Value = '3'
         end>
       ItemIndex = 0
       Style.BorderColor = clGradientActiveCaption
@@ -157,7 +161,7 @@
       Left = 677
       Top = 21
       Width = 95
-      Height = 58
+      Height = 85
       Anchors = [akTop, akRight]
       Caption = 'Buscar'
       LookAndFeel.Kind = lfOffice11
@@ -174,17 +178,6 @@
       BevelOuter = bvNone
       BorderStyle = bsNone
       TabOrder = 3
-    end
-    object btnFechar: TcxButton
-      Left = 677
-      Top = 85
-      Width = 95
-      Height = 27
-      Anchors = [akTop, akRight]
-      Caption = 'Sair'
-      LookAndFeel.Kind = lfOffice11
-      TabOrder = 5
-      OnClick = btnSairClick
     end
   end
   inherited PainelDados: TPanel
@@ -280,15 +273,25 @@
   inherited PainelBotoes: TPanel
     Top = 486
     Width = 782
-    Visible = False
     ExplicitTop = 486
     ExplicitWidth = 782
     inherited btnSair: TcxButton
       Left = 677
-      Top = 81
+      Top = 8
+      Width = 95
       Anchors = [akTop, akRight]
       ExplicitLeft = 677
-      ExplicitTop = 81
+      ExplicitTop = 8
+      ExplicitWidth = 95
+    end
+    inherited btnConfirmar: TcxButton
+      Visible = False
+    end
+    inherited btnRetornar: TcxButton
+      Visible = False
+    end
+    inherited btnExcluir: TcxButton
+      Visible = False
     end
   end
   object cxStyleRepository2: TcxStyleRepository

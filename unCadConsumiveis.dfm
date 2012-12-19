@@ -126,6 +126,7 @@ inherited frmCadConsumiveis: TfrmCadConsumiveis
       DataSource = dsTroca
       DrawingStyle = gdsGradient
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+      PopupMenu = PopupMenu1
       TabOrder = 3
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
@@ -242,5 +243,20 @@ inherited frmCadConsumiveis: TfrmCadConsumiveis
     DataSet = cdsTroca
     Left = 254
     Top = 206
+  end
+  object PopupMenu1: TPopupMenu
+    Images = frmPrincipal.ImageList1
+    Left = 287
+    Top = 160
+    object ExcluirItem1: TMenuItem
+      Caption = 'Excluir Item'
+      OnClick = ExcluirItem1Click
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object ExcluirTodos1: TMenuItem
+      Caption = 'Excluir Todos'
+    end
   end
 end

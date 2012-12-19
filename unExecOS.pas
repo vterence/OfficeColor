@@ -51,6 +51,8 @@ type
     edtContadorFinal: TGigatronLblEdit;
     grpTipo: TcxDBRadioGroup;
     grpFinalidade: TcxDBRadioGroup;
+    btnFaturar: TcxButton;
+    edtValor: TLabeledDBEdit;
     procedure edtClienteExit(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -60,6 +62,7 @@ type
     procedure btnExecutarClick(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnFaturarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -131,6 +134,32 @@ begin
   End;
 end;
 
+procedure TfrmExecOS.btnFaturarClick(Sender: TObject);
+begin
+  inherited;
+  Try
+    cds.Edit;
+    cds.FieldByName('DATA_FATURAMENTO').AsDateTime := now;
+    cds.FieldByName('STATUS').AsInteger            := 3;
+    DM.Salvar(cds);
+    cds.Refresh;
+
+    btnExecutar.Enabled := False;
+    btnFechar.Enabled   := False;
+    btnFaturar.Enabled  := False;
+    edtContadorInicial.ReadOnly := True;
+    edtContadorFinal.ReadOnly   := True;
+    btnSair.SetFocus;
+
+  Except
+    on e: Exception do
+    begin
+      Erro('Não foi possível alterar o status da OS ' + edtCodigo.Text + #13 + 'Segue baixo o erro retornado: ' + e.Message);
+      exit;
+    end;
+  end;
+end;
+
 procedure TfrmExecOS.btnFecharClick(Sender: TObject);
 var
   texto: string;
@@ -197,6 +226,7 @@ begin
   cdsDet.Open;
   edtContadorInicial.Text := cds.FieldByName('CONTADOR_INICIAL').AsString;
   edtContadorFinal.Text   := cds.FieldByName('CONTADOR_FINAL'  ).AsString;
+  TNumericField(DataSet.FieldByName('VALOR')).DisplayFormat := '###,##0.00';
 end;
 
 procedure TfrmExecOS.edtClienteExit(Sender: TObject);
@@ -231,7 +261,25 @@ begin
   edtClienteExit(Self);
   edtImpressoraExit(Self);
 
-  if cds.FieldByName('CONTADOR_INICIAL').AsString <> '' then
+  if cds.FieldByName('STATUS').AsInteger = 2 then
+  begin
+    btnExecutar.Enabled := False;
+    btnFechar.Enabled   := False;
+    btnFaturar.Enabled  := True;
+    edtContadorInicial.ReadOnly := True;
+    edtContadorFinal.ReadOnly   := True;
+
+    if grpFinalidade.ItemIndex = 0 then
+      btnFaturar.SetFocus
+    else
+    begin
+      btnFaturar.Enabled := False;
+      btnSair.SetFocus;
+    end;
+
+    exit;
+  end
+  else if (cds.FieldByName('CONTADOR_INICIAL').AsString <> '') then
   begin
     btnExecutar.Enabled := False;
     btnFechar.Enabled   := True;

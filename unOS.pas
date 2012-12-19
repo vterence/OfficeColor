@@ -47,7 +47,6 @@ type
     cxDBRadioGroup1: TcxDBRadioGroup;
     grpFinalidade: TcxDBRadioGroup;
     edtValor: TLabeledDBEdit;
-    btnFaturar: TcxButton;
     procedure FormShow(Sender: TObject);
     procedure btnBuscaClick(Sender: TObject);
     procedure btnNovoClick(Sender: TObject);
@@ -58,7 +57,6 @@ type
     procedure LabeledDBEdit1SubButtonPesquisaClick(Sender: TObject);
     procedure edtUsuarioEnter(Sender: TObject);
     procedure edtUsuarioExit(Sender: TObject);
-    procedure edtUsuarioFrmPesquisaClose(Sender: TObject);
     procedure edtClienteExit(Sender: TObject);
     procedure edtClienteSubButtonPesquisaClick(Sender: TObject);
     procedure btnItensClick(Sender: TObject);
@@ -220,7 +218,6 @@ end;
 
 procedure TfrmOS.btnRetornarClick(Sender: TObject);
 begin
-
   Conf_Tela(ctSearch);
   cdsDet.Cancel;
 end;
@@ -270,7 +267,6 @@ end;
 
 procedure TfrmOS.Conf_Tela(Etapa: smallint);
 begin
-  btnFaturar.Enabled := False;
   case Etapa of
     ctSearch:
     begin
@@ -285,7 +281,6 @@ begin
     end;
     ctNew, ctEdit:
     begin
-      btnFaturar.Enabled := cds.FieldByName('STATUS').AsInteger = 2;
       Abrir_Itens_OS(edtCodigo.Text);
       edtUsuarioExit(Self);
 
@@ -373,7 +368,6 @@ end;
 procedure TfrmOS.edtItemFrmPesquisaClose(Sender: TObject);
 begin
   inherited;
-  Screen.OnActiveControlChange := ControleFoco;
   if edtItem.ValoresRetorno.Count > 2 then
   begin
     edtTipo.Text := edtItem.ValoresRetorno[0];
@@ -398,12 +392,6 @@ procedure TfrmOS.edtUsuarioExit(Sender: TObject);
 begin
   inherited;
   DM.BuscaExitUsuario(edtUsuario, edtUsuario.DescrEdit);
-end;
-
-procedure TfrmOS.edtUsuarioFrmPesquisaClose(Sender: TObject);
-begin
-  inherited;
-  Screen.OnActiveControlChange := ControleFoco;
 end;
 
 procedure TfrmOS.mExcluirItemClick(Sender: TObject);

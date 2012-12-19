@@ -38,13 +38,11 @@ type
     rdgTipo: TcxRadioGroup;
     edtUsuario: TGigatronLblEdit;
     btnImprimir: TcxButton;
-    cxButton1: TcxButton;
     SQLDataSet1: TSQLDataSet;
     DataSetProvider1: TDataSetProvider;
     ClientDataSet1: TClientDataSet;
     DataSource1: TDataSource;
     procedure edtClienteExit(Sender: TObject);
-    procedure edtClienteFrmPesquisaClose(Sender: TObject);
     procedure edtClienteSubButtonPesquisaClick(Sender: TObject);
     procedure edtImpressoraExit(Sender: TObject);
     procedure edtImpressoraSubButtonPesquisaClick(Sender: TObject);
@@ -107,12 +105,6 @@ begin
   inherited;
   DM.BuscaExitCliente(edtCliente, edtCliente.DescrEdit);
   keypreview := false;
-end;
-
-procedure TfrmRelOsResumido.edtClienteFrmPesquisaClose(Sender: TObject);
-begin
-  inherited;
-  Screen.OnActiveControlChange := ControleFoco;
 end;
 
 procedure TfrmRelOsResumido.edtClienteSubButtonPesquisaClick(Sender: TObject);

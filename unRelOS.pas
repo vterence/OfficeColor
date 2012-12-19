@@ -39,14 +39,12 @@ type
     rdgTipo: TcxRadioGroup;
     edtUsuario: TGigatronLblEdit;
     cxButton2: TcxButton;
-    cxButton1: TcxButton;
     rvdsRes: TRvDataSetConnection;
     sdsRes: TSQLDataSet;
     dspRes: TDataSetProvider;
     cdsRes: TClientDataSet;
     dsRes: TDataSource;
     procedure edtClienteExit(Sender: TObject);
-    procedure edtClienteFrmPesquisaClose(Sender: TObject);
     procedure edtClienteSubButtonPesquisaClick(Sender: TObject);
     procedure cdsDetAfterClose(DataSet: TDataSet);
     procedure edtImpressoraExit(Sender: TObject);
@@ -56,7 +54,6 @@ type
     procedure edtClienteEnter(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btnImprimirClick(Sender: TObject);
-    procedure btnSairClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -93,12 +90,6 @@ begin
     Aviso('Nenhum registro foi encontrado!!!');
 end;
 
-procedure TfrmRelOS.btnSairClick(Sender: TObject);
-begin
-  inherited;
-  Close;
-end;
-
 procedure TfrmRelOS.cdsDetAfterClose(DataSet: TDataSet);
 begin
   cdsDet.MasterSource    := nil;
@@ -122,12 +113,6 @@ begin
   inherited;
   DM.BuscaExitCliente(edtCliente, edtCliente.DescrEdit);
   keypreview := false;
-end;
-
-procedure TfrmRelOS.edtClienteFrmPesquisaClose(Sender: TObject);
-begin
-  inherited;
-  Screen.OnActiveControlChange := ControleFoco;
 end;
 
 procedure TfrmRelOS.edtClienteSubButtonPesquisaClick(Sender: TObject);

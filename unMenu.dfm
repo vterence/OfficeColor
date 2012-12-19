@@ -35,13 +35,6 @@
         Caption = 'Cadastro de Consum'#237'veis'
         ImageIndex = 12
       end
-      object m005: TMenuItem
-        Caption = 'Relat'#243'rios'
-        ImageIndex = 3
-        object m006TFrmRelClientes: TMenuItem
-          Caption = 'Relat'#243'rio de Clientes'
-        end
-      end
     end
     object Configurações: TMenuItem
       Caption = 'Configura'#231#245'es'

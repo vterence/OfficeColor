@@ -38,7 +38,6 @@ type
     procedure FormShow(Sender: TObject);
     procedure btnImprimirClick(Sender: TObject);
     procedure edtClienteExit(Sender: TObject);
-    procedure edtClienteFrmPesquisaClose(Sender: TObject);
     procedure edtClienteEnter(Sender: TObject);
     procedure edtClienteSubButtonPesquisaClick(Sender: TObject);
     procedure edtImpressoraExit(Sender: TObject);
@@ -95,12 +94,6 @@ procedure TfrmRelOSErro.edtClienteExit(Sender: TObject);
 begin
   inherited;
   DM.BuscaExitCliente(edtCliente, edtCliente.DescrEdit);
-end;
-
-procedure TfrmRelOSErro.edtClienteFrmPesquisaClose(Sender: TObject);
-begin
-  inherited;
-  Screen.OnActiveControlChange := ControleFoco;
 end;
 
 procedure TfrmRelOSErro.edtClienteSubButtonPesquisaClick(Sender: TObject);

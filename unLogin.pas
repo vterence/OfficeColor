@@ -106,7 +106,7 @@ function TfrmLogin.ValidaUsuario: boolean;
 var nome: String; p:integer;
 begin
   result := false;
-
+{
   DM.BuscaCDS(cdsAcessos, 'SELECT * FROM PARAMETROS');
   if date > StrToDate(Criptografa('D', cdsAcessos.FieldByName('HASH_DATA').AsString)) then
   begin
@@ -114,7 +114,7 @@ begin
     Application.Terminate;
   end;
   cdsAcessos.Close;
-{
+
   DM.BuscaCDS(cdsAcessos, 'SELECT * FROM PARAMETROS');
   cdsAcessos.Edit;
   cdsAcessos.FieldByName('HASH_DATA').AsString := Criptografa('C', '30/11/2012');

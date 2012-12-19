@@ -2,7 +2,9 @@ inherited frmRelOSErro: TfrmRelOSErro
   Caption = 'Relat'#243'rio de OS com Erro'
   ClientHeight = 304
   ClientWidth = 266
+  FormStyle = fsMDIChild
   Position = poScreenCenter
+  Visible = True
   ExplicitWidth = 272
   ExplicitHeight = 332
   PixelsPerInch = 96
@@ -24,9 +26,9 @@ inherited frmRelOSErro: TfrmRelOSErro
     Top = 4
     Width = 266
     Height = 259
-    ExplicitTop = 33
+    ExplicitTop = 4
     ExplicitWidth = 266
-    ExplicitHeight = 263
+    ExplicitHeight = 259
     object grpOrdenar: TcxRadioGroup
       Left = 6
       Top = 196
@@ -128,7 +130,6 @@ inherited frmRelOSErro: TfrmRelOSErro
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.TabOrder = 5
-      OnFrmPesquisaClose = edtClienteFrmPesquisaClose
     end
     object edtImpressora: TGigatronLblEdit
       Left = 12
@@ -196,7 +197,6 @@ inherited frmRelOSErro: TfrmRelOSErro
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.TabOrder = 6
-      OnFrmPesquisaClose = edtClienteFrmPesquisaClose
     end
     object edtCliente: TGigatronLblEdit
       Left = 12
@@ -264,7 +264,6 @@ inherited frmRelOSErro: TfrmRelOSErro
       DescrEdit.ParentFont = False
       DescrEdit.ReadOnly = True
       DescrEdit.TabOrder = 7
-      OnFrmPesquisaClose = edtClienteFrmPesquisaClose
     end
     object grpData: TGroupBox
       Left = 6
@@ -332,7 +331,7 @@ inherited frmRelOSErro: TfrmRelOSErro
   inherited PainelBotoes: TPanel
     Top = 263
     Width = 266
-    ExplicitTop = 296
+    ExplicitTop = 263
     ExplicitWidth = 266
     inherited btnSair: TcxButton
       Left = 136

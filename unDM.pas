@@ -379,7 +379,7 @@ begin
         edtCod.Text := '';
         if (edtCod.ClassType = TLabeledDBEdit) and
            (TLabeledDBEdit(edtCod).DataSource.DataSet.state in [dsinsert,dsedit]) then
-          TLabeledDBEdit(edtCod).DataSource.DataSet.FieldByName(TLabeledDBEdit(edtCod).DataField).value := '';
+//          TLabeledDBEdit(edtCod).DataSource.DataSet.FieldByName(TLabeledDBEdit(edtCod).DataField).value := '';
 
         edtCod.SetFocus;
       end;
